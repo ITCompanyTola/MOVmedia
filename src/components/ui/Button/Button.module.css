@@ -1,0 +1,97 @@
+.button {
+    width: max-content;
+    cursor: pointer;
+    color: var(--brand-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--weight-semibold);
+}
+
+.primary {
+    background: var(--brand-orange);
+    box-shadow: 0 18px 47px 0 rgba(138, 57, 0, 0.31);
+}
+
+.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 247, 241, 0.1) 0%,
+        rgba(255, 237, 224, 0.1) 100%
+    );
+}
+
+.m {
+    padding: var(--space-lg) 120px;
+    border-radius: var(--space-lg);
+    gap: 10px;
+    font-size: var(--text-h3);
+    line-height: var(--leading-h3);
+}
+
+.m svg {
+    width: 44px;
+    height: 44px;
+}
+
+.s {
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-sm);
+    font-size: var(--text-body-m);
+    line-height: var(--leading-body-m);
+}
+
+.s svg {
+    width: 24px;
+    height: 24px;
+}
+
+.xs {
+    border-radius: 16px;
+    padding: 17px 24px;
+    gap: 12px;
+    font-weight: var(--weight-semibold);
+    font-size: 18px;
+    line-height: 144%;
+}
+
+.xs svg {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-m {
+    border-radius: var(--radius-md);
+    padding: 26px;
+}
+
+.icon-m svg {
+    width: 44px;
+    height: 44px;
+}
+
+.icon-s {
+    border-radius: var(--radius-md);
+    padding: 8px;
+}
+
+.icon-s svg {
+    width: 44px;
+    height: 44px;
+}
+
+.icon-xs {
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.icon-xs svg {
+    width: 33px;
+    height: 33px;
+}
+
+.fullWidth {
+    width: 100%;
+}

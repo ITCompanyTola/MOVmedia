@@ -1,0 +1,35 @@
+.footer {
+    padding: 20px 0px;
+    backdrop-filter: blur(60px);
+    background: rgba(50, 41, 34, 0.5);
+}
+
+.footerLight {
+    backdrop-filter: blur(60px);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 247, 241, 0.6) 0%,
+        rgba(255, 237, 224, 0.6) 100%
+    );
+}
+
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerButtons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footerButtonsText {
+    color: var(--brand-white);
+    max-width: 340px;
+}
+
+.footerLight .footerButtonsText {
+    color: var(--orange-900);
+}

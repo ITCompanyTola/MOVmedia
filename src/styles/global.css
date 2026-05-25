@@ -1,0 +1,20 @@
+@import "./variables.css";
+@import "./reset.css";
+@import "./fonts.css";
+@import "./typography.css";
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr max-content;
+}
+
+.container {
+    padding-left: 88px;
+    padding-right: 88px;
+}
+
+.bg {
+    backdrop-filter: blur(15.399999618530273px);
+    background: rgba(52, 47, 42, 0.62);
+}

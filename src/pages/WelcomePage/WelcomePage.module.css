@@ -1,0 +1,254 @@
+.welcomePage {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/city/welcome/welcome-page-background.jpg")
+        center top / cover no-repeat;
+}
+
+.welcomePageStep {
+    width: 100%;
+    height: 100%;
+    transition:
+        opacity 0.5s,
+        visibility 0.5s;
+    transition-delay: 0.5s;
+}
+
+.welcomePageStepHide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-delay: 0s;
+}
+
+.welcomePageStart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 128px;
+    overflow: hidden;
+    transition: 1.5s;
+}
+
+.welcomePageStartClauds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.welcomePageStartClaudsItem {
+    position: absolute;
+    transition: 1s;
+}
+
+.welcomePageStartClaudsLeftTop {
+    top: 0;
+    left: 0;
+}
+
+.welcomePageStartClaudsLeftCenter {
+    top: 346px;
+    left: 0;
+}
+
+.welcomePageStartClaudsLeftBottom {
+    bottom: 0;
+    left: 0;
+}
+
+.welcomePageStartClaudsRightTop {
+    top: 0;
+    right: 0;
+}
+
+.welcomePageStartClaudsRightCenter {
+    top: 166px;
+    right: 0;
+}
+
+.welcomePageStartClaudsRightBottom {
+    bottom: 0;
+    right: 0;
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsLeftTop {
+    transform: translate(-100%, -100%);
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsLeftCenter {
+    transform: translate(-100%, 0);
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsLeftBottom {
+    transform: translate(-100%, 100%);
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsRightTop {
+    transform: translate(100%, -100%);
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsRightCenter {
+    transform: translate(100%, 0%);
+}
+
+.welcomePageStart.welcomePageStepHide .welcomePageStartClaudsRightBottom {
+    transform: translate(100%, 100%);
+}
+
+.welcomePageStartHeader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
+}
+
+.welcomePageStart button {
+    position: relative;
+    z-index: 2;
+}
+
+.welcomePageStartHeaderSubtitle {
+    color: #4f5668;
+}
+
+.welcomePageOverview {
+    padding-top: 115px;
+    display: flex;
+    justify-content: center;
+    transition-delay: 1s;
+}
+
+.welcomePageLayoutWrapper {
+    position: relative;
+}
+
+.welcomePageReview {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr max-content;
+    gap: 48px;
+    padding-top: 95px;
+    padding-bottom: 55px;
+}
+
+.welcomePageReviewCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.welcomePageReviewCardsItem {
+    position: relative;
+    padding: 56px;
+    border-radius: 32px;
+    border: 1px solid var(--orange-50);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.welcomePageReviewCardsItem:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(
+            180deg,
+            rgba(250, 221, 194, 0.5) 0%,
+            rgba(195, 171, 149, 0.5) 100%
+        );
+    z-index: 1;
+}
+
+.welcomePageReviewCardsItemText {
+    position: relative;
+    font-weight: var(--weight-semibold);
+    color: var(--gray-700);
+    z-index: 2;
+}
+
+.welcomePageChoice {
+    padding-top: 68px;
+    padding-bottom: 68px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    color: var(--brand-white);
+    gap: 48px;
+}
+
+.welcomePageChoiceSelected {
+    grid-template-rows: 1fr max-content;
+    gap: 64px;
+}
+
+.welcomePageChoiceHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.welcomePageChoiceSelected .welcomePageChoiceHeader {
+    display: none;
+}
+
+.welcomePageChoiceCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.welcomePageChoiceCardsItem {
+    padding-top: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(60px);
+    border-radius: 32px;
+    border: 1px solid #9b816e;
+    background: linear-gradient(
+        180deg,
+        rgba(195, 171, 149, 0.5) 0%,
+        rgba(231, 210, 190, 0.5) 100%
+    );
+    gap: 8px;
+    overflow: hidden;
+}
+
+.welcomePageChoiceCardsItemActive {
+    background: var(--brand-orange);
+}
+
+.welcomePageChoiceCardsItemName {
+    opacity: 0.5;
+}
+
+.welcomePageChoiceCardsItemImage {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -30px;
+}
+
+.welcomePageChoiceMessage {
+    display: none;
+}
+
+.welcomePageChoiceSelected .welcomePageChoiceMessage {
+    display: block;
+}
