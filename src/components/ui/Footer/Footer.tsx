@@ -3,6 +3,9 @@ import styles from "./Footer.module.css";
 import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
 
+import logoDark from "../../../assets/images/components/footer/logo-dark.svg";
+import logoLight from "../../../assets/images/components/footer/logo-light.svg";
+
 type Props = {
     theme?: "dark" | "light";
     className?: string;
@@ -47,15 +50,9 @@ export const Footer = ({ theme = "dark", className }: Props) => {
                     </Text>
                 </div>
                 {theme === "dark" ? (
-                    <img
-                        src="/images/components/footer/logo-light.svg"
-                        alt={"Логотип"}
-                    />
+                    <img src={logoLight} alt={"Логотип"} />
                 ) : (
-                    <img
-                        src="/images/components/footer/logo-dark.svg"
-                        alt={"Логотип"}
-                    />
+                    <img src={logoDark} alt={"Логотип"} />
                 )}
             </div>
         </div>
