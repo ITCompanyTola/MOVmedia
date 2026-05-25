@@ -16,10 +16,15 @@ import cloudRightBottom from "../../assets/images/city/welcome/right-bottom-clau
 import reviewCard1 from "../../assets/images/city/welcome/welcome-page-review-card-1.png";
 import reviewCard2 from "../../assets/images/city/welcome/welcome-page-review-card-2.png";
 import reviewCard3 from "../../assets/images/city/welcome/welcome-page-review-card-3.png";
+import { useNavigate } from "react-router-dom";
+import { useAppStore } from "../../store/useAppStore";
 
 type Step = "start" | "overview" | "review" | "choice";
 
 function WelcomePage() {
+    const navigate = useNavigate();
+    const { setStarted, setPerson } = useAppStore();
+
     const [step, setStep] = useState<Step>("start");
     const [selectedPersonId, setSelectedPersonId] = useState<string | null>(
         null,
@@ -39,6 +44,17 @@ function WelcomePage() {
 
     const handleSelectPerson = (personId: string) => {
         setSelectedPersonId(personId);
+    };
+
+    const handleStartGame = () => {
+        if (selectedPersonId) {
+            setPerson({
+                id: selectedPersonId,
+            });
+            setStarted(true);
+        }
+
+        navigate("/map");
     };
 
     const isSelected = selectedPersonId !== null;
@@ -276,7 +292,7 @@ function WelcomePage() {
                             ))}
                         </div>
                         <div className={clsx(styles.welcomePageChoiceMessage)}>
-                            <Message theme="light">
+                            <Message theme="light" onClick={handleStartGame}>
                                 <MessageTitle>
                                     Отлично! Если определился с ролью, начнем
                                     наш путь

@@ -1,5 +1,8 @@
 .message {
     border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .dark {
@@ -22,12 +25,8 @@
     font-weight: var(--weight-semibold);
 }
 
-.messageText {
-    margin-top: 24px;
-}
-
 .messageButton {
-    margin-top: 32px;
+    margin-top: 8px;
     display: flex;
 }
 
@@ -51,7 +50,7 @@
     border-radius: 16px;
     padding: 12px 12px 12px 24px;
     background: var(--orange-50);
-    margin-top: 32px;
+    margin-top: 8px;
 }
 
 .messageRowTitle {

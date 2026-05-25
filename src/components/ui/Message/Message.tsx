@@ -24,6 +24,14 @@ export const MessageText = ({ children, className }: MessageTextProps) => (
     </Text>
 );
 
+type MessageActionProps = { children: ReactNode; className?: string };
+
+export const MessageAction = ({ children, className }: MessageActionProps) => (
+    <Text variant="caption-2" className={clsx(styles.messageAction, className)}>
+        {children}
+    </Text>
+);
+
 type MessageButtonProps = {
     align?: ButtonAlign;
     children: ReactNode;

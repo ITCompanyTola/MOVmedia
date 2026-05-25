@@ -76,4 +76,5 @@ body {
     font-weight: var(--weight-regular);
     line-height: var(--leading-caption);
     font-style: italic;
+    color: var(--orange-100);
 }

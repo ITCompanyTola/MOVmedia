@@ -1,0 +1,27 @@
+.reply {
+    position: absolute;
+}
+
+.left {
+    left: 0;
+    bottom: 0;
+}
+
+.right {
+    right: 0;
+    bottom: 0;
+}
+
+.aside .replyMessage {
+    position: absolute;
+    width: 478px;
+    bottom: 156px;
+}
+
+.left.aside .replyMessage {
+    left: 361px;
+}
+
+.right.aside .replyMessage {
+    right: 361px;
+}

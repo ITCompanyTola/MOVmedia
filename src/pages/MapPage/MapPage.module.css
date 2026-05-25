@@ -1,0 +1,18 @@
+.mapPage {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/city/map/map-background.jpg") center
+        top / cover no-repeat;
+}
+
+.mapPageLayout {
+    position: relative;
+}
+
+.mapPageReply {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
