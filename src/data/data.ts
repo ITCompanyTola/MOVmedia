@@ -9,6 +9,7 @@ const data = {
         persons: [
             {
                 id: "schoolboy",
+                name: "Артем",
                 role: "Школьник",
                 images: {
                     main: schoolboyMain,
