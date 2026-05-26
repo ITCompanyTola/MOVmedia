@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../../components/ui/Button/Button";
 import { Footer } from "../../components/ui/Footer/Footer";
 import { Message, MessageTitle } from "../../components/ui/Message/Message";
@@ -33,6 +33,9 @@ function WelcomePage() {
 
     const handleStart = () => {
         setStep("overview");
+        if (overviewTimerRef.current) {
+            clearTimeout(overviewTimerRef.current);
+        }
         overviewTimerRef.current = setTimeout(() => {
             setStep("review");
         }, 2000);
@@ -49,14 +52,21 @@ function WelcomePage() {
     const handleStartGame = () => {
         if (selectedPersonId) {
             setPerson(
-                data.data.persons.find((p) => p.id === selectedPersonId) ||
-                    null,
+                data.persons.find((p) => p.id === selectedPersonId) || null,
             );
             setStarted(true);
         }
 
         navigate("/map");
     };
+
+    useEffect(() => {
+        return () => {
+            if (overviewTimerRef.current) {
+                clearTimeout(overviewTimerRef.current);
+            }
+        };
+    }, []);
 
     const isSelected = selectedPersonId !== null;
 
@@ -253,7 +263,7 @@ function WelcomePage() {
                             <Text variant="h2">выберите роль:</Text>
                         </div>
                         <div className={clsx(styles.welcomePageChoiceCards)}>
-                            {data.data.persons.map((person) => (
+                            {data.persons.map((person) => (
                                 <div
                                     key={person.id}
                                     className={clsx(

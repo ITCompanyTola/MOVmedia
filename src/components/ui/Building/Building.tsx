@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Data } from "../../../data/data";
+import type { LocationData, LocationId } from "../../../data/data";
 
 import styles from "./Building.module.css";
 import { Text } from "../Text/Text";
@@ -7,8 +7,8 @@ import { Text } from "../Text/Text";
 type BuildingProps = {
     active?: boolean;
     complete?: boolean;
-    onClick: (id: string) => void;
-    location: Data["data"]["locations"][number];
+    onClick: (id: LocationId) => void;
+    location: LocationData;
 };
 
 export function Building({

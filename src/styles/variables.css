@@ -39,7 +39,7 @@
     --semantic-error-bg: #fdecea;
     --semantic-info: #2b2c84;
     --semantic-info-bg: #ececf6;
-    --semantic-success: #2e7d32;
+    --semantic-success: #c7de83;
     --semantic-success-bg: #e8f5e9;
     --semantic-warning: #ed6c02;
     --semantic-warning-bg: #fff4e5;
@@ -54,7 +54,7 @@
     --text-subtitle: 42px;
     --text-body-l: 32px;
     --text-body-m: 24px;
-    --text-body-s: 24px;
+    --text-body-s: 20px;
     --text-caption: 18px;
 
     --weight-regular: 400;

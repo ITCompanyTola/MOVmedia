@@ -10,13 +10,13 @@ import {
     MessageTitle,
 } from "../Message/Message";
 import { Button } from "../Button/Button";
-import { type Data } from "../../../data/data";
+import type { PersonData, ReplyData } from "../../../data/data";
 
 type ReplyProps = {
     onClick?: () => void;
-    align?: Data["data"]["persons"][number]["replies"]["align"];
+    align?: PersonData["replies"]["align"];
     message?: "default" | "aside";
-    reply: Data["data"]["persons"][number]["replies"]["start"][number];
+    reply: ReplyData;
 };
 
 export function Reply({

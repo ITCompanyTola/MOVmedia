@@ -1,17 +1,15 @@
 import { create } from "zustand";
-import type { Data } from "../data/data";
-
-type Person = Data["data"]["persons"][number];
+import type { LocationId, PersonData } from "../data/data";
 
 interface AppStore {
     started: boolean;
-    person: Person | null;
-    activeLocation: string | null;
-    completedLocations: string[];
+    person: PersonData | null;
+    activeLocation: LocationId | null;
+    completedLocations: LocationId[];
     setStarted: (value: boolean) => void;
-    setPerson: (person: Person | null) => void;
-    setActiveLocation: (id: string | null) => void;
-    addComletedLocaton: (id: string) => void;
+    setPerson: (person: PersonData | null) => void;
+    setActiveLocation: (id: LocationId | null) => void;
+    addCompletedLocation: (id: LocationId) => void;
     clearCompletedLocation: () => void;
 }
 
@@ -23,9 +21,11 @@ export const useAppStore = create<AppStore>((set) => ({
     setStarted: (value) => set({ started: value }),
     setPerson: (person) => set({ person }),
     setActiveLocation: (id) => set({ activeLocation: id }),
-    addComletedLocaton: (id) =>
+    addCompletedLocation: (id) =>
         set((state) => ({
-            completedLocations: [...state.completedLocations, id],
+            completedLocations: state.completedLocations.includes(id)
+                ? state.completedLocations
+                : [...state.completedLocations, id],
         })),
     clearCompletedLocation: () => set({ completedLocations: [] }),
 }));

@@ -1,0 +1,22 @@
+.intro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.introCard {
+    max-width: 925px;
+}
+
+.quiz {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.quizCard {
+    max-width: 502px;
+}
