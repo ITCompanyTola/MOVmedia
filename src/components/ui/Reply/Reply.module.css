@@ -1,5 +1,6 @@
 .reply {
     position: absolute;
+    z-index: 3;
 }
 
 .left {
@@ -24,4 +25,15 @@
 
 .right.aside .replyMessage {
     right: 361px;
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+}
+
+.default .replyMessage {
+    width: 404px;
+    position: relative;
+    left: 40px;
 }

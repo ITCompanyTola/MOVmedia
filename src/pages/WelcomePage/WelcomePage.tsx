@@ -48,9 +48,10 @@ function WelcomePage() {
 
     const handleStartGame = () => {
         if (selectedPersonId) {
-            setPerson({
-                id: selectedPersonId,
-            });
+            setPerson(
+                data.data.persons.find((p) => p.id === selectedPersonId) ||
+                    null,
+            );
             setStarted(true);
         }
 
@@ -282,7 +283,7 @@ function WelcomePage() {
                                         {person.name}
                                     </Text>
                                     <img
-                                        src={person.images.main}
+                                        src={person.image}
                                         alt={person.name}
                                         className={clsx(
                                             styles.welcomePageChoiceCardsItemImage,

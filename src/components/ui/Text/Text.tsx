@@ -11,6 +11,7 @@ type Variant =
     | "subtitle"
     | "body-l"
     | "body-m"
+    | "body-s"
     | "body-m-2"
     | "caption"
     | "caption-2";

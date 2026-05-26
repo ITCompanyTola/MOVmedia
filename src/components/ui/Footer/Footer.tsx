@@ -5,6 +5,8 @@ import { Text } from "../Text/Text";
 
 import logoDark from "../../../assets/images/components/footer/logo-dark.svg";
 import logoLight from "../../../assets/images/components/footer/logo-light.svg";
+import { useNavigate } from "react-router-dom";
+import { useAppStore } from "../../../store/useAppStore";
 
 type Props = {
     theme?: "dark" | "light";
@@ -12,6 +14,15 @@ type Props = {
 };
 
 export const Footer = ({ theme = "dark", className }: Props) => {
+    const navigate = useNavigate();
+    const { setActiveLocation, clearCompletedLocation } = useAppStore();
+
+    const handleExit = () => {
+        navigate("/");
+        setActiveLocation(null);
+        clearCompletedLocation();
+    };
+
     return (
         <div
             className={clsx(
@@ -22,7 +33,7 @@ export const Footer = ({ theme = "dark", className }: Props) => {
         >
             <div className={clsx("container", styles.footerContainer)}>
                 <div className={styles.footerButtons}>
-                    <Button variant="secondary" size="xs">
+                    <Button variant="secondary" size="xs" onClick={handleExit}>
                         Закончить игру
                         <svg
                             width="18"

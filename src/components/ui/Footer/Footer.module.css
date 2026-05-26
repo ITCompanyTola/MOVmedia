@@ -2,6 +2,8 @@
     padding: 20px 0px;
     backdrop-filter: blur(60px);
     background: rgba(50, 41, 34, 0.5);
+    position: relative;
+    z-index: 4;
 }
 
 .footerLight {

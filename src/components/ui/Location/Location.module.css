@@ -1,0 +1,58 @@
+.location {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 4;
+}
+
+.locationWrapper {
+    width: 100%;
+    max-width: 1380px;
+    height: 100%;
+    padding: 56px 56px 56px 0px;
+    margin-left: auto;
+}
+
+.locationBox {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    border: 6px solid #fff7e2;
+    border-radius: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: 24px;
+    backdrop-filter: blur(60px);
+    box-shadow:
+        0 0 89px 0 rgba(118, 125, 139, 0.6),
+        inset 0 0 49px 0 rgba(255, 230, 156, 0.54);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 247, 241, 0.75) 0%,
+        rgba(255, 237, 224, 0.75) 100%
+    );
+}
+
+.locationBoxWindow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.locationBoxWindowImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.locationBoxWindowContent {
+    position: relative;
+    z-index: 2;
+}

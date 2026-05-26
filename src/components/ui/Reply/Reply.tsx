@@ -10,21 +10,13 @@ import {
     MessageTitle,
 } from "../Message/Message";
 import { Button } from "../Button/Button";
+import { type Data } from "../../../data/data";
 
-type Props = {
-    align: "left" | "right";
-    message: "aside" | "top";
-    reply: {
-        title?: string;
-        text?: string;
-        image: string;
-        button?: {
-            type: "default" | "row";
-            text: string;
-        };
-        action?: string;
-    };
-    onClick: () => void;
+type ReplyProps = {
+    onClick?: () => void;
+    align?: Data["data"]["persons"][number]["replies"]["align"];
+    message?: "default" | "aside";
+    reply: Data["data"]["persons"][number]["replies"]["start"][number];
 };
 
 export function Reply({
@@ -32,14 +24,9 @@ export function Reply({
     message = "aside",
     reply,
     onClick,
-}: Props) {
+}: ReplyProps) {
     return (
         <div className={clsx(styles.reply, styles[align], styles[message])}>
-            <img
-                src={reply.image}
-                alt={"Персонаж"}
-                className={clsx(styles.replyImage)}
-            />
             <Message className={clsx(styles.replyMessage)}>
                 {reply.title && <MessageTitle>{reply.title}</MessageTitle>}
                 {reply.text && <MessageText>{reply.text}</MessageText>}
@@ -59,6 +46,11 @@ export function Reply({
                         </div>
                     ))}
             </Message>
+            <img
+                src={reply.image}
+                alt={"Персонаж"}
+                className={clsx(styles.replyImage)}
+            />
         </div>
     );
 }

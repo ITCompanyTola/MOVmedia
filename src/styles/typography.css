@@ -56,6 +56,12 @@ body {
     line-height: var(--leading-body-m);
 }
 
+.text-body-s {
+    font-size: var(--text-body-s);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-body-s);
+}
+
 .text-body-m-2 {
     font-size: var(--text-body-m);
     font-weight: var(--weight-regular);
