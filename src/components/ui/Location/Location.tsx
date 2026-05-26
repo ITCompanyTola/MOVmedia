@@ -59,7 +59,10 @@ function LocationContent({ person, location }: LocationContentProps) {
                     <div className={styles.locationBoxWindow}>
                         <img
                             className={styles.locationBoxWindowImage}
-                            src={locationModule.background}
+                            src={
+                                locationModule.background ??
+                                location.images.background.main
+                            }
                             alt={location.title}
                         />
                         <div className={clsx(styles.locationBoxWindowContent)}>

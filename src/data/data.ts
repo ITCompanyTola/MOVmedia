@@ -2,13 +2,17 @@ import schoolboyMain from "../assets/images/persons/schoolboy/main.png";
 import schoolboyHello from "../assets/images/persons/schoolboy/hello.png";
 import schoolboySadness from "../assets/images/persons/schoolboy/sadness.png";
 
+import locationBackgroundMain from "../assets/images/city/locations/main.jpg";
+
 import olympicCenterMain from "../assets/images/city/buildings/olympic-center/main.png";
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
 import olympicCenterComplete from "../assets/images/city/buildings/olympic-center/complete.png";
+import olympicCenterBackground from "../assets/images/city/locations/olympic-center/main.png";
 
 import academyMain from "../assets/images/city/buildings/academy/main.png";
 import academyActive from "../assets/images/city/buildings/academy/active.png";
 import academyComplete from "../assets/images/city/buildings/academy/complete.png";
+import academyBackground from "../assets/images/city/locations//academy/main.png";
 
 import careerCenterMain from "../assets/images/city/buildings/career-center/main.png";
 import careerCenterActive from "../assets/images/city/buildings/career-center/active.png";
@@ -63,6 +67,9 @@ export type LocationData = {
             main: string;
             active: string;
             complete: string;
+        };
+        background: {
+            main: string;
         };
     };
 };
@@ -141,6 +148,9 @@ const data: AppData = {
                     active: olympicCenterActive,
                     complete: olympicCenterComplete,
                 },
+                background: {
+                    main: olympicCenterBackground,
+                },
             },
         },
         {
@@ -149,13 +159,16 @@ const data: AppData = {
             subtitle: "Прокачай знания в сфере финансовой безопасности",
             position: [926, 158],
             baloon: {
-                position: [161, -121],
+                position: [161, -100],
             },
             images: {
                 building: {
                     main: academyMain,
                     active: academyActive,
                     complete: academyComplete,
+                },
+                background: {
+                    main: academyBackground,
                 },
             },
         },
@@ -173,6 +186,9 @@ const data: AppData = {
                     active: careerCenterActive,
                     complete: careerCenterComplete,
                 },
+                background: {
+                    main: locationBackgroundMain,
+                },
             },
         },
         {
@@ -188,6 +204,9 @@ const data: AppData = {
                     main: globalAreaMain,
                     active: globalAreaActive,
                     complete: globalAreaComplete,
+                },
+                background: {
+                    main: locationBackgroundMain,
                 },
             },
         },

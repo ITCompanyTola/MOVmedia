@@ -12,7 +12,7 @@ export type LocationScreenProps = {
 
 export type LocationModule = {
     id: LocationId;
-    background: string;
+    background?: string;
     getInitialReply: (person: PersonData) => ReplyData;
     render: (props: LocationScreenProps) => ReactNode;
 };

@@ -42,6 +42,82 @@ export function CardBadge({ children, className }: CardBadgeProps) {
     );
 }
 
+type CardAnonsProps = {
+    children: ReactNode;
+    icon?: ReactNode;
+    iconBackground?: string;
+    className?: string;
+};
+
+export function CardAnons({
+    children,
+    icon,
+    iconBackground,
+    className,
+}: CardAnonsProps) {
+    return (
+        <div className={clsx(styles.cardAnons, className)}>
+            {icon && (
+                <div
+                    className={styles.cardAnonsIcon}
+                    style={{ background: iconBackground }}
+                >
+                    {icon}
+                </div>
+            )}
+            <div className={styles.cardAnonsText}>
+                <Text variant="body-m">{children}</Text>
+            </div>
+        </div>
+    );
+}
+
+type CardImageProps = {
+    src: string;
+    alt: string;
+    className?: string;
+};
+
+export function CardImage({ src, alt, className }: CardImageProps) {
+    return (
+        <img
+            src={src}
+            alt={alt}
+            className={clsx(styles.cardImage, className)}
+        />
+    );
+}
+
+type CardProfileProps = {
+    avatar: string;
+    description?: ReactNode;
+    className?: string;
+};
+
+export function CardProfile({
+    avatar,
+    description,
+    className,
+}: CardProfileProps) {
+    return (
+        <div className={clsx(styles.cardProfile, className)}>
+            <img src={avatar} alt="" className={styles.cardProfileAvatar} />
+            {description && (
+                <div className={styles.cardProfileContent}>
+                    {description && (
+                        <Text
+                            variant="body-m"
+                            className={styles.cardProfileDescription}
+                        >
+                            {description}
+                        </Text>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+}
+
 type CardCardsProps = {
     children: ReactNode;
     direction?: Direction;

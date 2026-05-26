@@ -75,3 +75,54 @@
     display: flex;
     align-items: center;
 }
+
+.cardAnons {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+}
+
+.cardAnonsIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardAnonsIcon svg {
+    width: 44px;
+    height: 44px;
+}
+
+.cardAnonsText {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cardAnonsText strong {
+    font-weight: var(--weight-semibold);
+}
+
+.cardImage {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.cardProfile {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 16px;
+}
+
+.cardProfileAvatar {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 12px;
+    overflow: hidden;
+}
