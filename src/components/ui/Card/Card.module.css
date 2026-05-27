@@ -37,6 +37,7 @@
 .cardText a {
     color: var(--brand-orange);
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .cardCards.horizontal {

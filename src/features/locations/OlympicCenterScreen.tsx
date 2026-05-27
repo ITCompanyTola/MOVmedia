@@ -14,6 +14,7 @@ import { ChevronRight } from "lucide-react";
 
 import schoolboyThink from "../../assets/images/persons/schoolboy/think.png";
 import schoolboyKlass from "../../assets/images/persons/schoolboy/klass.png";
+import { useAppStore } from "../../store/useAppStore";
 
 const answers: QuizAnswerData[] = [
     {
@@ -114,6 +115,8 @@ export function OlympicCenterScreen({
     completeLocation,
     closeLocation,
 }: LocationScreenProps) {
+    const { openModal } = useAppStore();
+
     const [step, setStep] = useState<"intro" | "question">(
         isCompleted ? "question" : "intro",
     );
@@ -199,8 +202,8 @@ export function OlympicCenterScreen({
                     корпорациях
                 </CardBadge>
                 <CardText>
-                    Для этого на <a href="#">сайте</a> нужно пройти несколько
-                    этапов:
+                    Для этого на <a onClick={() => openModal("merch")}>сайте</a>{" "}
+                    нужно пройти несколько этапов:
                 </CardText>
                 <CardCards direction="horizontal">
                     <CardsCard

@@ -16,7 +16,8 @@ type Props = {
 
 export const Footer = ({ theme = "dark", className }: Props) => {
     const navigate = useNavigate();
-    const { setActiveLocation, clearCompletedLocation } = useAppStore();
+    const { setActiveLocation, clearCompletedLocation, openModal } =
+        useAppStore();
 
     const handleExit = () => {
         navigate("/");
@@ -38,7 +39,9 @@ export const Footer = ({ theme = "dark", className }: Props) => {
                         Закончить игру
                         <LogOut />
                     </Button>
-                    <Button size="xs">Получить мерч</Button>
+                    <Button size="xs" onClick={() => openModal("merch")}>
+                        Получить мерч
+                    </Button>
                     <Text
                         variant="caption"
                         className={styles.footerButtonsText}

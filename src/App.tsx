@@ -1,6 +1,7 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import { MapPage } from "./pages/MapPage/MapPage";
+import { Modal } from "./components/ui/Modal/Modal";
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
                 <Route path="/" element={<WelcomePage />} />
                 <Route path="/map" element={<MapPage />} />
             </Routes>
+            <Modal />
         </HashRouter>
     );
 }
