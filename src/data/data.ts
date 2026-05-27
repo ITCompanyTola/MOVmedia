@@ -25,6 +25,7 @@ import careerCenterComplete from "../assets/images/city/buildings/career-center/
 import globalAreaMain from "../assets/images/city/buildings/global-area/main.png";
 import globalAreaActive from "../assets/images/city/buildings/global-area/active.png";
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
+import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
 
 export type PersonId = "schoolboy";
 
@@ -164,10 +165,11 @@ const data: AppData = {
         {
             id: "academy",
             title: "Академия",
-            subtitle: "Прокачай знания в сфере финансовой безопасности",
+            subtitle:
+                "Прокачай свои знания в сфере финансовой безопасности. И не только!",
             position: [926, 158],
             baloon: {
-                position: [161, -100],
+                position: [161, -120],
             },
             images: {
                 building: {
@@ -185,7 +187,8 @@ const data: AppData = {
         {
             id: "career-center",
             title: "Карьерный центр",
-            subtitle: "Поможем выбрать профессию, вуз и направление",
+            subtitle:
+                "Поможем выбрать профессию, вуз и понять, куда двигаться дальше",
             position: [681, 57],
             baloon: {
                 position: [27, -20],
@@ -204,7 +207,8 @@ const data: AppData = {
         {
             id: "global-area",
             title: "Глобальная площадь",
-            subtitle: "Присоединяйся к международному движению",
+            subtitle:
+                "Здесь можно присоединиться к международному движению по финансовой безопасности",
             position: [566, 329],
             baloon: {
                 position: [140, -83],
@@ -216,7 +220,7 @@ const data: AppData = {
                     complete: globalAreaComplete,
                 },
                 background: {
-                    main: locationBackgroundMain,
+                    main: globalAreaBackground,
                 },
             },
         },

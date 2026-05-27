@@ -9,6 +9,10 @@
     min-height: 0;
 }
 
+.cardTitle {
+    font-weight: var(--weight-semibold);
+}
+
 .cardBadge {
     display: flex;
     gap: 16px;
@@ -41,9 +45,14 @@
     gap: 12px;
 }
 
+.cardCards.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .cardsCard {
     border: 2px solid rgba(90, 32, 5, 0.2);
-    border-radius: 24px;
 }
 
 .cardsCard.vertical {
@@ -52,6 +61,20 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    border-radius: 24px;
+}
+
+.cardsCard.horizontal {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.cardsCard.fill {
+    border: 2px solid rgba(57, 144, 249, 0.08);
+    background: #e0e6fb;
 }
 
 .cardsCardIcon {
@@ -59,6 +82,10 @@
     padding: 8px;
     border-radius: 12px;
     background: #e0e6fb;
+}
+
+.cardsCard.fill .cardsCardIcon {
+    background: var(--brand-white);
 }
 
 .cardsCardIcon svg {
@@ -74,6 +101,12 @@
     text-align: center;
     flex-grow: 1;
     display: flex;
+    align-items: center;
+}
+
+.cardsCard.horizontal .cardsCardText {
+    display: flex;
+    min-height: 100%;
     align-items: center;
 }
 
@@ -127,4 +160,39 @@
     object-fit: cover;
     border-radius: 12px;
     overflow: hidden;
+}
+
+.cardProfileDescription {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cardList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.cardListItem {
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid rgba(90, 32, 5, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardListItemHead {
+    display: flex;
+    gap: 8px;
+}
+
+.cardListItemIterator {
+    color: var(--brand-orange);
+    font-weight: var(--weight-semibold);
+}
+
+.cardListItemTitle {
+    font-weight: var(--weight-semibold);
 }

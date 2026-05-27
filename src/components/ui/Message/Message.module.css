@@ -25,6 +25,10 @@
     font-weight: var(--weight-semibold);
 }
 
+.messageText strong {
+    font-weight: var(--weight-semibold);
+}
+
 .formattedStrongNewLine {
     display: inline-block;
     margin-top: 12px;

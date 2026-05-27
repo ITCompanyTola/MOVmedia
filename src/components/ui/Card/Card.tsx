@@ -14,6 +14,19 @@ export function Card({ children, className }: CardProps) {
     return <div className={clsx(styles.card, className)}>{children}</div>;
 }
 
+type CardTitleProps = {
+    children: ReactNode;
+    className?: string;
+};
+
+export function CardTitle({ children, className }: CardTitleProps) {
+    return (
+        <Text variant="body-m" className={clsx(styles.cardTitle, className)}>
+            {children}
+        </Text>
+    );
+}
+
 type CardTextProps = {
     children: ReactNode;
     className?: string;
@@ -140,6 +153,7 @@ type CardsCardProps = {
     icon?: ReactNode;
     children: ReactNode;
     direction?: Direction;
+    fill?: boolean;
     className?: string;
 };
 
@@ -147,14 +161,58 @@ export function CardsCard({
     icon,
     children,
     direction = "vertical",
+    fill = false,
     className,
 }: CardsCardProps) {
     return (
-        <div className={clsx(styles.cardsCard, styles[direction], className)}>
+        <div
+            className={clsx(
+                styles.cardsCard,
+                styles[direction],
+                fill && styles.fill,
+                className,
+            )}
+        >
             {icon && <div className={styles.cardsCardIcon}>{icon}</div>}
             <Text variant="body-s" className={styles.cardsCardText}>
                 {children}
             </Text>
+        </div>
+    );
+}
+
+type CardListProps = {
+    items: { title: string; subtitle: string }[];
+    className?: string;
+};
+
+export function CardList({ items, className }: CardListProps) {
+    return (
+        <div className={clsx(styles.cardList, className)}>
+            {items.map((item, i) => (
+                <div key={i} className={clsx(styles.cardListItem)}>
+                    <div className={clsx(styles.cardListItemHead)}>
+                        <Text
+                            variant="body-m"
+                            className={clsx(styles.cardListItemIterator)}
+                        >
+                            {i + 1 < 10 ? `0${i + 1}` : i}
+                        </Text>
+                        <Text
+                            variant="body-m"
+                            className={clsx(styles.cardListItemTitle)}
+                        >
+                            {item.title}
+                        </Text>
+                    </div>
+                    <Text
+                        variant="caption"
+                        className={clsx(styles.cardListItemSubtitle)}
+                    >
+                        {item.subtitle}
+                    </Text>
+                </div>
+            ))}
         </div>
     );
 }

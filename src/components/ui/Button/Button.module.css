@@ -15,11 +15,7 @@
 
 .secondary {
     border: 1px solid rgba(255, 255, 255, 0.2);
-    background: linear-gradient(
-        180deg,
-        rgba(255, 247, 241, 0.1) 0%,
-        rgba(255, 237, 224, 0.1) 100%
-    );
+    background: rgba(66, 47, 33, 0.4);
 }
 
 .m {
