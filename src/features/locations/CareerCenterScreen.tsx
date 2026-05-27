@@ -71,10 +71,8 @@ export function CareerCenterScreen({
                     }
                     iconBackground="#3990F9"
                 >
-                    {" "}
                     Здесь тебе помогут определиться с профессиональным
-                    направлением
-                    <strong>и узнать сильные стороны</strong>
+                    направлением <strong>и узнать сильные стороны</strong>
                 </CardAnons>
                 <CardCards direction="vertical">
                     <CardsCard
