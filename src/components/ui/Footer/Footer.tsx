@@ -44,7 +44,7 @@ export const Footer = ({ theme = "dark", className }: Props) => {
                         className={styles.footerButtonsText}
                     >
                         Регистрируйся на платформе и получай стильный мерч от
-                        ПСБ банка
+                        ПСБ
                     </Text>
                 </div>
                 {theme === "dark" ? (

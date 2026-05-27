@@ -55,7 +55,7 @@
     visibility: hidden;
     transition: 0.5s;
     width: 348px;
-    background: var(--orange-50);
+    background: #f6ebe0;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -75,6 +75,25 @@
     transform: translate(-50%, 100%);
 }
 
+.buildingBaloonCheck {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #a3c148;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    border: 6.25px solid #f6ebe0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.buildingBaloonCheck svg {
+    width: 14px;
+}
+
 .buildingActive .buildingBaloon {
     opacity: 1;
     visibility: visible;
@@ -83,6 +102,10 @@
 .buildingComplete .buildingBaloon {
     opacity: 1;
     visibility: visible;
+}
+
+.buildingComplete .buildingBaloon .buildingBaloonCheck {
+    display: flex;
 }
 
 .buildingBaloonTitle {

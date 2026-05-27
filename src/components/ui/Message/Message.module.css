@@ -25,6 +25,16 @@
     font-weight: var(--weight-semibold);
 }
 
+.formattedStrongNewLine {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.formattedStrongFirstLine {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
 .messageButton {
     margin-top: 8px;
     display: flex;

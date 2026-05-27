@@ -63,7 +63,7 @@ export function MapPage() {
                 ))}
                 {activeLocation && <Location />}
                 <div></div>
-                <Footer theme="light" />
+                <Footer theme={activeLocation ? "dark" : "light"} />
             </div>
         </div>
     );

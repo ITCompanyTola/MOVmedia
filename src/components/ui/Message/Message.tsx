@@ -8,11 +8,55 @@ import { ChevronRight } from "lucide-react";
 type Theme = "dark" | "light";
 type ButtonAlign = "left" | "center" | "right" | "fullWidth";
 
+const renderFormattedText = (children: ReactNode) => {
+    if (typeof children !== "string") return children;
+
+    return children.split("\n").map((line, lineIndex, lines) => {
+        const parts = line.split(/(\*\*[^*]+\*\*)/g);
+
+        const lineStartsWithStrong = line.trimStart().startsWith("**");
+        const firstStrongPartIndex = parts.findIndex(
+            (part) => part.startsWith("**") && part.endsWith("**"),
+        );
+
+        return (
+            <span key={lineIndex}>
+                {parts.map((part, partIndex) => {
+                    const isStrong =
+                        part.startsWith("**") && part.endsWith("**");
+
+                    return isStrong ? (
+                        <strong
+                            key={partIndex}
+                            className={clsx(
+                                lineIndex === 0 &&
+                                    lines.length > 1 &&
+                                    lineStartsWithStrong &&
+                                    partIndex === firstStrongPartIndex &&
+                                    styles.formattedStrongFirstLine,
+                                lineIndex > 0 &&
+                                    lineStartsWithStrong &&
+                                    partIndex === firstStrongPartIndex &&
+                                    styles.formattedStrongNewLine,
+                            )}
+                        >
+                            {part.slice(2, -2)}
+                        </strong>
+                    ) : (
+                        <span key={partIndex}>{part}</span>
+                    );
+                })}
+                {lineIndex < lines.length - 1 && <br />}
+            </span>
+        );
+    });
+};
+
 type MessageTitleProps = { children: ReactNode; className?: string };
 
 export const MessageTitle = ({ children, className }: MessageTitleProps) => (
     <Text variant="body-l" className={clsx(styles.messageTitle, className)}>
-        {children}
+        {renderFormattedText(children)}
     </Text>
 );
 
@@ -20,7 +64,7 @@ type MessageTextProps = { children: ReactNode; className?: string };
 
 export const MessageText = ({ children, className }: MessageTextProps) => (
     <Text variant="body-m" className={clsx(styles.messageText, className)}>
-        {children}
+        {renderFormattedText(children)}
     </Text>
 );
 
@@ -28,7 +72,7 @@ type MessageActionProps = { children: ReactNode; className?: string };
 
 export const MessageAction = ({ children, className }: MessageActionProps) => (
     <Text variant="caption-2" className={clsx(styles.messageAction, className)}>
-        {children}
+        {renderFormattedText(children)}
     </Text>
 );
 
@@ -71,7 +115,7 @@ export const MessageRowTitle = ({
     className,
 }: MessageRowTitleProps) => (
     <Text variant="body-m" className={clsx(styles.messageRowTitle, className)}>
-        {children}
+        {renderFormattedText(children)}
     </Text>
 );
 

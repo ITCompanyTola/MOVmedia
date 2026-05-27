@@ -3,6 +3,7 @@ import type { LocationData, LocationId } from "../../../data/data";
 
 import styles from "./Building.module.css";
 import { Text } from "../Text/Text";
+import { Check } from "lucide-react";
 
 type BuildingProps = {
     active?: boolean;
@@ -60,6 +61,9 @@ export function Building({
                     top: `${baloon.position[1]}px`,
                 }}
             >
+                <div className={styles.buildingBaloonCheck}>
+                    <Check color="white" />
+                </div>
                 <Text variant="body-m" className={styles.buildingBaloonTitle}>
                     {title}
                 </Text>

@@ -8,11 +8,15 @@ import olympicCenterMain from "../assets/images/city/buildings/olympic-center/ma
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
 import olympicCenterComplete from "../assets/images/city/buildings/olympic-center/complete.png";
 import olympicCenterBackground from "../assets/images/city/locations/olympic-center/main.png";
+import olympicCenterErrorBackground from "../assets/images/city/locations/olympic-center/error.png";
+import olympicCenterCompleteBackground from "../assets/images/city/locations/olympic-center/complete.png";
 
 import academyMain from "../assets/images/city/buildings/academy/main.png";
 import academyActive from "../assets/images/city/buildings/academy/active.png";
 import academyComplete from "../assets/images/city/buildings/academy/complete.png";
-import academyBackground from "../assets/images/city/locations//academy/main.png";
+import academyBackground from "../assets/images/city/locations/academy/main.png";
+import academyErrorBackground from "../assets/images/city/locations/academy/error.png";
+import academyCompleteBackground from "../assets/images/city/locations/academy/complete.png";
 
 import careerCenterMain from "../assets/images/city/buildings/career-center/main.png";
 import careerCenterActive from "../assets/images/city/buildings/career-center/active.png";
@@ -70,6 +74,8 @@ export type LocationData = {
         };
         background: {
             main: string;
+            error?: string;
+            complete?: string;
         };
     };
 };
@@ -108,7 +114,7 @@ const data: AppData = {
                         image: schoolboyMain,
                     },
                     {
-                        text: "На карте есть 4 локации, в которые ты можешь отправиться. Выбирай, что тебе интересно!",
+                        text: "На карте есть 4 локации, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**",
                         action: "Нажми на здание, чтобы начать",
                         image: schoolboyMain,
                     },
@@ -150,6 +156,8 @@ const data: AppData = {
                 },
                 background: {
                     main: olympicCenterBackground,
+                    error: olympicCenterErrorBackground,
+                    complete: olympicCenterCompleteBackground,
                 },
             },
         },
@@ -169,6 +177,8 @@ const data: AppData = {
                 },
                 background: {
                     main: academyBackground,
+                    error: academyErrorBackground,
+                    complete: academyCompleteBackground,
                 },
             },
         },
@@ -178,7 +188,7 @@ const data: AppData = {
             subtitle: "Поможем выбрать профессию, вуз и направление",
             position: [681, 57],
             baloon: {
-                position: [27, -40],
+                position: [27, -20],
             },
             images: {
                 building: {

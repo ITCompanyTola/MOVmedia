@@ -10,6 +10,7 @@ import { Text } from "../Text/Text";
 import { useState } from "react";
 import { Reply } from "../Reply/Reply";
 import { getLocationModule } from "../../../features/locations/registry";
+import type { LocationBackgroundVariant } from "../../../features/locations/types";
 
 export function Location() {
     const { person, activeLocation } = useAppStore();
@@ -35,15 +36,31 @@ function LocationContent({ person, location }: LocationContentProps) {
     const [activeReply, setActiveReply] = useState<ReplyData>(
         locationModule.getInitialReply(person),
     );
+    const [backgroundVariant, setBackgroundVariant] =
+        useState<LocationBackgroundVariant>("main");
     const isCompleted = completedLocations.includes(location.id);
     const content = locationModule.render({
         location,
         person,
         isCompleted,
         setReply: setActiveReply,
+        setBackgroundVariant,
         completeLocation: () => addCompletedLocation(location.id),
         closeLocation: () => setActiveLocation(null),
     });
+    const backgroundByVariant = {
+        main: locationModule.background ?? location.images.background.main,
+        error:
+            locationModule.backgroundError ??
+            location.images.background.error ??
+            locationModule.background ??
+            location.images.background.main,
+        complete:
+            locationModule.backgroundComplete ??
+            location.images.background.complete ??
+            locationModule.background ??
+            location.images.background.main,
+    };
 
     return (
         <div className={clsx("bg", styles.location)}>
@@ -59,10 +76,7 @@ function LocationContent({ person, location }: LocationContentProps) {
                     <div className={styles.locationBoxWindow}>
                         <img
                             className={styles.locationBoxWindowImage}
-                            src={
-                                locationModule.background ??
-                                location.images.background.main
-                            }
+                            src={backgroundByVariant[backgroundVariant]}
                             alt={location.title}
                         />
                         <div className={clsx(styles.locationBoxWindowContent)}>

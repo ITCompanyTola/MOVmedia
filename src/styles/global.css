@@ -8,7 +8,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr max-content;
+    grid-template-rows: minmax(0, 1fr) max-content;
 }
 
 .container {

@@ -26,6 +26,7 @@ type QuizProps = {
     wrongReplies?: ReplyData[];
     successReply?: ReplyData;
     setReply?: (reply: ReplyData) => void;
+    setBackgroundVariant?: (variant: "main" | "error" | "complete") => void;
     wrongDuration?: number;
     continueText?: string;
     className?: string;
@@ -107,6 +108,7 @@ export function Quiz({
     wrongReplies = [],
     successReply,
     setReply,
+    setBackgroundVariant,
     wrongDuration = 2000,
     continueText = "Продолжить",
     className,
@@ -135,6 +137,7 @@ export function Quiz({
         if (answer.correct) {
             setCorrectAnswerId(answer.id);
             setWrongAnswerId(null);
+            setBackgroundVariant?.("complete");
             if (successReply) {
                 setReply?.(successReply);
             }
@@ -153,6 +156,7 @@ export function Quiz({
         }
 
         setWrongAnswerId(answer.id);
+        setBackgroundVariant?.("error");
         wrongTimerRef.current = setTimeout(() => {
             setWrongAnswerId(null);
             wrongTimerRef.current = null;

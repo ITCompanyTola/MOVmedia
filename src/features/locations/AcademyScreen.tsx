@@ -108,6 +108,7 @@ export function AcademyScreen({
     person,
     isCompleted,
     setReply,
+    setBackgroundVariant,
     completeLocation,
     closeLocation,
 }: LocationScreenProps) {
@@ -119,7 +120,7 @@ export function AcademyScreen({
         setStep("question");
         setReply({
             image: person.image,
-            text: "Я приготовил для тебя небольшой квиз! Выбери правильный вариант ответа",
+            text: "Я приготовил для тебя небольшой квиз!\n**Выбери правильный вариант ответа**",
         });
     };
 
@@ -170,10 +171,10 @@ export function AcademyScreen({
                         ]}
                         successReply={{
                             image: schoolboyKlass,
-                            title: "В точку!",
-                            text: "Я бы так же ответил. Готов двигаться дальше?",
+                            text: "**В точку!**\nЯ бы так же ответил. Готов двигаться дальше?",
                         }}
                         setReply={setReply}
+                        setBackgroundVariant={setBackgroundVariant}
                         onCorrect={handleCorrectAnswer}
                         onContinue={closeLocation}
                         continueText="Продолжить"
@@ -204,7 +205,7 @@ export function AcademyScreen({
                     iconBackground="#3990F9"
                 >
                     После регистрации на платформе тебя ждут не скучные лекции,{" "}
-                    <strong>а живые форматы:</strong>
+                    <strong>а живые форматы:</strong>
                 </CardAnons>
                 <CardImage src={startCardImage} alt={"Изображение"} />
                 <CardProfile

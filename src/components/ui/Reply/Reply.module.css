@@ -34,6 +34,12 @@
 
 .default .replyMessage {
     width: 404px;
-    position: relative;
-    left: 40px;
+    margin-left: 40px;
+}
+
+.replyImage {
+    margin: 0 auto;
+    max-width: max-content;
+    width: auto;
+    height: 528px;
 }

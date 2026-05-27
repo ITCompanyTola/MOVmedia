@@ -110,6 +110,7 @@ export function OlympicCenterScreen({
     person,
     isCompleted,
     setReply,
+    setBackgroundVariant,
     completeLocation,
     closeLocation,
 }: LocationScreenProps) {
@@ -121,7 +122,7 @@ export function OlympicCenterScreen({
         setStep("question");
         setReply({
             image: person.image,
-            text: "Давай освежим твои знания по финансовой грамотности перед Олимпиадой? Выбери правильный ответ",
+            text: "Давай освежим твои знания по финансовой грамотности перед Олимпиадой?\n**Выбери правильный ответ**",
         });
     };
 
@@ -167,15 +168,15 @@ export function OlympicCenterScreen({
                             },
                             {
                                 image: person.image,
-                                text: "Не спеши, подумай. Всё получится! ",
+                                text: "Не спеши, подумай.\nВсё получится! ",
                             },
                         ]}
                         successReply={{
                             image: schoolboyKlass,
-                            title: "Это верный ответ!",
-                            text: "Возвращайся на карту и выбирай следующую локацию",
+                            text: "**Это верный ответ!**\nВозвращайся на карту и выбирай следующую локацию",
                         }}
                         setReply={setReply}
+                        setBackgroundVariant={setBackgroundVariant}
                         onCorrect={handleCorrectAnswer}
                         onContinue={closeLocation}
                         continueText="Продолжить"
