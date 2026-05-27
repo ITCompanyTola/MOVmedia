@@ -79,6 +79,7 @@
 
 .cardsCardIcon {
     width: fit-content;
+    height: fit-content;
     padding: 8px;
     border-radius: 12px;
     background: #e0e6fb;

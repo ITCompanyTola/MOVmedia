@@ -2,8 +2,6 @@ import schoolboyMain from "../assets/images/persons/schoolboy/main.png";
 import schoolboyHello from "../assets/images/persons/schoolboy/hello.png";
 import schoolboySadness from "../assets/images/persons/schoolboy/sadness.png";
 
-import locationBackgroundMain from "../assets/images/city/locations/main.jpg";
-
 import olympicCenterMain from "../assets/images/city/buildings/olympic-center/main.png";
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
 import olympicCenterComplete from "../assets/images/city/buildings/olympic-center/complete.png";
@@ -21,6 +19,7 @@ import academyCompleteBackground from "../assets/images/city/locations/academy/c
 import careerCenterMain from "../assets/images/city/buildings/career-center/main.png";
 import careerCenterActive from "../assets/images/city/buildings/career-center/active.png";
 import careerCenterComplete from "../assets/images/city/buildings/career-center/complete.png";
+import careerCenterBackground from "../assets/images/city/locations/career-center/main.png";
 
 import globalAreaMain from "../assets/images/city/buildings/global-area/main.png";
 import globalAreaActive from "../assets/images/city/buildings/global-area/active.png";
@@ -200,7 +199,7 @@ const data: AppData = {
                     complete: careerCenterComplete,
                 },
                 background: {
-                    main: locationBackgroundMain,
+                    main: careerCenterBackground,
                 },
             },
         },

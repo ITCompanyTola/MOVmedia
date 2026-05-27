@@ -1,0 +1,154 @@
+.kompasCard {
+    width: 520px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+.kompasCard.kompasCardResult {
+    gap: 20px;
+}
+
+.kompasCardTitle {
+    font-weight: var(--weight-semibold);
+    text-align: center;
+}
+
+.kompasWrapper {
+    width: 397px;
+    aspect-ratio: 1 / 1;
+    padding: 5px;
+    border-radius: 50%;
+    position: relative;
+    background: #e5d3c2;
+}
+
+.kompasCardResult .kompasWrapper {
+    width: 250px;
+    aspect-ratio: 1 / 1;
+}
+
+.kompasWrapperImage {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.kompasWrapperArrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transition: transform 2.2s cubic-bezier(0.18, 0.78, 0.24, 1);
+}
+
+.kompasText {
+    display: none;
+    margin-top: auto;
+    text-align: center;
+}
+
+.kompasCardSpin .kompasText {
+    display: block;
+}
+
+.kompasButton {
+    margin-top: auto;
+    justify-content: center;
+}
+
+.kompasCardSpin .kompasButton {
+    display: none;
+}
+
+.kompasCardResult .kompasButton {
+    display: none;
+}
+
+.kompasResult {
+    height: 240px;
+    padding: 16px 12px;
+    border: 1px solid rgba(57, 144, 249, 0.08);
+    background: #e0e6fb;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    display: none;
+}
+
+.kompasCardResult .kompasResult {
+    display: flex;
+}
+
+.kompasResultTitle {
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 16px;
+    color: #1d5184;
+    background: var(--brand-white);
+}
+
+.kompasResultItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.kompasResultItem {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #2b2c84;
+    color: var(--brand-white);
+}
+
+.compasActive0 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 62%;
+    top: 10px;
+    display: none;
+}
+
+.compasActive90 {
+    position: absolute;
+    height: 68%;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: none;
+}
+
+.compasActive180 {
+    position: absolute;
+    width: 65%;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.compasActive270 {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    height: 67%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.compasActiveVisible {
+    display: block;
+}
