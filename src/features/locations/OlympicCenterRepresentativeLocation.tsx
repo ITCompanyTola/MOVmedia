@@ -4,10 +4,10 @@ import { OlympicCenterRepresentativeScreen } from "./OlympicCenterRepresentative
 import representativeMain from "../../assets/images/persons/representative/main.png";
 
 export const olympicCenterRepresentativeLocation: LocationModule = {
-    id: "olympic-center",
-    getInitialReply: () => ({
-        image: representativeMain,
-        text: "Добро пожаловать в Олимпиадный центр! Здесь я покажу вам инструменты для создания олимпиады",
-    }),
-    render: (props) => <OlympicCenterRepresentativeScreen {...props} />,
+  id: "olympic-center",
+  getInitialReply: () => ({
+    image: representativeMain,
+    text: "На платформе есть сервисы для создания вебинаров, тестов и олимпиад. \nВы можете провести все эти активности для студентов вашего вуза. \n**Попробуем «Редактор тестов»?**",
+  }),
+  render: (props) => <OlympicCenterRepresentativeScreen {...props} />,
 };

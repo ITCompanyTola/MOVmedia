@@ -19,7 +19,6 @@ import expertTalk from "../assets/images/persons/expert/talk.png";
 
 import representativeMain from "../assets/images/persons/representative/main.png";
 import representativeWelcome from "../assets/images/persons/representative/welcome.png";
-import representativeFocused from "../assets/images/persons/representative/focused.png";
 import representativeNotBottom from "../assets/images/persons/representative/not-bottom.png";
 import representativeTalk from "../assets/images/persons/representative/talk.png";
 
@@ -47,7 +46,6 @@ import globalAreaActive from "../assets/images/city/buildings/global-area/active
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
 import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
 
-import posterSquareBackground from "../assets/images/city/locations/poster-square/main.jpg";
 import posterSquareBackgroundError from "../assets/images/city/locations/poster-square/error.jpg";
 
 import memberProfileMain from "../assets/images/city/buildings/member-profile/main.png";
@@ -228,7 +226,7 @@ const data: AppData = {
           {
             title: "Жми на следующую локацию",
             action: "Нажми на здание, чтобы начать",
-            image: schoolboyMain,
+            image: studentMain,
           },
         ],
         lockedLocation: {
@@ -242,7 +240,13 @@ const data: AppData = {
           text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество. \n\n Отсканируй QR\u2011код, зарегистрируйся\n**и получи стильный мерч**",
         },
       },
-      locations: ["academy", "global-area", "member-profile", "poster-square", "space-commonwealth"],
+      locations: [
+        "academy",
+        "global-area",
+        "member-profile",
+        "poster-square",
+        "space-commonwealth",
+      ],
     },
     {
       id: "expert",
@@ -289,10 +293,17 @@ const data: AppData = {
           image: expertSadness,
         },
         final: {
+          title: "Получи свой стильный мерч в качестве бонуса!",
+          text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
           image: expertMain,
         },
       },
-      locations: ["poster-square", "space-commonwealth", "media-center", "library"],
+      locations: [
+        "poster-square",
+        "space-commonwealth",
+        "media-center",
+        "library",
+      ],
     },
     {
       id: "representative",
@@ -329,7 +340,7 @@ const data: AppData = {
           {
             title: "Жми на следующую локацию",
             action: "Нажми на здание, чтобы начать",
-            image: representativeFocused,
+            image: representativeTalk,
           },
         ],
         lockedLocation: {
@@ -339,7 +350,9 @@ const data: AppData = {
           image: expertSadness,
         },
         final: {
-          image: expertMain,
+          title: "Получи свой стильный мерч в качестве бонуса!",
+          text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
+          image: representativeMain,
         },
       },
       locations: ["olympic-center", "member-profile", "space-commonwealth"],
@@ -406,7 +419,6 @@ const data: AppData = {
         },
         background: {
           main: careerCenterBackground,
-
         },
       },
     },

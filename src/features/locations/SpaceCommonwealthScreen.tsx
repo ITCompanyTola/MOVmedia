@@ -42,12 +42,18 @@ export function SpaceCommonwealthScreen({
     if (step !== "buttons") {
         return (
             <div className={styles.video}>
-                <video
-                    key={step}
-                    className={styles.videoElement}
-                    src={videoSrc[step]}
-                    autoPlay
-                />
+                <div className={styles.phoneMockup}>
+                    <div className={styles.phoneMockupIsland} />
+                    <div className={styles.phoneMockupScreen}>
+                        <video
+                            key={step}
+                            className={styles.videoElement}
+                            src={videoSrc[step]}
+                            autoPlay
+                            loop
+                        />
+                    </div>
+                </div>
                 <Button
                     size="s"
                     variant="secondary"

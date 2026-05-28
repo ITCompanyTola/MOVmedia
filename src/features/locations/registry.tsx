@@ -10,6 +10,10 @@ import { globalAreaLocation } from "./GlobalAreaLocation";
 import { careerCenterLocation } from "./CareerCenterLocation";
 import { posterSquareLocation } from "./PosterSquareLocation";
 import { spaceCommonwealthLocation } from "./SpaceCommonwealthLocation";
+import { memberProfileRepresentativeLocation } from "./MemberProfileRepresentativeLocation";
+import { mediaCenterExpertLocation } from "./MediaCenterExpertLocation";
+import { libraryExpertLocation } from "./LibraryExpertLocation";
+import { posterSquareExpertLocation } from "./PosterSquareExpertLocation";
 
 const modules: Partial<Record<LocationId, LocationModule>> = {
   "olympic-center": olympicCenterLocation,
@@ -20,9 +24,23 @@ const modules: Partial<Record<LocationId, LocationModule>> = {
   "space-commonwealth": spaceCommonwealthLocation,
 };
 
-const personModules: Partial<Record<LocationId, Partial<Record<string, LocationModule>>>> = {
+const personModules: Partial<
+  Record<LocationId, Partial<Record<string, LocationModule>>>
+> = {
   "olympic-center": {
     representative: olympicCenterRepresentativeLocation,
+  },
+  "member-profile": {
+    representative: memberProfileRepresentativeLocation,
+  },
+  "media-center": {
+    expert: mediaCenterExpertLocation,
+  },
+  library: {
+    expert: libraryExpertLocation,
+  },
+  "poster-square": {
+    expert: posterSquareExpertLocation,
   },
 };
 
@@ -42,7 +60,10 @@ const createPlaceholderModule = (location: LocationData): LocationModule => ({
   ),
 });
 
-export const getLocationModule = (location: LocationData, person?: PersonData) => {
+export const getLocationModule = (
+  location: LocationData,
+  person?: PersonData,
+) => {
   const personOverride = person && personModules[location.id]?.[person.id];
   if (personOverride) return personOverride;
   return modules[location.id] ?? createPlaceholderModule(location);

@@ -22,6 +22,15 @@
     width: 450px;
 }
 
+.expertChoiceCard {
+    width: 403px;
+}
+
+.expertEventsCard {
+    width: 694px;
+    gap: 16px;
+}
+
 .choiceBlocks {
     display: flex;
     flex-direction: column;
