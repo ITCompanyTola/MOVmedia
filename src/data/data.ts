@@ -7,8 +7,9 @@ import schoolboyFinal from "../assets/images/persons/schoolboy/final.png";
 import studentWelcome from "../assets/images/persons/student/welcome.png";
 import studentMain from "../assets/images/persons/student/main.png";
 import studentHello from "../assets/images/persons/student/hello.png";
-import studentTalk from "../assets/images/persons/student/talk.png";
+import studentSpeak from "../assets/images/persons/student/speak.png";
 import studentThink from "../assets/images/persons/student/think.png";
+import studentFinal from "../assets/images/persons/student/final.png";
 
 import expertWelcome from "../assets/images/persons/expert/welcome.png";
 import expertMain from "../assets/images/persons/expert/main.png";
@@ -198,7 +199,7 @@ const data: AppData = {
                 start: [
                     {
                         title: "Привет!",
-                        text: `Я Диана, учусь в университете на специалиста по управлению рисками \n\n Помогу тебе здесь освоиться!`,
+                        text: `Я Диана, учусь в университете на специалиста по управлению рисками\n**Помогу тебе здесь освоиться!**`,
                         button: {
                             type: "row",
                             text: "Привет",
@@ -206,7 +207,6 @@ const data: AppData = {
                         image: studentHello,
                     },
                     {
-                        title: "",
                         text: "В Городе Содружества ты можешь найти стажировку, прокачать навыки через обучение, поучаствовать в проектах с экспертами и найти единомышленников по всему миру",
                         button: {
                             type: "row",
@@ -215,9 +215,9 @@ const data: AppData = {
                         image: studentMain,
                     },
                     {
-                        text: `На карте есть 5 локаций, в которые ты можешь отправиться. \n Выбирай, что тебе интересно!`,
+                        text: `На карте есть 5 локаций, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**`,
                         action: "Нажми на здание, чтобы начать",
-                        image: studentTalk,
+                        image: studentSpeak,
                     },
                     {
                         title: "Жми на следующую локацию",
@@ -226,17 +226,22 @@ const data: AppData = {
                     },
                 ],
                 lockedLocation: {
-                    title: "Увы, эта локация пока закрыта",
-                    text: "Давай вернемся к тем местам, которые сейчас доступны",
+                    text: "**Увы, эта локация пока закрыта**\nДавай вернемся к тем местам, которые сейчас доступны",
                     action: "Выбери другое здание на карте",
                     image: studentThink,
                 },
+                final: {
+                    image: studentFinal,
+                    title: "Получи свой стильный мерч в качестве бонуса!",
+                    text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество. \n\n Отсканируй QR‑код, зарегистрируйся\n**и получи стильный мерч**",
+                },
             },
             locations: [
-                "olympic-center",
                 "academy",
-                "career-center",
                 "global-area",
+                "member-profile",
+                "poster-square",
+                "space-commonwealth",
             ],
         },
         {
@@ -250,7 +255,7 @@ const data: AppData = {
                 start: [
                     {
                         title: "Приветствую, рада знакомству!",
-                        text: `Меня зовут Екатерина, я эксперт в области финансовой безопасности. \n\nПомогу вам освоиться в городе`,
+                        text: `Меня зовут Екатерина, я эксперт в области финансовой безопасности. \n\nПомогу вам освоиться в городе`,
                         button: {
                             type: "row",
                             text: "Здравствуйте",
@@ -259,7 +264,7 @@ const data: AppData = {
                     },
                     {
                         title: "",
-                        text: `В Городе Содружества вас ждут инструменты для публикации вашего экспертного контента, выступлений на мероприятиях и профессионального нетворкинга. \nЗдесь можно делиться разборами, вести дискуссии, находить партнёров и заказчиков.  \nА ещё — участвовать в международных проектах и заявлять о своей экспертизе на глобальном уровне`,
+                        text: `В Городе Содружества вас ждут инструменты для публикации вашего экспертного контента, выступлений на мероприятиях и профессионального нетворкинга. \nЗдесь можно делиться разборами, вести дискуссии, находить партнёров и заказчиков.  \nА ещё — участвовать в международных проектах и заявлять о своей экспертизе на глобальном уровне`,
                         button: {
                             type: "row",
                             text: "Отправиться в город",
@@ -282,6 +287,9 @@ const data: AppData = {
                     text: "Давай вернемся к тем местам, которые сейчас доступны",
                     action: "Выбери другое здание на карте",
                     image: expertSadness,
+                },
+                final: {
+                    image: "",
                 },
             },
             locations: ["poster-square"],
