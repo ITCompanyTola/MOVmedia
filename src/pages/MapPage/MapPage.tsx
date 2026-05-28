@@ -81,6 +81,7 @@ export function MapPage() {
     const handleLocationClick = (id: LocationId) => {
         if (showDefaultBuildings) return;
         if (!activeBuildings) return;
+        if (!person.locations.includes(id)) return;
         if (completedLocations.includes(id)) return;
 
         setStart(false);
@@ -96,6 +97,13 @@ export function MapPage() {
                         message="aside"
                         reply={person.replies.start[startStep]}
                         onClick={handleNextStartStep}
+                    />
+                )}
+                {!start && !activeLocation && !allPersonLocationsCompleted && (
+                    <Reply
+                        align={person.replies.align || "left"}
+                        message="aside"
+                        reply={person.replies.start[person.replies.start.length - 1]}
                     />
                 )}
                 {isFinalScreenVisible && <FinalScreen person={person} />}

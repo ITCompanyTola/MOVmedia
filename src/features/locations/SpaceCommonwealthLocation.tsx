@@ -1,15 +1,33 @@
-import { StudentSpaceCommonwealthScreen } from "./StudentSpaceCommonwealthScreen";
 import type { LocationModule } from "./types";
+import { SpaceCommonwealthScreen } from "./SpaceCommonwealthScreen";
+import { SpaceCommonwealthRepresendScreen } from "./SpaceCommonwealthRepresendScreen";
+import interiorBg from "../../assets/images/city/locations/space-commonwealth/interior.jpg";
 
 export const spaceCommonwealthLocation: LocationModule = {
-    id: "space-commonwealth",
-    getInitialReply: (person) => ({
+  id: "space-commonwealth",
+  background: interiorBg,
+
+  getInitialReply: (person) => {
+    if (person.id === "representative") {
+      return {
         image: person.image,
-        text: "В Пространстве Содружества можно подписаться на людей по интересам, читать и комментировать посты\n**Вступай в профессиональные сообщества или создавай собственное**",
-    }),
-    render: (props) => {
-        if (props.person.id === "student") {
-            return <StudentSpaceCommonwealthScreen {...props} />;
-        }
-    },
+        text: "Содружество — это место, где участники платформы сами себя проявляют. Они вступают в обсуждения, делятся проектами и ищут наставников",
+      };
+    }
+    return {
+      image: person.image,
+      text: "В Пространстве Содружество участники взаимодействуют с вашими материалами: задают вопросы, делятся мнениями, обсуждают",
+    };
+  },
+  render: (props) => {
+    if (props.person.id === "representative") {
+      return <SpaceCommonwealthRepresendScreen {...props} />;
+    }
+
+    if (props.person.id === "student") {
+        return <StudentSpaceCommonwealthScreen {...props} />;
+    }
+    
+    return <SpaceCommonwealthScreen {...props} />;
+  },
 };

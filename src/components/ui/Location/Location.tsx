@@ -39,7 +39,7 @@ type LocationContentProps = {
 function LocationContent({ person, location }: LocationContentProps) {
     const { completedLocations, setActiveLocation, addCompletedLocation } =
         useAppStore();
-    const locationModule = getLocationModule(location);
+    const locationModule = getLocationModule(location, person);
     const [activeReply, setActiveReply] = useState<ReplyData>(
         locationModule.getInitialReply(person),
     );
