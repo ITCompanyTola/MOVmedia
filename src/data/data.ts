@@ -40,6 +40,9 @@ import globalAreaActive from "../assets/images/city/buildings/global-area/active
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
 import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
 
+import posterSquareBackground from "../assets/images/city/locations/poster-square/main.jpg";
+import posterSquareBackgroundError from "../assets/images/city/locations/poster-square/error.jpg";
+
 export type PersonId = "schoolboy" | "student" | "expert";
 
 export type LocationId =
@@ -298,7 +301,12 @@ const data: AppData = {
           image: expertSadness,
         },
       },
-      locations: ["poster-square"],
+      locations: [
+        "poster-square",
+        "space-commonwealth",
+        "media-center",
+        "library",
+      ],
     },
   ],
   locations: [
@@ -390,6 +398,66 @@ const data: AppData = {
       title: "Афишная площадь",
       subtitle: "Следите за мероприятиями, стажировками и анонсами олимпиад",
       position: [426, 642],
+      baloon: {
+        position: [140, -83],
+      },
+      images: {
+        building: {
+          main: globalAreaMain,
+          active: globalAreaActive,
+          complete: globalAreaComplete,
+        },
+        background: {
+          main: posterSquareBackground,
+          error: posterSquareBackgroundError,
+        },
+      },
+    },
+    {
+      id: "space-commonwealth",
+      title: "Пространство Содружество",
+      subtitle:
+        "Делитесь опытом, общайтесь с единомышленниками и создайте своё сообщество",
+      position: [180, 400],
+      baloon: {
+        position: [140, -83],
+      },
+      images: {
+        building: {
+          main: globalAreaMain,
+          active: globalAreaActive,
+          complete: globalAreaComplete,
+        },
+        background: {
+          main: globalAreaBackground,
+        },
+      },
+    },
+    {
+      id: "media-center",
+      title: "Медиацентр",
+      subtitle: "Следите на событиями, давайте интервью и делитесь экспертизой",
+      position: [10, 174],
+      baloon: {
+        position: [140, -83],
+      },
+      images: {
+        building: {
+          main: globalAreaMain,
+          active: globalAreaActive,
+          complete: globalAreaComplete,
+        },
+        background: {
+          main: globalAreaBackground,
+        },
+      },
+    },
+    {
+      id: "library",
+      title: "Библиотека",
+      subtitle:
+        "Собрали в одном месте материалы по финансовой безопасности. Учитесь, развивайтесь или создавайте самостоятельно!",
+      position: [296, 90],
       baloon: {
         position: [140, -83],
       },

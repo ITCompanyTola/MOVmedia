@@ -7,29 +7,31 @@ import { academyLocation } from "./AcademyLocation";
 import type { LocationModule, LocationScreenProps } from "./types";
 import { globalAreaLocation } from "./GlobalAreaLocation";
 import { careerCenterLocation } from "./CareerCenterLocation";
+import { posterSquareLocation } from "./PosterSquareLocation";
 
 const modules: Partial<Record<LocationId, LocationModule>> = {
-    "olympic-center": olympicCenterLocation,
-    academy: academyLocation,
-    "global-area": globalAreaLocation,
-    "career-center": careerCenterLocation,
+  "olympic-center": olympicCenterLocation,
+  academy: academyLocation,
+  "global-area": globalAreaLocation,
+  "career-center": careerCenterLocation,
+  "poster-square": posterSquareLocation,
 };
 
 const createPlaceholderModule = (location: LocationData): LocationModule => ({
-    id: location.id,
-    getInitialReply: (person) => ({
-        image: person.image,
-        title: "Локация в разработке",
-    }),
-    render: ({ closeLocation }: LocationScreenProps) => (
-        <Card>
-            <Text variant="h4">Сценарий скоро появится</Text>
-            <Button size="s" onClick={closeLocation}>
-                Вернуться на карту
-            </Button>
-        </Card>
-    ),
+  id: location.id,
+  getInitialReply: (person) => ({
+    image: person.image,
+    title: "Локация в разработке",
+  }),
+  render: ({ closeLocation }: LocationScreenProps) => (
+    <Card>
+      <Text variant="h4">Сценарий скоро появится</Text>
+      <Button size="s" onClick={closeLocation}>
+        Вернуться на карту
+      </Button>
+    </Card>
+  ),
 });
 
 export const getLocationModule = (location: LocationData) =>
-    modules[location.id] ?? createPlaceholderModule(location);
+  modules[location.id] ?? createPlaceholderModule(location);
