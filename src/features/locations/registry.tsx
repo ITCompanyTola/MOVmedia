@@ -8,6 +8,7 @@ import type { LocationModule, LocationScreenProps } from "./types";
 import { globalAreaLocation } from "./GlobalAreaLocation";
 import { careerCenterLocation } from "./CareerCenterLocation";
 import { posterSquareLocation } from "./PosterSquareLocation";
+import { spaceCommonwealthLocation } from "./SpaceCommonwealthLocation";
 
 const modules: Partial<Record<LocationId, LocationModule>> = {
     "olympic-center": olympicCenterLocation,
@@ -15,6 +16,7 @@ const modules: Partial<Record<LocationId, LocationModule>> = {
     "global-area": globalAreaLocation,
     "career-center": careerCenterLocation,
     "poster-square": posterSquareLocation,
+    "space-commonwealth": spaceCommonwealthLocation,
 };
 
 const createPlaceholderModule = (location: LocationData): LocationModule => ({

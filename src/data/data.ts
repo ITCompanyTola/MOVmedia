@@ -56,6 +56,7 @@ import mediaCenterComplete from "../assets/images/city/buildings/media-center/co
 import spaceCommonwealthMain from "../assets/images/city/buildings/space-commonwealth/main.png";
 import spaceCommonwealthActive from "../assets/images/city/buildings/space-commonwealth/active.png";
 import spaceCommonwealthComplete from "../assets/images/city/buildings/space-commonwealth/complete.png";
+import spaceCommonwealthBackground from "../assets/images/city/locations/space-commonwealth/main.png";
 
 import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
 import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
@@ -453,7 +454,7 @@ const data: AppData = {
                     complete: spaceCommonwealthComplete,
                 },
                 background: {
-                    main: locationBackground,
+                    main: spaceCommonwealthBackground,
                 },
             },
             baloon: {
