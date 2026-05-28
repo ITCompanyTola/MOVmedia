@@ -60,6 +60,7 @@ import spaceCommonwealthComplete from "../assets/images/city/buildings/space-com
 import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
 import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
 import posterSquareComplete from "../assets/images/city/buildings/poster-square/complete.png";
+import posterSquareBackground from "../assets/images/city/locations/poster-square/main.png";
 
 import locationBackground from "../assets/images/city/locations/main.jpg";
 
@@ -472,7 +473,7 @@ const data: AppData = {
                     complete: posterSquareComplete,
                 },
                 background: {
-                    main: locationBackground,
+                    main: posterSquareBackground,
                 },
             },
             baloon: {
