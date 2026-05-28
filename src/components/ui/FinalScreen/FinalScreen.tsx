@@ -1,4 +1,4 @@
-import type { PersonData, ReplyData } from "../../../data/data";
+import type { PersonData } from "../../../data/data";
 import { Reply } from "../Reply/Reply";
 import styles from "./FinalScreen.module.css";
 
