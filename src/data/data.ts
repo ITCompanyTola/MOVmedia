@@ -2,6 +2,7 @@ import schoolboyWelcome from "../assets/images/persons/schoolboy/welcome.png";
 import schoolboyMain from "../assets/images/persons/schoolboy/main.png";
 import schoolboyHello from "../assets/images/persons/schoolboy/hello.png";
 import schoolboySadness from "../assets/images/persons/schoolboy/sadness.png";
+import schoolboyFinal from "../assets/images/persons/schoolboy/final.png";
 
 import studentWelcome from "../assets/images/persons/student/welcome.png";
 import studentMain from "../assets/images/persons/student/main.png";
@@ -63,17 +64,18 @@ export type ReplyData = {
 };
 
 export type PersonData = {
-  id: PersonId;
-  name: string;
-  role: string;
-  image: string;
-  welcome: string;
-  replies: {
-    align: "left" | "right";
-    start: ReplyData[];
-    lockedLocation: ReplyData;
-  };
-  locations: LocationId[];
+    id: PersonId;
+    name: string;
+    role: string;
+    image: string;
+    welcome: string;
+    replies: {
+        align: "left" | "right";
+        start: ReplyData[];
+        lockedLocation: ReplyData;
+        final: ReplyData;
+    };
+    locations: LocationId[];
 };
 
 export type LocationData = {
@@ -104,22 +106,73 @@ export type AppData = {
 };
 
 const data: AppData = {
-  persons: [
-    {
-      id: "schoolboy",
-      name: "Артем",
-      role: "Школьник",
-      image: schoolboyMain,
-      welcome: schoolboyWelcome,
-      replies: {
-        align: "left",
-        start: [
-          {
-            title: "Привет, давай знакомиться!",
-            text: "Меня зовут Артем, я учусь в 10-м классе. Помогу тебе освоиться в городе",
-            button: {
-              type: "row",
-              text: "Привет",
+    persons: [
+        {
+            id: "schoolboy",
+            name: "Артем",
+            role: "Школьник",
+            image: schoolboyMain,
+            welcome: schoolboyWelcome,
+            replies: {
+                align: "left",
+                start: [
+                    {
+                        title: "Привет, давай знакомиться!",
+                        text: "Меня зовут Артем, я учусь в 10-м классе. Помогу тебе освоиться в городе",
+                        button: {
+                            type: "row",
+                            text: "Привет",
+                        },
+                        image: schoolboyHello,
+                    },
+                    {
+                        title: "Город Содружества - это реальный шанс повлиять на свое будущее",
+                        text: "Ты можешь узнать больше об интересных профессиях, повысить свои шансы на поступление в известные вузы и стать частью международного движения в сфере финансовой безопасности",
+                        button: {
+                            type: "row",
+                            text: "Отправиться в город",
+                        },
+                        image: schoolboyMain,
+                    },
+                    {
+                        text: "На карте есть 4 локации, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**",
+                        action: "Нажми на здание, чтобы начать",
+                        image: schoolboyMain,
+                    },
+                    {
+                        title: "Жми на следующую локацию",
+                        action: "Нажми на здание, чтобы начать",
+                        image: schoolboyMain,
+                    },
+                ],
+                lockedLocation: {
+                    title: "Увы, эта локация пока закрыта",
+                    text: "Давай вернемся к тем местам, которые сейчас доступны",
+                    action: "Выбери другое здание на карте",
+                    image: schoolboySadness,
+                },
+                final: {
+                    title: "Получи свой стильный мерч в качестве бонуса!",
+                    text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
+                    image: schoolboyFinal,
+                },
+            },
+            locations: [
+                "olympic-center",
+                "academy",
+                "career-center",
+                "global-area",
+            ],
+        },
+    ],
+    locations: [
+        {
+            id: "olympic-center",
+            title: "Олимпиадный центр",
+            subtitle: "Получай дополнительные баллы для поступления в вузы",
+            position: [1252, 275],
+            baloon: {
+                position: [120, -65],
             },
             image: schoolboyHello,
           },
