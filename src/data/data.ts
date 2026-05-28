@@ -245,7 +245,7 @@ const data: AppData = {
           image: expertSadness,
         },
       },
-      locations: ["olympic-center", "academy", "career-center", "global-area"],
+      locations: ["poster-square"],
     },
   ],
   locations: [
