@@ -16,6 +16,12 @@ import expertHello from "../assets/images/persons/expert/hello.png";
 import expertSadness from "../assets/images/persons/expert/sadness.png";
 import expertTalk from "../assets/images/persons/expert/talk.png";
 
+import representativeMain from "../assets/images/persons/representative/main.png";
+import representativeWelcome from "../assets/images/persons/representative/welcome.png";
+import representativeFocused from "../assets/images/persons/representative/focused.png";
+import representativeNotBottom from "../assets/images/persons/representative/not-bottom.png";
+import representativeTalk from "../assets/images/persons/representative/talk.png";
+
 import olympicCenterMain from "../assets/images/city/buildings/olympic-center/main.png";
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
 import olympicCenterComplete from "../assets/images/city/buildings/olympic-center/complete.png";
@@ -65,7 +71,7 @@ import posterSquareComplete from "../assets/images/city/buildings/poster-square/
 
 import locationBackground from "../assets/images/city/locations/main.jpg";
 
-export type PersonId = "schoolboy" | "student" | "expert";
+export type PersonId = "schoolboy" | "student" | "expert" | "representative";
 
 export type LocationId =
   | "olympic-center"
@@ -290,6 +296,56 @@ const data: AppData = {
         "media-center",
         "library",
       ],
+    },
+    {
+      id: "representative",
+      name: "Алексей",
+      role: "Представитель вуза",
+      image: representativeMain,
+      welcome: representativeWelcome,
+      replies: {
+        align: "right",
+        start: [
+          {
+            title: "Приветствую!",
+            text: "Меня зовут Алексей, я представитель Университета «Содружество». \n\nМоя задача — улучшать престиж нашего вуза, находить новых талантов и заявлять о себе на профессиональных мероприятиях",
+            button: {
+              type: "row",
+              text: "Здравствуйте",
+            },
+            image: representativeNotBottom,
+          },
+          {
+            title: "",
+            text: "В Городе Содружества вы сможете найти способных школьников и студентов, провести или поддержать олимпиаду, а также встроить ваш вуз в систему мероприятий и сообществ",
+            button: {
+              type: "row",
+              text: "Отправиться в город",
+            },
+            image: representativeTalk,
+          },
+          {
+            text: "На карте есть 3 локации, в которые вы можете отправиться. \n\n**Выбирайте, что вам интересно!**",
+            action: "Нажми на здание, чтобы начать",
+            image: representativeMain,
+          },
+          {
+            title: "Жми на следующую локацию",
+            action: "Нажми на здание, чтобы начать",
+            image: representativeFocused,
+          },
+        ],
+        lockedLocation: {
+          title: "Увы, эта локация пока закрыта",
+          text: "Давай вернемся к тем местам, которые сейчас доступны",
+          action: "Выбери другое здание на карте",
+          image: expertSadness,
+        },
+        final: {
+          image: expertMain,
+        },
+      },
+      locations: ["olympic-center", "member-profile", "space-commonwealth"],
     },
   ],
   locations: [

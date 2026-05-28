@@ -1,0 +1,63 @@
+.buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.buttonsCard {
+    max-width: 494px;
+}
+
+.buttonsTitle {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #131418;
+    margin-bottom: 8px;
+}
+
+.buttonsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.actionButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.videoElement {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.backButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.continueButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}

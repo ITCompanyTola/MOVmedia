@@ -1,13 +1,15 @@
 import { Button } from "../../components/ui/Button/Button";
 import { Card } from "../../components/ui/Card/Card";
 import { Text } from "../../components/ui/Text/Text";
-import type { LocationData, LocationId } from "../../data/data";
+import type { LocationData, LocationId, PersonData } from "../../data/data";
 import { olympicCenterLocation } from "./OlympicCenterLocation";
+import { olympicCenterRepresentativeLocation } from "./OlympicCenterRepresentativeLocation";
 import { academyLocation } from "./AcademyLocation";
 import type { LocationModule, LocationScreenProps } from "./types";
 import { globalAreaLocation } from "./GlobalAreaLocation";
 import { careerCenterLocation } from "./CareerCenterLocation";
 import { posterSquareLocation } from "./PosterSquareLocation";
+import { spaceCommonwealthLocation } from "./SpaceCommonwealthLocation";
 
 const modules: Partial<Record<LocationId, LocationModule>> = {
   "olympic-center": olympicCenterLocation,
@@ -15,6 +17,13 @@ const modules: Partial<Record<LocationId, LocationModule>> = {
   "global-area": globalAreaLocation,
   "career-center": careerCenterLocation,
   "poster-square": posterSquareLocation,
+  "space-commonwealth": spaceCommonwealthLocation,
+};
+
+const personModules: Partial<Record<LocationId, Partial<Record<string, LocationModule>>>> = {
+  "olympic-center": {
+    representative: olympicCenterRepresentativeLocation,
+  },
 };
 
 const createPlaceholderModule = (location: LocationData): LocationModule => ({
@@ -33,5 +42,8 @@ const createPlaceholderModule = (location: LocationData): LocationModule => ({
   ),
 });
 
-export const getLocationModule = (location: LocationData) =>
-  modules[location.id] ?? createPlaceholderModule(location);
+export const getLocationModule = (location: LocationData, person?: PersonData) => {
+  const personOverride = person && personModules[location.id]?.[person.id];
+  if (personOverride) return personOverride;
+  return modules[location.id] ?? createPlaceholderModule(location);
+};
