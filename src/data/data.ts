@@ -43,6 +43,28 @@ import globalAreaBackground from "../assets/images/city/locations/global-area/ma
 import posterSquareBackground from "../assets/images/city/locations/poster-square/main.jpg";
 import posterSquareBackgroundError from "../assets/images/city/locations/poster-square/error.jpg";
 
+import memberProfileMain from "../assets/images/city/buildings/member-profile/main.png";
+import memberProfileActive from "../assets/images/city/buildings/member-profile/active.png";
+import memberProfileComplete from "../assets/images/city/buildings/member-profile/complete.png";
+
+import libraryMain from "../assets/images/city/buildings/library/main.png";
+import libraryActive from "../assets/images/city/buildings/library/active.png";
+import libraryComplete from "../assets/images/city/buildings/library/complete.png";
+
+import mediaCenterMain from "../assets/images/city/buildings/media-center/main.png";
+import mediaCenterActive from "../assets/images/city/buildings/media-center/active.png";
+import mediaCenterComplete from "../assets/images/city/buildings/media-center/complete.png";
+
+import spaceCommonwealthMain from "../assets/images/city/buildings/space-commonwealth/main.png";
+import spaceCommonwealthActive from "../assets/images/city/buildings/space-commonwealth/active.png";
+import spaceCommonwealthComplete from "../assets/images/city/buildings/space-commonwealth/complete.png";
+
+import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
+import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
+import posterSquareComplete from "../assets/images/city/buildings/poster-square/complete.png";
+
+import locationBackground from "../assets/images/city/locations/main.jpg";
+
 export type PersonId = "schoolboy" | "student" | "expert";
 
 export type LocationId =
@@ -53,7 +75,8 @@ export type LocationId =
   | "poster-square"
   | "space-commonwealth"
   | "media-center"
-  | "library";
+  | "library"
+  | "member-profile";
 
 export type ReplyData = {
   image: string;
@@ -129,7 +152,8 @@ const data: AppData = {
             image: schoolboyHello,
           },
           {
-            title: "Город Содружества - это реальный шанс повлиять на свое будущее",
+            title:
+              "Город Содружества - это реальный шанс повлиять на свое будущее",
             text: "Ты можешь узнать больше об интересных профессиях, повысить свои шансы на поступление в известные вузы и стать частью международного движения в сфере финансовой безопасности",
             button: {
               type: "row",
@@ -160,12 +184,7 @@ const data: AppData = {
           image: schoolboyFinal,
         },
       },
-      locations: [
-        "olympic-center",
-        "academy",
-        "career-center",
-        "global-area",
-      ],
+      locations: ["olympic-center", "academy", "career-center", "global-area"],
     },
     {
       id: "student",
@@ -358,61 +377,22 @@ const data: AppData = {
       },
     },
     {
-      id: "poster-square",
-      title: "Афишная площадь",
-      subtitle: "Следите за мероприятиями, стажировками и анонсами олимпиад",
-      position: [426, 642],
-      baloon: {
-        position: [140, -83],
-      },
-      images: {
-        building: {
-          main: globalAreaMain,
-          active: globalAreaActive,
-          complete: globalAreaComplete,
-        },
-        background: {
-          main: posterSquareBackground,
-          error: posterSquareBackgroundError,
-        },
-      },
-    },
-    {
-      id: "space-commonwealth",
-      title: "Пространство Содружество",
+      id: "member-profile",
+      title: "Профиль участника / вуза",
       subtitle:
-        "Делитесь опытом, общайтесь с единомышленниками и создайте своё сообщество",
-      position: [180, 400],
+        "Расскажи о себе или своей организации, чтобы быстро найти единомышленников",
+      position: [942, 489],
       baloon: {
-        position: [140, -83],
+        position: [148, -122],
       },
       images: {
         building: {
-          main: globalAreaMain,
-          active: globalAreaActive,
-          complete: globalAreaComplete,
+          main: memberProfileMain,
+          active: memberProfileActive,
+          complete: memberProfileComplete,
         },
         background: {
-          main: globalAreaBackground,
-        },
-      },
-    },
-    {
-      id: "media-center",
-      title: "Медиацентр",
-      subtitle: "Следите на событиями, давайте интервью и делитесь экспертизой",
-      position: [10, 174],
-      baloon: {
-        position: [140, -83],
-      },
-      images: {
-        building: {
-          main: globalAreaMain,
-          active: globalAreaActive,
-          complete: globalAreaComplete,
-        },
-        background: {
-          main: globalAreaBackground,
+          main: locationBackground,
         },
       },
     },
@@ -420,19 +400,78 @@ const data: AppData = {
       id: "library",
       title: "Библиотека",
       subtitle:
-        "Собрали в одном месте материалы по финансовой безопасности. Учитесь, развивайтесь или создавайте самостоятельно!",
-      position: [296, 90],
+        "Собрали в одном месте материалы по финансовой безопасности. Учись, развивайся или создавай сам!",
+      position: [266, 137],
       baloon: {
-        position: [140, -83],
+        position: [110, -69],
       },
       images: {
         building: {
-          main: globalAreaMain,
-          active: globalAreaActive,
-          complete: globalAreaComplete,
+          main: libraryMain,
+          active: libraryActive,
+          complete: libraryComplete,
         },
         background: {
-          main: globalAreaBackground,
+          main: locationBackground,
+        },
+      },
+    },
+    {
+      id: "media-center",
+      title: "Медиацентр",
+      subtitle: "Следите на событиями, давайте интервью и делитесь экспертизой",
+      position: [-26, 225],
+      baloon: {
+        position: [91, -72],
+      },
+      images: {
+        building: {
+          main: mediaCenterMain,
+          active: mediaCenterActive,
+          complete: mediaCenterComplete,
+        },
+        background: {
+          main: locationBackground,
+        },
+      },
+    },
+    {
+      id: "space-commonwealth",
+      title: "Пространство Содружество",
+      subtitle:
+        "Общайся, публикуй посты, находи единомышленников или наставников",
+      position: [153, 488],
+      baloon: {
+        position: [106, -108],
+      },
+      images: {
+        building: {
+          main: spaceCommonwealthMain,
+          active: spaceCommonwealthActive,
+          complete: spaceCommonwealthComplete,
+        },
+        background: {
+          main: locationBackground,
+        },
+      },
+    },
+    {
+      id: "poster-square",
+      title: "Афишная площадь",
+      subtitle: "Следи за мероприятиями, стажировками и анонсами олимпиад",
+      position: [410, 598],
+      baloon: {
+        position: [241, -52],
+      },
+      images: {
+        building: {
+          main: posterSquareMain,
+          active: posterSquareActive,
+          complete: posterSquareComplete,
+        },
+        background: {
+          main: posterSquareBackground,
+          error: posterSquareBackgroundError,
         },
       },
     },
