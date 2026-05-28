@@ -2,6 +2,7 @@ import schoolboyWelcome from "../assets/images/persons/schoolboy/welcome.png";
 import schoolboyMain from "../assets/images/persons/schoolboy/main.png";
 import schoolboyHello from "../assets/images/persons/schoolboy/hello.png";
 import schoolboySadness from "../assets/images/persons/schoolboy/sadness.png";
+import schoolboyFinal from "../assets/images/persons/schoolboy/final.png";
 
 import olympicCenterMain from "../assets/images/city/buildings/olympic-center/main.png";
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
@@ -56,6 +57,7 @@ export type PersonData = {
         align: "left" | "right";
         start: ReplyData[];
         lockedLocation: ReplyData;
+        final: ReplyData;
     };
     locations: LocationId[];
 };
@@ -132,6 +134,11 @@ const data: AppData = {
                     text: "Давай вернемся к тем местам, которые сейчас доступны",
                     action: "Выбери другое здание на карте",
                     image: schoolboySadness,
+                },
+                final: {
+                    title: "Получи свой стильный мерч в качестве бонуса!",
+                    text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
+                    image: schoolboyFinal,
                 },
             },
             locations: [
