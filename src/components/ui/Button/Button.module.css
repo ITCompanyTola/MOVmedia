@@ -14,7 +14,7 @@
 }
 
 .secondary {
-    background: rgba(66, 47, 33, 0.4);
+    background: rgba(50, 41, 34, 0.5);
 }
 
 .m {
@@ -32,7 +32,7 @@
 
 .s {
     border-radius: var(--radius-md);
-    padding: var(--space-md) var(--space-lg);
+    padding: 21px 24px;
     gap: var(--space-sm);
     font-size: var(--text-body-m);
     line-height: var(--leading-body-m);

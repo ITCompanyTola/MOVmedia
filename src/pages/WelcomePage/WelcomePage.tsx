@@ -293,7 +293,7 @@ function WelcomePage() {
                                         {person.name}
                                     </Text>
                                     <img
-                                        src={person.image}
+                                        src={person.welcome}
                                         alt={person.name}
                                         className={clsx(
                                             styles.welcomePageChoiceCardsItemImage,

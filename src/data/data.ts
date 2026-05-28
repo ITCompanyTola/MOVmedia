@@ -1,3 +1,4 @@
+import schoolboyWelcome from "../assets/images/persons/schoolboy/welcome.png";
 import schoolboyMain from "../assets/images/persons/schoolboy/main.png";
 import schoolboyHello from "../assets/images/persons/schoolboy/hello.png";
 import schoolboySadness from "../assets/images/persons/schoolboy/sadness.png";
@@ -50,6 +51,7 @@ export type PersonData = {
     name: string;
     role: string;
     image: string;
+    welcome: string;
     replies: {
         align: "left" | "right";
         start: ReplyData[];
@@ -92,6 +94,7 @@ const data: AppData = {
             name: "Артем",
             role: "Школьник",
             image: schoolboyMain,
+            welcome: schoolboyWelcome,
             replies: {
                 align: "left",
                 start: [
@@ -185,7 +188,7 @@ const data: AppData = {
         },
         {
             id: "career-center",
-            title: "Карьерный центр",
+            title: "Центр карьеры",
             subtitle:
                 "Поможем выбрать профессию, вуз и понять, куда двигаться дальше",
             position: [681, 57],

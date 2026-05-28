@@ -21,7 +21,13 @@ export function Location() {
 
     if (!location) return null;
 
-    return <LocationContent key={location.id} person={person} location={location} />;
+    return (
+        <LocationContent
+            key={location.id}
+            person={person}
+            location={location}
+        />
+    );
 }
 
 type LocationContentProps = {

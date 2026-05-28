@@ -1,7 +1,7 @@
 .footer {
     padding: 20px 0px;
     backdrop-filter: blur(60px);
-    background: rgba(50, 41, 34, 0.6);
+    background: rgba(50, 41, 34, 0.4);
     position: relative;
     z-index: 4;
 }

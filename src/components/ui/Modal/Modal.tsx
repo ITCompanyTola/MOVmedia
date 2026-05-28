@@ -35,7 +35,7 @@ export function Modal() {
 
     return createPortal(
         <div className={styles.modal}>
-            <div className={clsx(styles.overlay, "bg")} onClick={closeModal} />
+            <div className={clsx(styles.overlay)} onClick={closeModal} />
             <div className={styles.dialog} role="dialog" aria-modal="true">
                 {activeModal === "merch" && (
                     <div className={styles.content}>

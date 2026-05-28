@@ -33,7 +33,7 @@ type KompasProps = {
 };
 
 const kompasAngles: KompasAngle[] = [0, 90, 180, 270];
-const spinDuration = 2200;
+const spinDuration = 3400;
 
 const activeImages: Record<KompasAngle, string> = {
     0: compasActive0,
@@ -80,7 +80,7 @@ const variants: Record<KompasAngle, KompasVariant> = {
         ],
         reply: {
             image: shoolboyKlass,
-            text: "**Экономика, класс!**\n Честно говоря, думал, цифры — это не моё, но после наших курсов любые примеры решаю с закрытыми глазами\nЭкономист, бизнес-аналитик: все эти профессии считаются очень престижными",
+            text: "**Экономика, класс!**\n Честно говоря, думал, цифры — это не моё, но после наших курсов любые примеры решаю с закрытыми глазами.\nЭкономист, бизнес-аналитик: все эти профессии считаются очень престижными",
         },
     },
     270: {
