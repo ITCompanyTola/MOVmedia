@@ -27,3 +27,7 @@
 .quizCard {
     max-width: 496px;
 }
+
+.quizCard.studentQuizCard {
+    max-width: 600px;
+}

@@ -1,11 +1,17 @@
 import type { LocationModule } from "./types";
-import { PosterSquareScreen } from "./PosterSquareScreen";
+
+import studentSpeak from "../../assets/images/persons/student/speak.png";
+import { StudentPosterSquareScreen } from "./StudentPosterSquareScreen";
 
 export const posterSquareLocation: LocationModule = {
-  id: "poster-square",
-  getInitialReply: (person) => ({
-    image: person.image,
-    text: "В Медиацентре мы публикуем новости и лучший экспертный контент \n\n**Станьте тем, чей контент найдёт отклик у аудитории!**",
-  }),
-  render: (props) => <PosterSquareScreen {...props} />,
+    id: "poster-square",
+    getInitialReply: (person) => ({
+        image: person.id === "student" ? studentSpeak : person.image,
+        text: "На Афишной площади собраны все анонсы мероприятий Содружества. Воркшопы, форумы, вебинары проходят каждый месяц",
+    }),
+    render: (props) => {
+        if (props.person.id === "student") {
+            return <StudentPosterSquareScreen {...props} />;
+        }
+    },
 };

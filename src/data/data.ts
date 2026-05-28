@@ -7,8 +7,9 @@ import schoolboyFinal from "../assets/images/persons/schoolboy/final.png";
 import studentWelcome from "../assets/images/persons/student/welcome.png";
 import studentMain from "../assets/images/persons/student/main.png";
 import studentHello from "../assets/images/persons/student/hello.png";
-import studentTalk from "../assets/images/persons/student/talk.png";
+import studentSpeak from "../assets/images/persons/student/speak.png";
 import studentThink from "../assets/images/persons/student/think.png";
+import studentFinal from "../assets/images/persons/student/final.png";
 
 import expertWelcome from "../assets/images/persons/expert/welcome.png";
 import expertMain from "../assets/images/persons/expert/main.png";
@@ -68,6 +69,7 @@ import spaceCommonwealthComplete from "../assets/images/city/buildings/space-com
 import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
 import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
 import posterSquareComplete from "../assets/images/city/buildings/poster-square/complete.png";
+import posterSquareBackground from "../assets/images/city/locations/poster-square/main.png";
 
 import locationBackground from "../assets/images/city/locations/main.jpg";
 
@@ -203,7 +205,7 @@ const data: AppData = {
         start: [
           {
             title: "Привет!",
-            text: `Я Диана, учусь в университете на специалиста по управлению рисками \n\n Помогу тебе здесь освоиться!`,
+            text: `Я Диана, учусь в университете на специалиста по управлению рисками\n**Помогу тебе здесь освоиться!**`,
             button: {
               type: "row",
               text: "Привет",
@@ -211,7 +213,6 @@ const data: AppData = {
             image: studentHello,
           },
           {
-            title: "",
             text: "В Городе Содружества ты можешь найти стажировку, прокачать навыки через обучение, поучаствовать в проектах с экспертами и найти единомышленников по всему миру",
             button: {
               type: "row",
@@ -220,9 +221,9 @@ const data: AppData = {
             image: studentMain,
           },
           {
-            text: `На карте есть 5 локаций, в которые ты можешь отправиться. \n Выбирай, что тебе интересно!`,
+            text: `На карте есть 5 локаций, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**`,
             action: "Нажми на здание, чтобы начать",
-            image: studentTalk,
+            image: studentSpeak,
           },
           {
             title: "Жми на следующую локацию",
@@ -231,16 +232,17 @@ const data: AppData = {
           },
         ],
         lockedLocation: {
-          title: "Увы, эта локация пока закрыта",
-          text: "Давай вернемся к тем местам, которые сейчас доступны",
+          text: "**Увы, эта локация пока закрыта**\nДавай вернемся к тем местам, которые сейчас доступны",
           action: "Выбери другое здание на карте",
           image: studentThink,
         },
         final: {
-          image: studentMain,
+          image: studentFinal,
+          title: "Получи свой стильный мерч в качестве бонуса!",
+          text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество. \n\n Отсканируй QR\u2011код, зарегистрируйся\n**и получи стильный мерч**",
         },
       },
-      locations: ["olympic-center", "academy", "career-center", "global-area"],
+      locations: ["academy", "global-area", "member-profile", "poster-square", "space-commonwealth"],
     },
     {
       id: "expert",
@@ -290,12 +292,7 @@ const data: AppData = {
           image: expertMain,
         },
       },
-      locations: [
-        "poster-square",
-        "space-commonwealth",
-        "media-center",
-        "library",
-      ],
+      locations: ["poster-square", "space-commonwealth", "media-center", "library"],
     },
     {
       id: "representative",
@@ -409,6 +406,7 @@ const data: AppData = {
         },
         background: {
           main: careerCenterBackground,
+
         },
       },
     },
