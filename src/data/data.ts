@@ -40,6 +40,28 @@ import globalAreaActive from "../assets/images/city/buildings/global-area/active
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
 import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
 
+import memberProfileMain from "../assets/images/city/buildings/member-profile/main.png";
+import memberProfileActive from "../assets/images/city/buildings/member-profile/active.png";
+import memberProfileComplete from "../assets/images/city/buildings/member-profile/complete.png";
+
+import libraryMain from "../assets/images/city/buildings/library/main.png";
+import libraryActive from "../assets/images/city/buildings/library/active.png";
+import libraryComplete from "../assets/images/city/buildings/library/complete.png";
+
+import mediaCenterMain from "../assets/images/city/buildings/media-center/main.png";
+import mediaCenterActive from "../assets/images/city/buildings/media-center/active.png";
+import mediaCenterComplete from "../assets/images/city/buildings/media-center/complete.png";
+
+import spaceCommonwealthMain from "../assets/images/city/buildings/space-commonwealth/main.png";
+import spaceCommonwealthActive from "../assets/images/city/buildings/space-commonwealth/active.png";
+import spaceCommonwealthComplete from "../assets/images/city/buildings/space-commonwealth/complete.png";
+
+import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
+import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
+import posterSquareComplete from "../assets/images/city/buildings/poster-square/complete.png";
+
+import locationBackground from "../assets/images/city/locations/main.jpg";
+
 export type PersonId = "schoolboy" | "student" | "expert";
 
 export type LocationId =
@@ -50,7 +72,8 @@ export type LocationId =
     | "poster-square"
     | "space-commonwealth"
     | "media-center"
-    | "library";
+    | "library"
+    | "member-profile";
 
 export type ReplyData = {
     image: string;
@@ -346,6 +369,106 @@ const data: AppData = {
                 background: {
                     main: globalAreaBackground,
                 },
+            },
+        },
+        {
+            id: "member-profile",
+            title: "Профиль участника / вуза",
+            subtitle:
+                "Расскажи о себе или своей организации, чтобы быстро найти единомышленников",
+            position: [942, 489],
+            images: {
+                building: {
+                    main: memberProfileMain,
+                    active: memberProfileActive,
+                    complete: memberProfileComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            baloon: {
+                position: [148, -122],
+            },
+        },
+        {
+            id: "library",
+            title: "Библиотека",
+            subtitle:
+                "Собрали в одном месте материалы по финансовой безопасности. Учись, развивайся или создавай сам!",
+            position: [266, 137],
+            images: {
+                building: {
+                    main: libraryMain,
+                    active: libraryActive,
+                    complete: libraryComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            baloon: {
+                position: [110, -69],
+            },
+        },
+        {
+            id: "media-center",
+            title: "Медиацентр",
+            subtitle:
+                "Следите на событиями, давайте интервью и делитесь экспертизой",
+            position: [-26, 225],
+            images: {
+                building: {
+                    main: mediaCenterMain,
+                    active: mediaCenterActive,
+                    complete: mediaCenterComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            baloon: {
+                position: [91, -72],
+            },
+        },
+        {
+            id: "space-commonwealth",
+            title: "Пространство Содружество",
+            subtitle:
+                "Общайся, публикуй посты, находи единомышленников или наставников",
+            position: [153, 488],
+            images: {
+                building: {
+                    main: spaceCommonwealthMain,
+                    active: spaceCommonwealthActive,
+                    complete: spaceCommonwealthComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            baloon: {
+                position: [106, -108],
+            },
+        },
+        {
+            id: "poster-square",
+            title: "Афишная площадь",
+            subtitle:
+                "Следи за мероприятиями, стажировками и анонсами олимпиад",
+            position: [410, 598],
+            images: {
+                building: {
+                    main: posterSquareMain,
+                    active: posterSquareActive,
+                    complete: posterSquareComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            baloon: {
+                position: [241, -52],
             },
         },
     ],
