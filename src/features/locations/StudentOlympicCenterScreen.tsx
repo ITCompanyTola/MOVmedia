@@ -12,8 +12,9 @@ import type { LocationScreenProps } from "./types";
 import styles from "./OlympicCenterLocation.module.css";
 import { ChevronRight } from "lucide-react";
 
-import schoolboyThink from "../../assets/images/persons/schoolboy/think.png";
-import schoolboyKlass from "../../assets/images/persons/schoolboy/klass.png";
+import studentThink from "../../assets/images/persons/student/think.png";
+import studentKlass from "../../assets/images/persons/student/klass.png";
+import studentNodBottom from "../../assets/images/persons/student/nod-bottom.png";
 import { useAppStore } from "../../store/useAppStore";
 
 const answers: QuizAnswerData[] = [
@@ -107,7 +108,7 @@ const answers: QuizAnswerData[] = [
     },
 ];
 
-export function OlympicCenterScreen({
+export function StudentOlympicCenterScreen({
     person,
     isCompleted,
     setReply,
@@ -124,7 +125,7 @@ export function OlympicCenterScreen({
     const handleStart = () => {
         setStep("question");
         setReply({
-            image: person.image,
+            image: studentThink,
             text: "Давай освежим твои знания по финансовой грамотности перед Олимпиадой?\n**Выбери правильный ответ**",
         });
     };
@@ -166,7 +167,7 @@ export function OlympicCenterScreen({
                         answers={answers}
                         wrongReplies={[
                             {
-                                image: schoolboyThink,
+                                image: studentNodBottom,
                                 text: "Не совсем так, попробуй ещё раз",
                             },
                             {
@@ -175,7 +176,7 @@ export function OlympicCenterScreen({
                             },
                         ]}
                         successReply={{
-                            image: schoolboyKlass,
+                            image: studentKlass,
                             text: "**Это верный ответ!**\nВозвращайся на карту и выбирай следующую локацию",
                         }}
                         setReply={setReply}

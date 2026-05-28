@@ -44,6 +44,7 @@ import globalAreaBackground from "../assets/images/city/locations/global-area/ma
 import memberProfileMain from "../assets/images/city/buildings/member-profile/main.png";
 import memberProfileActive from "../assets/images/city/buildings/member-profile/active.png";
 import memberProfileComplete from "../assets/images/city/buildings/member-profile/complete.png";
+import memberProfileBackground from "../assets/images/city/locations/member-profile/background.png";
 
 import libraryMain from "../assets/images/city/buildings/library/main.png";
 import libraryActive from "../assets/images/city/buildings/library/active.png";
@@ -244,6 +245,7 @@ const data: AppData = {
                 "member-profile",
                 "poster-square",
                 "space-commonwealth",
+                "olympic-center",
             ],
         },
         {
@@ -394,7 +396,7 @@ const data: AppData = {
                     complete: memberProfileComplete,
                 },
                 background: {
-                    main: locationBackground,
+                    main: memberProfileBackground,
                 },
             },
             baloon: {

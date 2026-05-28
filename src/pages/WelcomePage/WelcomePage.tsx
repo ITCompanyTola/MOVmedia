@@ -13,6 +13,7 @@ import reviewCard2 from "../../assets/images/city/welcome/welcome-page-review-ca
 import reviewCard3 from "../../assets/images/city/welcome/welcome-page-review-card-3.png";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store/useAppStore";
+import { publishBroadcastState } from "../../utils/broadcast";
 
 type Step = "start" | "overview" | "review" | "choice";
 const startVideoDelay = 3000;
@@ -58,6 +59,7 @@ function WelcomePage() {
 
     const handleReviewMessage = () => {
         setStep("choice");
+        publishBroadcastState({ screen: "choice" });
     };
 
     const handleSelectPerson = (personId: string) => {
@@ -76,6 +78,8 @@ function WelcomePage() {
     };
 
     useEffect(() => {
+        publishBroadcastState({ screen: "main" });
+
         return () => {
             if (startFadeTimerRef.current) {
                 clearTimeout(startFadeTimerRef.current);

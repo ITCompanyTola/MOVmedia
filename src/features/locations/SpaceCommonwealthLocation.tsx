@@ -1,6 +1,5 @@
-import type { LocationModule } from "./types";
-
 import { StudentSpaceCommonwealthScreen } from "./StudentSpaceCommonwealthScreen";
+import type { LocationModule } from "./types";
 
 export const spaceCommonwealthLocation: LocationModule = {
     id: "space-commonwealth",
