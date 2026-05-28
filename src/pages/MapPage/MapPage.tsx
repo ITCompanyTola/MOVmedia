@@ -11,6 +11,7 @@ import type { LocationId } from "../../data/data";
 import { Building } from "../../components/ui/Building/Building";
 import { Location } from "../../components/ui/Location/Location";
 import { FinalScreen } from "../../components/ui/FinalScreen/FinalScreen";
+import { publishBroadcastState } from "../../utils/broadcast";
 
 export function MapPage() {
     const { activeLocation, setActiveLocation, completedLocations } =
@@ -45,6 +46,27 @@ export function MapPage() {
             window.clearTimeout(timeoutId);
         };
     }, [isFinalScreenReady, isFinalScreenVisible]);
+
+    useEffect(() => {
+        if (!person || activeLocation) {
+            return;
+        }
+
+        if (isFinalScreenVisible) {
+            publishBroadcastState({ screen: "final" });
+            return;
+        }
+
+        if (activeBuildings) {
+            publishBroadcastState({ screen: "completeMap" });
+            return;
+        }
+
+        publishBroadcastState({
+            screen: "start",
+            personId: person.id,
+        });
+    }, [activeBuildings, activeLocation, isFinalScreenVisible, person]);
 
     if (!person) {
         return <Navigate to="/" replace />;

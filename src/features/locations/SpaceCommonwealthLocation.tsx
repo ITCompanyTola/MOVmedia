@@ -24,6 +24,10 @@ export const spaceCommonwealthLocation: LocationModule = {
       return <SpaceCommonwealthRepresendScreen {...props} />;
     }
 
+    if (props.person.id === "student") {
+        return <StudentSpaceCommonwealthScreen {...props} />;
+    }
+    
     return <SpaceCommonwealthScreen {...props} />;
   },
 };

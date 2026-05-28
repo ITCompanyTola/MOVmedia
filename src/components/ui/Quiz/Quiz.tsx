@@ -2,9 +2,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import clsx from "clsx";
 import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
-import type { ReplyData } from "../../../data/data";
+import type { PersonId, ReplyData } from "../../../data/data";
 import styles from "./Quiz.module.css";
 import { ChevronRight } from "lucide-react";
+import {
+    publishBroadcastState,
+    type BroadcastQuizId,
+} from "../../../utils/broadcast";
 
 type QuizQuestionData = {
     text: ReactNode;
@@ -30,6 +34,8 @@ type QuizProps = {
     wrongDuration?: number;
     continueText?: string;
     className?: string;
+    broadcastPersonId?: PersonId;
+    broadcastQuizId?: BroadcastQuizId;
     onCorrect?: () => void;
     onContinue: () => void;
 };
@@ -112,6 +118,8 @@ export function Quiz({
     wrongDuration = 2000,
     continueText = "Продолжить",
     className,
+    broadcastPersonId,
+    broadcastQuizId = "quiz",
     onCorrect,
     onContinue,
 }: QuizProps) {
@@ -138,6 +146,14 @@ export function Quiz({
             setCorrectAnswerId(answer.id);
             setWrongAnswerId(null);
             setBackgroundVariant?.("complete");
+            if (broadcastPersonId) {
+                publishBroadcastState({
+                    screen: "quiz",
+                    personId: broadcastPersonId,
+                    quizId: broadcastQuizId,
+                    result: "true",
+                });
+            }
             if (successReply) {
                 setReply?.(successReply);
             }
@@ -157,6 +173,14 @@ export function Quiz({
 
         setWrongAnswerId(answer.id);
         setBackgroundVariant?.("error");
+        if (broadcastPersonId) {
+            publishBroadcastState({
+                screen: "quiz",
+                personId: broadcastPersonId,
+                quizId: broadcastQuizId,
+                result: "false",
+            });
+        }
         wrongTimerRef.current = setTimeout(() => {
             setWrongAnswerId(null);
             wrongTimerRef.current = null;
@@ -164,6 +188,19 @@ export function Quiz({
     };
 
     useEffect(() => clearWrongTimer, []);
+
+    useEffect(() => {
+        if (!broadcastPersonId) {
+            return;
+        }
+
+        publishBroadcastState({
+            screen: "quiz",
+            personId: broadcastPersonId,
+            quizId: broadcastQuizId,
+            result: "idle",
+        });
+    }, [broadcastPersonId, broadcastQuizId]);
 
     return (
         <div className={clsx(styles.quiz, className)}>

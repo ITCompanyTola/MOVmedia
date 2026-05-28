@@ -306,4 +306,57 @@
   bottom: 0;
   right: 0;
   z-index: 2;
+.intro {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.introCard {
+    max-width: 500px;
+}
+
+.introButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.videoPlayer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 315px;
+    height: 650px;
+    padding: 15px;
+    background: url("../../assets/images/city/locations/space-commonwealth/mockup.png")
+        center top / 100% 100% no-repeat;
+}
+
+.videoPlayer:after {
+    content: url("../../assets/images/city/locations/space-commonwealth/notch.png");
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.videoPlayer video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 38px;
+    overflow: hidden;
 }

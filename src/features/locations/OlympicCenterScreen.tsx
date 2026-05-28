@@ -180,6 +180,8 @@ export function OlympicCenterScreen({
                         }}
                         setReply={setReply}
                         setBackgroundVariant={setBackgroundVariant}
+                        broadcastPersonId={person.id}
+                        broadcastQuizId="quiz"
                         onCorrect={handleCorrectAnswer}
                         onContinue={closeLocation}
                         continueText="Продолжить"

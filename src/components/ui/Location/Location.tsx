@@ -7,10 +7,11 @@ import data, {
     type ReplyData,
 } from "../../../data/data";
 import { Text } from "../Text/Text";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Reply } from "../Reply/Reply";
 import { getLocationModule } from "../../../features/locations/registry";
 import type { LocationBackgroundVariant } from "../../../features/locations/types";
+import { publishBroadcastState } from "../../../utils/broadcast";
 
 export function Location() {
     const { person, activeLocation } = useAppStore();
@@ -67,6 +68,10 @@ function LocationContent({ person, location }: LocationContentProps) {
             locationModule.background ??
             location.images.background.main,
     };
+
+    useEffect(() => {
+        publishBroadcastState({ screen: "noInteractive" });
+    }, [location.id, person.id]);
 
     return (
         <div className={clsx("bg", styles.location)}>

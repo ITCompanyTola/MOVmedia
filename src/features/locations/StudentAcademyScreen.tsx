@@ -174,6 +174,8 @@ export function StudentAcademyScreen({
                         }}
                         setReply={setReply}
                         setBackgroundVariant={setBackgroundVariant}
+                        broadcastPersonId={person.id}
+                        broadcastQuizId="quiz2"
                         onCorrect={handleCorrectAnswer}
                         onContinue={closeLocation}
                         continueText="Продолжить"

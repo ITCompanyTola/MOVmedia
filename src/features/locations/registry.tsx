@@ -14,6 +14,7 @@ import { memberProfileRepresentativeLocation } from "./MemberProfileRepresentati
 import { mediaCenterExpertLocation } from "./MediaCenterExpertLocation";
 import { libraryExpertLocation } from "./LibraryExpertLocation";
 import { posterSquareExpertLocation } from "./PosterSquareExpertLocation";
+import { memberProfileLocation } from "./MemberProfileLocation";
 
 const modules: Partial<Record<LocationId, LocationModule>> = {
   "olympic-center": olympicCenterLocation,
@@ -22,6 +23,7 @@ const modules: Partial<Record<LocationId, LocationModule>> = {
   "career-center": careerCenterLocation,
   "poster-square": posterSquareLocation,
   "space-commonwealth": spaceCommonwealthLocation,
+  "member-profile": memberProfileLocation,
 };
 
 const personModules: Partial<
