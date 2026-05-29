@@ -23,8 +23,7 @@ export function StudentPosterSquareScreen({
     closeLocation,
 }: LocationScreenProps) {
     const [step, setStep] = useState<"intro" | "choice" | "events">("intro");
-    const [isCybersecurityChecked, setIsCybersecurityChecked] =
-        useState(false);
+    const [isCybersecurityChecked, setIsCybersecurityChecked] = useState(false);
 
     const handleStart = () => {
         setStep("choice");
@@ -268,7 +267,10 @@ export function StudentPosterSquareScreen({
                                         variant="body-m"
                                         className={styles.eventsListItemTitle}
                                     >
-                                        Конференция GLOBAL TЕCH FORUM 2026
+                                        <div>
+                                            Конференция GLOBAL <br /> TЕCH FORUM
+                                            2026
+                                        </div>
                                     </Text>
                                 </div>
                                 <div className={styles.eventsListItemImage}>

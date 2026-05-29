@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Reply } from "../../components/ui/Reply/Reply";
 import data from "../../data/data";
-import type { LocationId } from "../../data/data";
+import type { LocationId, ReplyData } from "../../data/data";
 import { Building } from "../../components/ui/Building/Building";
 import { Location } from "../../components/ui/Location/Location";
 import { FinalScreen } from "../../components/ui/FinalScreen/FinalScreen";
@@ -19,6 +19,7 @@ export function MapPage() {
     const { person } = useAppStore();
     const [start, setStart] = useState(true);
     const [startStep, setStartStep] = useState(0);
+    const [mapReply, setMapReply] = useState<ReplyData | null>(null);
     const [isFinalScreenVisible, setIsFinalScreenVisible] = useState(false);
     const activeBuildings = person
         ? startStep >= person.replies.start.length - 2
@@ -73,6 +74,7 @@ export function MapPage() {
     }
 
     const handleNextStartStep = () => {
+        setMapReply(null);
         setStartStep((prev) =>
             Math.min(prev + 1, person.replies.start.length - 1),
         );
@@ -81,10 +83,15 @@ export function MapPage() {
     const handleLocationClick = (id: LocationId) => {
         if (showDefaultBuildings) return;
         if (!activeBuildings) return;
-        if (!person.locations.includes(id)) return;
+        if (!person.locations.includes(id)) {
+            setStart(false);
+            setMapReply(person.replies.lockedLocation);
+            return;
+        }
         if (completedLocations.includes(id)) return;
 
         setStart(false);
+        setMapReply(null);
         setActiveLocation(id);
     };
 
@@ -103,7 +110,10 @@ export function MapPage() {
                     <Reply
                         align={person.replies.align || "left"}
                         message="aside"
-                        reply={person.replies.start[person.replies.start.length - 1]}
+                        reply={
+                            mapReply ??
+                            person.replies.start[person.replies.start.length - 1]
+                        }
                     />
                 )}
                 {isFinalScreenVisible && <FinalScreen person={person} />}

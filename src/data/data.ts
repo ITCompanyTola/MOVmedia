@@ -174,7 +174,8 @@ const data: AppData = {
                         image: schoolboyMain,
                     },
                     {
-                        action: "**Жми на следующую локацию**\nНажми на здание, чтобы начать",
+                        text: "**Жми на следующую локацию**",
+                        action: "Нажми на здание, чтобы начать",
                         image: schoolboyMain,
                     },
                 ],
@@ -228,7 +229,8 @@ const data: AppData = {
                         image: studentSpeak,
                     },
                     {
-                        action: "**Жми на следующую локацию** Нажми на здание, чтобы начать",
+                        text: "**Жми на следующую локацию**",
+                        action: "Нажми на здание, чтобы начать",
                         image: studentMain,
                     },
                 ],
@@ -347,7 +349,6 @@ const data: AppData = {
                     },
                 ],
                 lockedLocation: {
-                    title: "Увы, эта локация пока закрыта",
                     text: "**Увы, эта локация пока закрыта**\nДавайте вернёмся к тем, которые будут вам полезны",
                     action: "Нажмите на здание, чтобы начать",
                     image: expertSadness,
