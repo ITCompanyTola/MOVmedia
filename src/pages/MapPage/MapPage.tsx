@@ -12,6 +12,7 @@ import { Building } from "../../components/ui/Building/Building";
 import { Location } from "../../components/ui/Location/Location";
 import { FinalScreen } from "../../components/ui/FinalScreen/FinalScreen";
 import { publishBroadcastState } from "../../utils/broadcast";
+import { recordFinalReached } from "../../utils/gameStats";
 
 export function MapPage() {
     const { activeLocation, setActiveLocation, completedLocations } =
@@ -54,6 +55,7 @@ export function MapPage() {
         }
 
         if (isFinalScreenVisible) {
+            recordFinalReached();
             publishBroadcastState({ screen: "final" });
             return;
         }
