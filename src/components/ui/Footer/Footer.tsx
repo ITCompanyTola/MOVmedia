@@ -8,6 +8,10 @@ import logoLight from "../../../assets/images/components/footer/logo-light.svg";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../../store/useAppStore";
 import { LogOut } from "lucide-react";
+import {
+    finishCurrentSession,
+    recordExitBeforeFinal,
+} from "../../../utils/gameStats";
 
 type Props = {
     theme?: "dark" | "light";
@@ -16,10 +20,27 @@ type Props = {
 
 export const Footer = ({ theme = "dark", className }: Props) => {
     const navigate = useNavigate();
-    const { setActiveLocation, clearCompletedLocation, openModal } =
-        useAppStore();
+    const {
+        person,
+        activeLocation,
+        completedLocations,
+        setActiveLocation,
+        clearCompletedLocation,
+        openModal,
+    } = useAppStore();
 
     const handleExit = () => {
+        const completedCount = completedLocations.length;
+        const stage = activeLocation
+            ? `локация ${activeLocation}`
+            : completedCount > 0
+              ? `карта, пройдено локаций: ${completedCount}`
+              : person
+                ? `карта, герой: ${person.id}`
+                : "стартовый экран";
+
+        recordExitBeforeFinal(stage);
+        finishCurrentSession();
         navigate("/");
         setActiveLocation(null);
         clearCompletedLocation();

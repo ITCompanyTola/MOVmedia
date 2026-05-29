@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { LocationId, PersonData } from "../data/data";
+import { recordCompletedLocation } from "../utils/gameStats";
 
 export type ModalType = "merch";
 
@@ -31,7 +32,10 @@ export const useAppStore = create<AppStore>((set) => ({
         set((state) => ({
             completedLocations: state.completedLocations.includes(id)
                 ? state.completedLocations
-                : [...state.completedLocations, id],
+                : (() => {
+                      recordCompletedLocation(id);
+                      return [...state.completedLocations, id];
+                  })(),
         })),
     clearCompletedLocation: () => set({ completedLocations: [] }),
     openModal: (modal) => set({ activeModal: modal }),

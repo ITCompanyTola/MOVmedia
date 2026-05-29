@@ -14,6 +14,7 @@ import reviewCard3 from "../../assets/images/city/welcome/welcome-page-review-ca
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store/useAppStore";
 import { publishBroadcastState } from "../../utils/broadcast";
+import { startGameStats } from "../../utils/gameStats";
 
 type Step = "start" | "overview" | "review" | "choice";
 const startVideoDelay = 3000;
@@ -67,11 +68,13 @@ function WelcomePage() {
     };
 
     const handleStartGame = () => {
-        if (selectedPersonId) {
-            setPerson(
-                data.persons.find((p) => p.id === selectedPersonId) || null,
-            );
+        const selectedPerson =
+            data.persons.find((p) => p.id === selectedPersonId) || null;
+
+        if (selectedPerson) {
+            setPerson(selectedPerson);
             setStarted(true);
+            startGameStats(selectedPerson.id);
         }
 
         navigate("/map");
