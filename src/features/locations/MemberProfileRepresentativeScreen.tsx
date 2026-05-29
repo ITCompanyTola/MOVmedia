@@ -10,7 +10,6 @@ import representativeMain from "../../assets/images/persons/representative/main.
 import representativeFocused from "../../assets/images/persons/representative/focused.png";
 
 import step1Img from "../../assets/images/city/locations/profile/step-1.png";
-import step2Img from "../../assets/images/city/locations/profile/step-2.png";
 
 const answers: QuizAnswerData[] = [
   {
@@ -115,20 +114,16 @@ export function MemberProfileRepresentativeScreen({
   completeLocation,
   closeLocation,
 }: LocationScreenProps) {
-  const [step, setStep] = useState<"step1" | "step2" | "quiz">(
+  const [step, setStep] = useState<"step1" | "quiz">(
     isCompleted ? "quiz" : "step1",
   );
 
   const handleStep1Next = () => {
-    setStep("step2");
-  };
-
-  const handleStep2Next = () => {
     setStep("quiz");
     setBackgroundVariant("complete");
     setReply({
       image: representativeMain,
-      text: "Что из перечисленного **вуз может делать на платформе?**",
+      text: "Как думаете, какие возможности открываются после регистрации на платформе? \n\n**Попробуйте догадаться**",
     });
   };
 
@@ -176,7 +171,7 @@ export function MemberProfileRepresentativeScreen({
             ]}
             successReply={{
               image: representativeMain,
-              text: "**Да, вы правы!** Но другие варианты тоже верны. На платформе ещё много инструментов для продвижения вашего вуза.",
+              text: "**Да, вы правы!** \nНо другие варианты тоже верны. \nНа платформе ещё много инструментов для продвижения вашего вуза. \nПродолжим путешествие?",
             }}
             setReply={setReply}
             setBackgroundVariant={setBackgroundVariant}
@@ -187,21 +182,6 @@ export function MemberProfileRepresentativeScreen({
             continueText="Продолжить"
           />
         </Card>
-      </div>
-    );
-  }
-
-  if (step === "step2") {
-    return (
-      <div className={styles.slide}>
-        <img src={step2Img} className={styles.slideImage} alt="" />
-        <Button
-          size="s"
-          onClick={handleStep2Next}
-          className={styles.continueButton}
-        >
-          Продолжить <ChevronRight />
-        </Button>
       </div>
     );
   }

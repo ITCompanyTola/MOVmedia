@@ -1,81 +1,85 @@
 .quiz {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .quizQuestion {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 24px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
 }
 
 .quizQuestionIcon {
-    width: 64px;
-    height: 64px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quizQuestionIcon svg {
-    width: 44px;
-    height: 44px;
+  width: 44px;
+  height: 44px;
 }
 
 .quizQuestionText {
-    font-weight: var(--weight-semibold);
-    min-height: 100%;
-    display: flex;
-    align-items: center;
+  font-weight: var(--weight-semibold);
+  min-height: 100%;
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+.quizQuestionThin {
+  font-weight: var(--weight-regular, 400);
 }
 
 .quizAnswers {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .quizAnswer {
-    padding: 21px;
-    border: 3px solid var(--brand-white);
-    background: var(--brand-white);
-    border-radius: 24px;
-    transition: 0.5s;
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 20px;
+  padding: 21px;
+  border: 3px solid var(--brand-white);
+  background: var(--brand-white);
+  border-radius: 24px;
+  transition: 0.5s;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
 }
 
 .quizAnswer.quizAnswerCorrect {
-    background: var(--semantic-success-bg);
-    border: 3px solid var(--semantic-success);
+  background: var(--semantic-success-bg);
+  border: 3px solid var(--semantic-success);
 }
 
 .quizAnswer.quizAnswerWrong {
-    background: var(--semantic-error-bg);
-    border: 3px solid var(--semantic-error);
+  background: var(--semantic-error-bg);
+  border: 3px solid var(--semantic-error);
 }
 
 .quizAnswerIcon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .quizAnswerIcon svg {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .quizAnswerText {
-    font-weight: var(--weight-semibold);
-    text-align: left;
-    display: flex;
-    align-items: center;
-    min-height: 100%;
+  font-weight: var(--weight-semibold);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }

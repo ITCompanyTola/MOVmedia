@@ -16,6 +16,7 @@ import expertMain from "../assets/images/persons/expert/main.png";
 import expertHello from "../assets/images/persons/expert/hello.png";
 import expertSadness from "../assets/images/persons/expert/sadness.png";
 import expertTalk from "../assets/images/persons/expert/talk.png";
+import expertNotBottom from "../assets/images/persons/expert/not-bottom.png";
 
 import representativeMain from "../assets/images/persons/representative/main.png";
 import representativeWelcome from "../assets/images/persons/representative/welcome.png";
@@ -289,7 +290,7 @@ const data: AppData = {
                     {
                         text: "**Жмите на следующую локацию**",
                         action: "Нажмите на здание, чтобы начать",
-                        image: expertMain,
+                        image: expertNotBottom,
                     },
                 ],
                 lockedLocation: {
