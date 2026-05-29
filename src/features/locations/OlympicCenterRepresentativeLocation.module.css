@@ -182,6 +182,10 @@
     color: #131418;
 }
 
+.checkboxItemDisabled {
+    cursor: default;
+}
+
 .quiz {
     width: 100%;
     height: 100%;

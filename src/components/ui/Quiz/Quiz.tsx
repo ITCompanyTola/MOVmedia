@@ -47,6 +47,28 @@ type QuizQuestionProps = {
     className?: string;
 };
 
+const renderQuizQuestionText = (children: ReactNode): ReactNode => {
+    if (typeof children !== "string") return children;
+
+    return children.split("\n").map((line, lineIndex, lines) => {
+        const parts = line.split(/(\*[^*]+\*)/g);
+        return (
+            <span key={lineIndex}>
+                {parts.map((part, partIndex) =>
+                    part.startsWith("*") && part.endsWith("*") && part.length > 2 ? (
+                        <span key={partIndex} className={styles.quizQuestionThin}>
+                            {part.slice(1, -1)}
+                        </span>
+                    ) : (
+                        <span key={partIndex}>{part}</span>
+                    ),
+                )}
+                {lineIndex < lines.length - 1 && <br />}
+            </span>
+        );
+    });
+};
+
 export function QuizQuestion({
     children,
     icon,
@@ -64,7 +86,7 @@ export function QuizQuestion({
                 </div>
             )}
             <Text variant="body-m" className={styles.quizQuestionText}>
-                {children}
+                {renderQuizQuestionText(children)}
             </Text>
         </div>
     );
