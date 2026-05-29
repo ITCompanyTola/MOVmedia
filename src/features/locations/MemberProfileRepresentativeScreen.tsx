@@ -108,6 +108,7 @@ const answers: QuizAnswerData[] = [
 ];
 
 export function MemberProfileRepresentativeScreen({
+  person,
   isCompleted,
   setReply,
   setBackgroundVariant,
@@ -179,6 +180,8 @@ export function MemberProfileRepresentativeScreen({
             }}
             setReply={setReply}
             setBackgroundVariant={setBackgroundVariant}
+            broadcastPersonId={person.id}
+            broadcastQuizId="quiz"
             onCorrect={handleCorrectAnswer}
             onContinue={closeLocation}
             continueText="Продолжить"

@@ -1,311 +1,313 @@
 /* intro step */
 .intro {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
 }
 
 .introCard {
-  max-width: 580px;
-  width: 100%;
-  gap: 16px;
+    max-width: 580px;
+    width: 100%;
+    gap: 16px;
 }
 
 .hintRow {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
 }
 
 .hintIcon {
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: var(--brand-orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--brand-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hintText {
-  flex: 1;
-  font-size: var(--text-body-m);
-  line-height: var(--leading-body-m);
-  color: var(--blue-900, #0f0f33);
+    flex: 1;
+    font-size: var(--text-body-m);
+    line-height: var(--leading-body-m);
+    color: var(--blue-900, #0f0f33);
 }
 
 .filterSection {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .filterGroup {
-  background: #e5d3c2;
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    background: #e5d3c2;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .filterGroupHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
 }
 
 .filterGroupTitle {
-  font-size: var(--text-body-m);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-body-m);
-  color: var(--blue-900, #0f0f33);
+    font-size: var(--text-body-m);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-body-m);
+    color: var(--blue-900, #0f0f33);
 }
 
 .filterGroupCollapsed {
-  background: #e5d3c2;
-  border-radius: 16px;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background: #e5d3c2;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dropdownTrigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 18px;
-  border-radius: 16px;
-  border: 2px solid var(--brand-orange);
-  background: #fff;
-  cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 2px solid var(--brand-orange);
+    background: #fff;
+    cursor: default;
 }
 
 .dropdownTriggerText {
-  font-size: var(--text-body-s);
-  font-weight: var(--weight-semibold);
-  color: #4f525a;
+    font-size: var(--text-body-s);
+    font-weight: var(--weight-semibold);
+    color: #4f525a;
 }
 
 .dropdownList {
-  background: #fff;
-  border: 1px solid #e8e9eb;
-  border-radius: 16px;
-  box-shadow: 0 9px 13px 0 rgba(165, 129, 95, 0.27);
-  padding: 8px 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 10;
-  margin-bottom: -55px;
+    background: #fff;
+    border: 1px solid #e8e9eb;
+    border-radius: 16px;
+    box-shadow: 0 9px 13px 0 rgba(165, 129, 95, 0.27);
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    margin-bottom: -55px;
 }
 
 .dropdownList label {
-  padding: 12px 24px;
-  display: grid;
-  grid-template-columns: 20px max-content;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-  user-select: none;
+    padding: 12px 24px;
+    display: grid;
+    grid-template-columns: 20px max-content;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .dropdownList label input {
-  display: none;
+    display: none;
 }
 
 .dropdownList label span {
-  width: 20px;
-  height: 20px;
-  border-radius: 6px;
-  border: 2px solid #d0d2d6;
-  position: relative;
-  transition: 0.15s;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid #d0d2d6;
+    position: relative;
+    transition: 0.15s;
 }
 
 .dropdownList label span::before {
-  content: url("../../assets/images/components/checkbox/check.svg");
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.15s;
+    content: url("../../assets/images/components/checkbox/check.svg");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.15s;
 }
 
 .dropdownList label p {
-  font-weight: 600;
-  transition: 0.15s;
+    font-weight: 600;
+    transition: 0.15s;
 }
 
 .dropdownList label input:checked ~ span {
-  background: var(--brand-orange);
-  border-color: var(--brand-orange);
+    background: var(--brand-orange);
+    border-color: var(--brand-orange);
 }
 
 .dropdownList label input:checked ~ span::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 .dropdownList label input:checked ~ p {
-  color: var(--brand-orange);
+    color: var(--brand-orange);
 }
 
 .dropdownList label input:disabled ~ span {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .dropdownList label input:disabled ~ p {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .introButton {
-  &:disabled {
-    opacity: 0.4;
-  }
+    &:disabled {
+        opacity: 0.4;
+    }
 }
 
 /* screen step */
 .screen {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .screenImages {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .screenPodlozhka {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 .screenProfile {
-  max-width: 840px;
-  position: absolute;
-  top: 16.6%;
-  border-radius: 20px;
+    max-width: 840px;
+    position: absolute;
+    top: 16.6%;
+    border-radius: 20px;
 }
 
 .screenButton {
-  min-width: 200px;
-  position: absolute;
-  bottom: 30px;
+    min-width: 200px;
+    position: absolute;
+    bottom: 30px;
 }
 
 /* buttons step */
 .buttons {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .buttonsCard {
-  max-width: 494px;
+    max-width: 494px;
 }
 
 .buttonsTitle {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.15;
-  color: #131418;
-  margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #131418;
+    margin-bottom: 8px;
 }
 
 .buttonsList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
 }
 
 .actionButton {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .video {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .phoneMockup {
-  position: relative;
-  border: 2px solid #1a1a1a;
-  border-radius: 50px;
-  background: #fff;
-  box-shadow:
-    0 0 0 8px #f4f4f4,
-    0 0 0 10px #d8d8d8;
-  width: 270px;
-  height: 580px;
-  flex-shrink: 0;
-  overflow: hidden;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    border: 2px solid #1a1a1a;
+    border-radius: 50px;
+    background: #fff;
+    box-shadow:
+        0 0 0 8px #f4f4f4,
+        0 0 0 10px #d8d8d8;
+    width: 270px;
+    height: 580px;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .phoneMockupIsland {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 28px;
-  background: #000;
-  border-radius: 20px;
-  z-index: 2;
-  flex-shrink: 0;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 28px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 2;
+    flex-shrink: 0;
 }
 
 .phoneMockupScreen {
-  flex: 1;
-  border-radius: 40px;
-  overflow: hidden;
-  background: #000;
+    flex: 1;
+    border-radius: 40px;
+    overflow: hidden;
+    background: #000;
 }
 
 .videoElement {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .backButton {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .continueButton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
 .intro {
     display: flex;
     align-items: flex-end;
@@ -359,4 +361,9 @@
     object-fit: cover;
     border-radius: 38px;
     overflow: hidden;
+}
+
+.selectCard {
+    max-width: 600px;
+    width: 600px;
 }

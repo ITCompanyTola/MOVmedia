@@ -3,13 +3,13 @@ import { MediaCenterExpertScreen } from "./MediaCenterExpertScreen";
 import interiorBg from "../../assets/images/city/locations/poster-square/main.jpg";
 
 export const mediaCenterExpertLocation: LocationModule = {
-  id: "media-center",
-  background: interiorBg,
+    id: "media-center",
+    background: interiorBg,
 
-  getInitialReply: (person) => ({
-    image: person.image,
-    text: "В Медиацентре мы публикуем новости и лучший экспертный контент \n\n**Станьте тем, чей контент найдёт отклик у аудитории!**",
-  }),
+    getInitialReply: (person) => ({
+        image: person.image,
+        text: "В Медиацентре мы публикуем новости и лучший экспертный контент\n**Станьте тем, чей контент найдёт отклик у аудитории!**",
+    }),
 
-  render: (props) => <MediaCenterExpertScreen {...props} />,
+    render: (props) => <MediaCenterExpertScreen {...props} />,
 };

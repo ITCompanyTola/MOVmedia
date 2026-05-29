@@ -1,121 +1,120 @@
 import { useState } from "react";
-import { Button } from "../../components/ui/Button/Button";
 import { Card, CardTitle } from "../../components/ui/Card/Card";
 import type { LocationScreenProps } from "./types";
 import styles from "./SpaceCommonwealthLocation.module.css";
+
+import { Button } from "../../components/ui/Button/Button";
 import { ChevronRight } from "lucide-react";
 
-import newPostVideo from "../../assets/videos/city/locations/new_post.webm";
-import joinCommunityVideo from "../../assets/videos/city/locations/join_community.webm";
-import createCommunityVideo from "../../assets/videos/city/locations/create_community.webm";
-
-type VideoStep = "new_post" | "join_community" | "create_community";
+import publishVideo from "../../assets/video/space-commonwealth/publish.webm";
+import inviteVideo from "../../assets/video/space-commonwealth/invite.webm";
+import createVideo from "../../assets/video/space-commonwealth/create.webm";
 
 export function SpaceCommonwealthScreen({
-    setReply,
     person,
+    setReply,
     completeLocation,
     closeLocation,
 }: LocationScreenProps) {
-    const [step, setStep] = useState<"buttons" | VideoStep>("buttons");
+    const [step, setStep] = useState<"intro" | "publish" | "invite" | "create">(
+        "intro",
+    );
 
-    const handleVideoSelect = (selected: VideoStep, replyText: string) => {
-        setStep(selected);
-        setReply({ image: person.image, text: replyText });
+    const handleVideo = (step: "intro" | "publish" | "invite" | "create") => {
+        if (step === "publish") {
+            setReply({
+                image: person.image,
+                text: "Вы можете публиковать разборы, экспертные мнения — и сразу получать обратную связь от сообщества",
+            });
+        }
+
+        if (step === "invite") {
+            setReply({
+                image: person.image,
+                text: "В Содружестве много профессиональных сообществ, где ждут экспертов по вашей теме",
+            });
+        }
+
+        if (step === "create") {
+            setReply({
+                image: person.image,
+                text: "Если не нашли подходящее сообщество, создайте своё.\nПриглашайте коллег, запускайте обсуждения и объединяйте людей вокруг важных профессиональных тем",
+            });
+        }
+
+        setStep(step);
     };
 
-    const handleBack = () => {
-        setStep("buttons");
-    };
-
-    const handleContinue = () => {
+    const handleComplete = () => {
         completeLocation();
         closeLocation();
     };
 
-    const videoSrc: Record<VideoStep, string> = {
-        new_post: newPostVideo,
-        join_community: joinCommunityVideo,
-        create_community: createCommunityVideo,
-    };
-
-    if (step !== "buttons") {
+    if (step === "publish" || step === "invite" || step === "create") {
         return (
             <div className={styles.video}>
-                <div className={styles.phoneMockup}>
-                    <div className={styles.phoneMockupIsland} />
-                    <div className={styles.phoneMockupScreen}>
+                <div className={styles.videoPlayer}>
+                    {step === "publish" && (
                         <video
-                            key={step}
-                            className={styles.videoElement}
-                            src={videoSrc[step]}
+                            src={publishVideo}
                             autoPlay
+                            muted
+                            playsInline
                             loop
-                        />
-                    </div>
+                        ></video>
+                    )}
+                    {step === "invite" && (
+                        <video
+                            src={inviteVideo}
+                            autoPlay
+                            muted
+                            playsInline
+                            loop
+                        ></video>
+                    )}
+                    {step === "create" && (
+                        <video
+                            src={createVideo}
+                            autoPlay
+                            muted
+                            playsInline
+                            loop
+                        ></video>
+                    )}
                 </div>
-                <Button
-                    size="s"
-                    variant="secondary"
-                    className={styles.backButton}
-                    onClick={handleBack}
-                >
-                    Назад
-                </Button>
-                <Button
-                    size="s"
-                    className={styles.continueButton}
-                    onClick={handleContinue}
-                >
-                    Продолжить <ChevronRight />
+                <Button size="s" onClick={handleComplete}>
+                    Продолжить
+                    <ChevronRight />
                 </Button>
             </div>
         );
     }
 
     return (
-        <div className={styles.buttons}>
-            <Card className={styles.buttonsCard}>
-                <CardTitle className={styles.buttonsTitle}>
-                    Выберите функцию, которая будет для вас полезной
+        <div className={`${styles.intro}`}>
+            <Card className={`${styles.introCard}`}>
+                <CardTitle>
+                    С какой из функций ты хочешь познакомиться ближе?
                 </CardTitle>
-                <div className={styles.buttonsList}>
+                <div className={`${styles.introButtons}`}>
                     <Button
                         size="s"
                         fullWidth
-                        className={styles.actionButton}
-                        onClick={() =>
-                            handleVideoSelect(
-                                "new_post",
-                                "Смотрите, как легко публиковать новый пост в Пространстве Содружество",
-                            )
-                        }
+                        onClick={() => handleVideo("publish")}
                     >
                         Опубликовать новый пост <ChevronRight />
                     </Button>
                     <Button
                         size="s"
                         fullWidth
-                        className={styles.actionButton}
-                        onClick={() =>
-                            handleVideoSelect(
-                                "join_community",
-                                "Присоединяйтесь к сообществам единомышленников!",
-                            )
-                        }
+                        onClick={() => handleVideo("invite")}
                     >
                         Вступить в сообщество <ChevronRight />
                     </Button>
                     <Button
                         size="s"
                         fullWidth
-                        className={styles.actionButton}
-                        onClick={() =>
-                            handleVideoSelect(
-                                "create_community",
-                                "Создайте своё сообщество и объединяйте экспертов",
-                            )
-                        }
+                        onClick={() => handleVideo("create")}
                     >
                         Создать свое сообщество <ChevronRight />
                     </Button>

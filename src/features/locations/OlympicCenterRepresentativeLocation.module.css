@@ -1,313 +1,313 @@
 .intro {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .introCards {
-  display: flex;
-  align-items: flex-end;
-  gap: 27px;
+    display: flex;
+    align-items: flex-end;
+    gap: 27px;
 }
 
 .introCard {
-  max-width: 493px;
-  width: 493px;
+    max-width: 493px;
+    width: 493px;
 }
 
 .serviceLabel {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: var(--text-caption);
-  line-height: var(--leading-caption);
-  color: var(--blue-900, #0f0f33);
-  font-weight: var(--weight-regular);
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+    color: var(--blue-900, #0f0f33);
+    font-weight: var(--weight-regular);
+    white-space: nowrap;
 }
 
 .introCardTitle {
-  font-size: var(--text-body-l);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-body-l);
-  color: var(--blue-900, #0f0f33);
+    font-size: var(--text-body-l);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-body-l);
+    color: var(--blue-900, #0f0f33);
 }
 
 .introCardHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
 }
 
 .serviceDescription {
-  font-size: var(--text-body-m);
-  line-height: var(--leading-body-m);
-  color: var(--blue-900, #0f0f33);
+    font-size: var(--text-body-m);
+    line-height: var(--leading-body-m);
+    color: var(--blue-900, #0f0f33);
 }
 
 .serviceCanSection {
-  border: 1px solid rgba(90, 32, 5, 0.2);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    border: 1px solid rgba(90, 32, 5, 0.2);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .serviceCanTitle {
-  font-size: var(--text-body-m);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-body-m);
-  color: var(--blue-900, #0f0f33);
+    font-size: var(--text-body-m);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-body-m);
+    color: var(--blue-900, #0f0f33);
 }
 
 .serviceBulletItems {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .serviceBulletRow {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
 }
 
 .serviceBulletIconBox {
-  background: var(--brand-orange);
-  border-radius: var(--radius-sm);
-  padding: 4px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+    background: var(--brand-orange);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
 }
 
 .serviceBulletText {
-  font-size: var(--text-body-m);
-  line-height: var(--leading-body-m);
-  color: var(--blue-900, #0f0f33);
-  flex: 1;
+    font-size: var(--text-body-m);
+    line-height: var(--leading-body-m);
+    color: var(--blue-900, #0f0f33);
+    flex: 1;
 }
 
 /* parameters step */
 .parameters {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
 }
 
 .parametersCard {
-  max-width: 592px;
-  width: 100%;
-  gap: 16px;
+    max-width: 592px;
+    width: 100%;
+    gap: 16px;
 }
 
 .parametersInner {
-  background: #fff;
-  border-radius: 12px;
-  padding: 16px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
 }
 
 .parametersTitle {
-  font-size: 24px;
-  font-weight: 600;
-  color: #131418;
-  margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #131418;
+    margin-bottom: 12px;
 }
 
 .checkboxList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .checkboxItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 10px;
-  user-select: none;
-  transition: border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 10px;
+    user-select: none;
+    transition: border-color 0.15s;
 }
 
 .checkboxBox {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(90, 32, 5, 0.25);
-  border-radius: 4px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background 0.15s,
-    border-color 0.15s;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(90, 32, 5, 0.25);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background 0.15s,
+        border-color 0.15s;
 }
 
 .checkboxBoxChecked {
-  background: #f46248;
-  border-color: #f46248;
+    background: #f46248;
+    border-color: #f46248;
 }
 
 .checkboxBoxRadio {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 .selectItemWrong {
-  border-color: #f46248;
-  background: rgba(244, 98, 72, 0.06);
+    border-color: #f46248;
+    background: rgba(244, 98, 72, 0.06);
 }
 
 .radioDotInner {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #f46248;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f46248;
 }
 
 .checkboxLabel {
-  font-size: 20px;
-  color: #131418;
+    font-size: 20px;
+    color: #131418;
 }
 
 .quiz {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
 }
 
 .quizCard {
-  max-width: 592px;
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-  gap: 16px;
-  padding: 24px;
+    max-width: 592px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    gap: 16px;
+    padding: 24px;
 }
 
 .quizHeader {
-  background: #e5d3c2;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 16px;
+    background: #e5d3c2;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
 }
 
 .quizHeaderTitle {
-  font-size: 20px;
-  font-weight: 400;
-  color: #131418;
+    font-size: 20px;
+    font-weight: 400;
+    color: #131418;
 }
 
 .quizBody {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: #fff;
-  border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #fff;
+    border-radius: 12px;
 }
 
 .quizBodyTitle {
-  font-size: 24px;
-  font-weight: 600;
-  color: #131418;
+    font-size: 24px;
+    font-weight: 600;
+    color: #131418;
 }
 
 .radioList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .radioItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  user-select: none;
-  transition: border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.15s;
 }
 
 .radioItemSelected {
-  border-color: #f46248;
+    border-color: #f46248;
 }
 
 .radioItemCorrect {
-  background: rgba(76, 175, 80, 0.06);
+    background: rgba(76, 175, 80, 0.06);
 }
 
 .radioItemWrong {
-  border-color: #f46248;
-  background: rgba(244, 98, 72, 0.06);
+    border-color: #f46248;
+    background: rgba(244, 98, 72, 0.06);
 }
 
 .radioCircle {
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(90, 32, 5, 0.25);
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.15s;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(90, 32, 5, 0.25);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s;
 }
 
 .radioCircleFilled {
-  border-color: #f46248;
+    border-color: #f46248;
 }
 
 .radioDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #f46248;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f46248;
 }
 
 .radioLabel {
-  font-size: 14px;
-  color: #131418;
+    font-size: 14px;
+    color: #131418;
 }
 
 .quizActions {
-  & button:disabled {
-    opacity: 0.4;
-  }
+    & button:disabled {
+        opacity: 0.4;
+    }
 }
 
 .parametersButton {
-  width: 100%;
+    width: 100%;
 
-  &:disabled {
-    opacity: 0.4;
-  }
+    &:disabled {
+        opacity: 0.4;
+    }
 }
 
 .quizHeaderPecil {
-  display: flex;
-  width: 34px;
-  height: 34px;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1/1;
-  border-radius: 6.375px;
-  background: var(--color-brand-orange, #ea5614);
+    display: flex;
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 6.375px;
+    background: var(--color-brand-orange, #ea5614);
 }

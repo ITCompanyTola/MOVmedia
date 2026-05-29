@@ -13,25 +13,42 @@ import schoolboyQuizFalse from "../../assets/images/broadcast/schoolboy/quiz-fal
 import schoolboyQuiz2 from "../../assets/images/broadcast/schoolboy/quiz-2.jpg";
 import schoolboyQuiz2True from "../../assets/images/broadcast/schoolboy/quiz-2-true.jpg";
 import schoolboyQuiz2False from "../../assets/images/broadcast/schoolboy/quiz-2-false.jpg";
+
+import studentStart from "../../assets/images/broadcast/student/start.jpg";
+import studentQuiz from "../../assets/images/broadcast/student/quiz.jpg";
+import studentQuizTrue from "../../assets/images/broadcast/student/quiz-true.jpg";
+import studentQuizFalse from "../../assets/images/broadcast/student/quiz-false.jpg";
+import studentQuiz2 from "../../assets/images/broadcast/student/quiz-2.jpg";
+import studentQuiz2True from "../../assets/images/broadcast/student/quiz-2-true.jpg";
+import studentQuiz2False from "../../assets/images/broadcast/student/quiz-2-false.jpg";
+
+import expertStart from "../../assets/images/broadcast/expert/start.jpg";
+import expertQuiz from "../../assets/images/broadcast/expert/quiz.jpg";
+import expertQuizTrue from "../../assets/images/broadcast/expert/quiz-true.jpg";
+import expertQuizFalse from "../../assets/images/broadcast/expert/quiz-false.jpg";
+
+import representativeStart from "../../assets/images/broadcast/expert/representative/start.jpg";
+import representativeQuiz from "../../assets/images/broadcast/expert/representative/quiz.jpg";
+import representativeQuizTrue from "../../assets/images/broadcast/expert/representative/quiz-true.jpg";
+import representativeQuizFalse from "../../assets/images/broadcast/expert/representative/quiz-false.jpg";
+import representativeQuiz2 from "../../assets/images/broadcast/expert/representative/quiz-2.jpg";
+import representativeQuiz2True from "../../assets/images/broadcast/expert/representative/quiz-2-true.jpg";
 import {
     getSavedBroadcastState,
     subscribeBroadcastState,
+    type BroadcastQuizResult,
     type BroadcastState,
 } from "../../utils/broadcast";
 import type { PersonId } from "../../data/data";
 
+type QuizBroadcastImages = Partial<Record<BroadcastQuizResult, string>> & {
+    idle: string;
+};
+
 type PersonBroadcastImages = {
     start: string;
-    quiz: {
-        idle: string;
-        true: string;
-        false: string;
-    };
-    quiz2: {
-        idle: string;
-        true: string;
-        false: string;
-    };
+    quiz: QuizBroadcastImages;
+    quiz2?: QuizBroadcastImages;
 };
 
 const images: {
@@ -61,6 +78,39 @@ const images: {
             false: schoolboyQuiz2False,
         },
     },
+    student: {
+        start: studentStart,
+        quiz: {
+            idle: studentQuiz,
+            true: studentQuizTrue,
+            false: studentQuizFalse,
+        },
+        quiz2: {
+            idle: studentQuiz2,
+            true: studentQuiz2True,
+            false: studentQuiz2False,
+        },
+    },
+    expert: {
+        start: expertStart,
+        quiz: {
+            idle: expertQuiz,
+            true: expertQuizTrue,
+            false: expertQuizFalse,
+        },
+    },
+    representative: {
+        start: representativeStart,
+        quiz: {
+            idle: representativeQuiz,
+            true: representativeQuizTrue,
+            false: representativeQuizFalse,
+        },
+        quiz2: {
+            idle: representativeQuiz2,
+            true: representativeQuiz2True,
+        },
+    },
 };
 
 const getBroadcastImage = (state: BroadcastState) => {
@@ -73,8 +123,11 @@ const getBroadcastImage = (state: BroadcastState) => {
     }
 
     if (state.screen === "quiz") {
+        const quizImages = images[state.personId]?.[state.quizId];
+
         return (
-            images[state.personId]?.[state.quizId]?.[state.result] ??
+            quizImages?.[state.result] ??
+            quizImages?.idle ??
             images.common.main
         );
     }
