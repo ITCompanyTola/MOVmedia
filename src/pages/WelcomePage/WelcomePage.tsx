@@ -7,7 +7,7 @@ import styles from "./WelcomePage.module.css";
 import clsx from "clsx";
 import data from "../../data/data";
 
-import clauds from "../../assets/video/welcome/clauds.webm";
+import clauds from "../../assets/video/welcome/clauds.mp4";
 import reviewCard1 from "../../assets/images/city/welcome/welcome-page-review-card-1.png";
 import reviewCard2 from "../../assets/images/city/welcome/welcome-page-review-card-2.png";
 import reviewCard3 from "../../assets/images/city/welcome/welcome-page-review-card-3.png";
@@ -17,8 +17,7 @@ import { publishBroadcastState } from "../../utils/broadcast";
 import { startGameStats } from "../../utils/gameStats";
 
 type Step = "start" | "overview" | "review" | "choice";
-const startVideoDelay = 3000;
-const startFadeDuration = 1000;
+const startVideoDuration = 4000;
 
 function WelcomePage() {
     const navigate = useNavigate();
@@ -28,9 +27,6 @@ function WelcomePage() {
     const [step, setStep] = useState<Step>("start");
     const [isStartLeaving, setIsStartLeaving] = useState(false);
     const [selectedPersonId, setSelectedPersonId] = useState<string | null>(
-        null,
-    );
-    const startFadeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
         null,
     );
     const overviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -44,18 +40,11 @@ function WelcomePage() {
         if (overviewTimerRef.current) {
             clearTimeout(overviewTimerRef.current);
         }
-        if (startFadeTimerRef.current) {
-            clearTimeout(startFadeTimerRef.current);
-        }
-
-        startFadeTimerRef.current = setTimeout(() => {
-            setIsStartLeaving(true);
-        }, startVideoDelay);
+        setIsStartLeaving(true);
 
         overviewTimerRef.current = setTimeout(() => {
             setStep("review");
-            setIsStartLeaving(false);
-        }, startVideoDelay + startFadeDuration);
+        }, startVideoDuration);
     };
 
     const handleReviewMessage = () => {
@@ -84,9 +73,6 @@ function WelcomePage() {
         publishBroadcastState({ screen: "main" });
 
         return () => {
-            if (startFadeTimerRef.current) {
-                clearTimeout(startFadeTimerRef.current);
-            }
             if (overviewTimerRef.current) {
                 clearTimeout(overviewTimerRef.current);
             }
@@ -97,87 +83,50 @@ function WelcomePage() {
 
     return (
         <div className={styles.welcomePage}>
+            <video
+                ref={videoRef}
+                muted
+                playsInline
+                preload="auto"
+                className={styles.welcomePageVideo}
+                src={clauds}
+            />
             <div
                 className={clsx(
                     styles.welcomePageStep,
                     styles.welcomePageStart,
-                    isStartLeaving && styles.welcomePageStartLeaving,
                     step !== "start" && styles.welcomePageStepHide,
                 )}
             >
-                <div className={clsx(styles.welcomePageStartClauds)}>
-                    <video
-                        ref={videoRef}
-                        muted
-                        playsInline
-                        preload="auto"
-                        className={styles.welcomePageStartClaudsVideo}
-                        src={clauds}
-                    ></video>
-                    {/* <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsLeftTop,
-            )}
-            src={cloudLeftTop}
-            alt={"Облако"}
-          />
-          <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsLeftCenter,
-            )}
-            src={cloudLeftCenter}
-            alt={"Облако"}
-          />
-          <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsLeftBottom,
-            )}
-            src={cloudLeftBottom}
-            alt={"Облако"}
-          />
-          <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsRightTop,
-            )}
-            src={cloudRightTop}
-            alt={"Облако"}
-          />
-          <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsRightCenter,
-            )}
-            src={cloudRightCenter}
-            alt={"Облако"}
-          />
-          <img
-            className={clsx(
-              styles.welcomePageStartClaudsItem,
-              styles.welcomePageStartClaudsRightBottom,
-            )}
-            src={cloudRightBottom}
-            alt={"Облако"}
-          /> */}
-                </div>
-                <div className={styles.welcomePageStartHeader}>
-                    <Text
-                        variant="display"
-                        className={styles.welcomePageStartHeaderTitle}
+                <div
+                    className={clsx(
+                        styles.welcomePageStartContent,
+                        isStartLeaving && styles.welcomePageStartContentHide,
+                    )}
+                >
+                    <div className={styles.welcomePageStartHeader}>
+                        <Text
+                            variant="display"
+                            className={styles.welcomePageStartHeaderTitle}
+                        >
+                            Город Cодружества
+                        </Text>
+                        <Text
+                            variant="h2"
+                            className={styles.welcomePageStartHeaderSubtitle}
+                        >
+                            Пространство для твоего развития
+                        </Text>
+                    </div>
+                    <Button
+                        className={clsx(
+                            isStartLeaving && styles.welcomePageStartButtonHide,
+                        )}
+                        onClick={handleStart}
                     >
-                        Город Cодружества
-                    </Text>
-                    <Text
-                        variant="h2"
-                        className={styles.welcomePageStartHeaderSubtitle}
-                    >
-                        Пространство для твоего развития
-                    </Text>
+                        Начать
+                    </Button>
                 </div>
-                <Button onClick={handleStart}>Начать</Button>
             </div>
             <div
                 className={clsx(
@@ -186,7 +135,7 @@ function WelcomePage() {
                     step !== "overview" && styles.welcomePageStepHide,
                 )}
             >
-                <Text variant="h1">Добро пожаловать в Город Cодружества</Text>
+                <Text variant="h1">Добро пожаловать в Город Cодружества</Text>
             </div>
 
             <div
@@ -225,7 +174,7 @@ function WelcomePage() {
                                     )}
                                 >
                                     Здесь есть всё для вашего профессионального
-                                    роста и развития в финансовой безопасности и
+                                    роста и развития в финансовой безопасности и
                                     смежных сферах
                                 </Text>
                             </div>
@@ -243,9 +192,9 @@ function WelcomePage() {
                                         styles.welcomePageReviewCardsItemText,
                                     )}
                                 >
-                                    Мы поможем раскрыть талант, построить
+                                    Мы поможем раскрыть талант, построить
                                     карьеру, реализовать экспертизу, найти
-                                    партнёров, единомышленников и наставников
+                                    партнёров, единомышленников и наставников
                                 </Text>
                             </div>
                             <div
@@ -263,7 +212,7 @@ function WelcomePage() {
                                     )}
                                 >
                                     Курсы, олимпиады, живое общение, нетворкинг
-                                    — всё, чтобы каждый нашёл свой путь
+                                    — всё, чтобы каждый нашёл свой путь
                                 </Text>
                             </div>
                         </div>
@@ -274,8 +223,8 @@ function WelcomePage() {
                             style={{ cursor: "pointer" }}
                         >
                             <MessageTitle>
-                                Давайте отправимся в путешествие — и узнаем, что
-                                вас ждёт
+                                Давайте отправимся в путешествие и узнаем, что
+                                вас ждёт
                             </MessageTitle>
                         </Message>
                     </div>
@@ -292,7 +241,7 @@ function WelcomePage() {
                     >
                         <div className={clsx(styles.welcomePageChoiceHeader)}>
                             <Text variant="h3">
-                                Но сперва нужно познакомиться,
+                                Но сперва нужно познакомиться,
                             </Text>
                             <Text variant="h2">выберите роль:</Text>
                         </div>
@@ -339,7 +288,7 @@ function WelcomePage() {
                         <div className={clsx(styles.welcomePageChoiceMessage)}>
                             <Message theme="light" onClick={handleStartGame}>
                                 <MessageTitle>
-                                    Отлично! Если определился с ролью, начнем
+                                    Отлично! Если определились с ролью, начнём
                                     наш путь
                                 </MessageTitle>
                             </Message>

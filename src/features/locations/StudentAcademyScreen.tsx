@@ -21,7 +21,7 @@ import studentKlass from "../../assets/images/persons/student/klass.png";
 const answers: QuizAnswerData[] = [
     {
         id: "1",
-        text: "Спрошу у неё куда выслать деньги",
+        text: "Спрошу у неё куда выслать деньги",
         icon: (
             <svg
                 width="32"
@@ -47,7 +47,7 @@ const answers: QuizAnswerData[] = [
     },
     {
         id: "2",
-        text: "Уточню у подруги, зачем ей нужна эта сумма",
+        text: "Уточню у подруги, зачем ей нужна эта сумма",
         icon: (
             <svg
                 width="34"
@@ -83,7 +83,7 @@ const answers: QuizAnswerData[] = [
     },
     {
         id: "3",
-        text: "Позвоню подруге по по номеру телефона, чтобы убедиться, что её аккаунт не взломали мошенники",
+        text: "Позвоню подруге по по номеру телефона, чтобы убедиться, что её аккаунт не взломали мошенники",
         correct: true,
         icon: (
             <svg
@@ -121,7 +121,7 @@ export function StudentAcademyScreen({
         setStep("question");
         setReply({
             image: studentNodTop,
-            text: "Возможно, ты давно в теме, но мне хочется узнать, применяешь ли ты знания в реальной жизни.\n**Выбери правильный вариант действий в этой ситуации**",
+            text: "Возможно, ты давно в теме, но мне хочется узнать, применяешь ли ты знания в реальной жизни.\n**Выбери правильный вариант действий в этой ситуации**",
         });
     };
 
@@ -137,7 +137,7 @@ export function StudentAcademyScreen({
                 >
                     <Quiz
                         question={{
-                            text: "Тебе в мессенджер пришло сообщение от подруги с просьбой одолжить большую сумму денег. Твои действия?",
+                            text: "Тебе в мессенджер пришло сообщение от подруги с просьбой одолжить большую сумму денег. Твои действия?",
                             icon: (
                                 <svg
                                     width="44"
@@ -161,7 +161,7 @@ export function StudentAcademyScreen({
                         wrongReplies={[
                             {
                                 image: studentThink,
-                                text: "**Опасно.**\nА вдруг аккаунт подруги взломали мошенники? Давай ещё раз?",
+                                text: "**Опасно.**\nА вдруг аккаунт подруги взломали мошенники? Давай ещё раз?",
                             },
                             {
                                 image: person.image,
@@ -170,7 +170,7 @@ export function StudentAcademyScreen({
                         ]}
                         successReply={{
                             image: studentKlass,
-                            text: "**В точку.**\nПомочь подруге — хорошее дело, главное, удостовериться, что это её просьба, а не уловка мошенников",
+                            text: "**В точку.**\nПомочь подруге — хорошее дело, главное, удостовериться, что это её просьба, а не уловка мошенников",
                         }}
                         setReply={setReply}
                         setBackgroundVariant={setBackgroundVariant}
@@ -205,13 +205,13 @@ export function StudentAcademyScreen({
                     }
                     iconBackground="#3990F9"
                 >
-                    После регистрации на платформе тебя ждут не скучные лекции,{" "}
-                    <strong>а живые форматы:</strong>
+                    После регистрации на платформе тебя ждут не скучные лекции,{" "}
+                    <strong>а живые форматы:</strong>
                 </CardAnons>
                 <CardImage src={startCardImage} alt={"Изображение"} />
                 <CardProfile
                     avatar={startCardStudentAvatar}
-                    description="Я сама прошла несколько — и даже получила сертификаты. И в финансах разберёшься, и к стажировке подготовишься, ещё и навыки прокачаешь"
+                    description="Я сама прошла несколько — и даже получила сертификаты. И в финансах разберёшься, и к стажировке подготовишься, ещё и навыки прокачаешь"
                 />
                 <Button size="s" fullWidth onClick={handleStart}>
                     Продолжить

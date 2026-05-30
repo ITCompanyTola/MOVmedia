@@ -13,9 +13,9 @@ import { publishBroadcastState } from "../../utils/broadcast";
 const PARAMETER_ITEMS = [
   { label: "Количество проходных баллов теста", disabled: true },
   { label: "Порядок показов вопросов теста", disabled: true },
-  { label: "Порядок ответов на вопросы теста", disabled: true },
-  { label: "Время ответа на вопрос теста", disabled: true },
-  { label: "Количество вопросов в тесте", disabled: false },
+  { label: "Порядок ответов на вопросы теста", disabled: true },
+  { label: "Время ответа на вопрос теста", disabled: true },
+  { label: "Количество вопросов в тесте", disabled: false },
   { label: "Количество попыток прохождения теста", disabled: true },
   { label: "Зачетная попытка прохождения теста", disabled: true },
 ];
@@ -105,7 +105,7 @@ export function OlympicCenterRepresentativeScreen({
     setStep("parameters");
     setReply({
       image: representativeMain,
-      text: "Представим, что вы решили  создать тест и определить уровнь знаний студентов. \n**Давайте настроим «Количество вопросов в тесте»**",
+      text: "Представим, что вы решили  создать тест и определить уровнь знаний студентов. \n**Давайте настроим «Количество вопросов в тесте»**",
     });
   };
 
@@ -131,7 +131,7 @@ export function OlympicCenterRepresentativeScreen({
     });
     setReply({
       image: representativeMain,
-      text: "Отлично! Еще есть возможность задать тип ответа для каждого вопроса. \n**Какой выбрать, чтобы студент смог упорядочить ответы от большего к меньшему?**",
+      text: "Отлично! Еще есть возможность задать тип ответа для каждого вопроса. \n**Какой выбрать, чтобы студент смог упорядочить ответы от большего к меньшему?**",
     });
   };
 
@@ -156,7 +156,7 @@ export function OlympicCenterRepresentativeScreen({
       completeLocation();
       setReply({
         image: representativeNotBottom,
-        text: "**Правильно!** \nФункционал платформы может показаться сложным на первый взгляд. \nНа самом деле всё просто: зайдите на сайт, зарегистрируйтесь в личном кабинете и начните знакомиться с возможностями",
+        text: "**Правильно!** \nФункционал платформы может показаться сложным на первый взгляд. \nНа самом деле всё просто: зайдите на сайт, зарегистрируйтесь в личном кабинете и начните знакомиться с возможностями",
       });
     } else {
       setAnswerState("wrong");
@@ -187,12 +187,12 @@ export function OlympicCenterRepresentativeScreen({
             <div>
               <p className={styles.serviceDescription}>
                 Инструмент позволяет настраивать{" "}
-                <strong>20+ параметров олимпиады</strong> в зависимости от
+                <strong>20+ параметров олимпиады</strong> в зависимости от
                 вашего запроса
               </p>
             </div>
             <div className={styles.serviceCanSection}>
-              <span className={styles.serviceCanTitle}>Вы можете:</span>
+              <span className={styles.serviceCanTitle}>Вы можете:</span>
               <div className={styles.serviceBulletItems}>
                 <div className={styles.serviceBulletRow}>
                   <div className={styles.serviceBulletIconBox}>
@@ -267,11 +267,11 @@ export function OlympicCenterRepresentativeScreen({
               <span className={styles.introCardTitle}>Редактор текстов</span>
             </div>
             <p className={styles.serviceDescription}>
-              Позволяет создавать и редактировать 9 типов тестовых заданий и
-              настраивать их по 7 параметрам
+              Позволяет создавать и редактировать 9 типов тестовых заданий и
+              настраивать их по 7 параметрам
             </p>
             <Button size="s" fullWidth onClick={handleIntroNext}>
-              Узнать больше о сервисе <ChevronRight />
+              Узнать больше о сервисе <ChevronRight />
             </Button>
           </Card>
         </div>

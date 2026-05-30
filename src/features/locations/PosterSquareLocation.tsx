@@ -7,7 +7,7 @@ export const posterSquareLocation: LocationModule = {
     id: "poster-square",
     getInitialReply: (person) => ({
         image: person.id === "student" ? studentSpeak : person.image,
-        text: "На Афишной площади собраны все анонсы мероприятий Содружества. Воркшопы, форумы, вебинары проходят каждый месяц",
+        text: "На Афишной площади собраны все анонсы мероприятий Содружества. Воркшопы, форумы, вебинары проходят каждый месяц",
     }),
     render: (props) => {
         if (props.person.id === "student") {

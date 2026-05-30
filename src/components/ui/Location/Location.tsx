@@ -56,16 +56,23 @@ function LocationContent({ person, location }: LocationContentProps) {
         closeLocation: () => setActiveLocation(null),
     });
     const backgroundByVariant = {
-        main: locationModule.background ?? location.images.background.main,
+        main:
+            locationModule.background ??
+            location.images.background.persons?.[person.id]?.main ??
+            location.images.background.main,
         error:
             locationModule.backgroundError ??
+            location.images.background.persons?.[person.id]?.error ??
             location.images.background.error ??
             locationModule.background ??
+            location.images.background.persons?.[person.id]?.main ??
             location.images.background.main,
         complete:
             locationModule.backgroundComplete ??
+            location.images.background.persons?.[person.id]?.complete ??
             location.images.background.complete ??
             locationModule.background ??
+            location.images.background.persons?.[person.id]?.main ??
             location.images.background.main,
     };
 
@@ -75,7 +82,12 @@ function LocationContent({ person, location }: LocationContentProps) {
 
     return (
         <div className={clsx("bg", styles.location)}>
-            <Reply align="left" message="default" reply={activeReply} />
+            <Reply
+                align="left"
+                message="default"
+                placement="location"
+                reply={activeReply}
+            />
             <div className={clsx(styles.locationWrapper)}>
                 <div className={styles.locationBox}>
                     <Text

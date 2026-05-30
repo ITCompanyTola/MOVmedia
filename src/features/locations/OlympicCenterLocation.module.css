@@ -20,3 +20,7 @@
 .quizCard {
     max-width: 502px;
 }
+
+.introCardText {
+    font-size: 24px;
+}

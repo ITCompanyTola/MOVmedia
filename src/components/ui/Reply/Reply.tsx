@@ -24,6 +24,7 @@ type ReplyProps = {
     onClick?: () => void;
     align?: PersonData["replies"]["align"];
     message?: "default" | "aside";
+    placement?: "map" | "location";
     final?: boolean;
     reply: ReplyData;
 };
@@ -31,6 +32,7 @@ type ReplyProps = {
 export function Reply({
     align = "left",
     message = "aside",
+    placement,
     final = false,
     reply,
     onClick,
@@ -50,6 +52,7 @@ export function Reply({
                 styles.reply,
                 styles[align],
                 styles[message],
+                placement && styles[placement],
                 final && styles.final,
             )}
         >
@@ -93,7 +96,7 @@ export function Reply({
                                 variant="secondary"
                                 size="xs"
                             >
-                                Вернуться на главный экран
+                                Вернуться на главный экран
                             </Button>
                         </div>
                         <div className={styles.qr}>

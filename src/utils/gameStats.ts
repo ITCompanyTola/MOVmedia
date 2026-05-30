@@ -140,13 +140,13 @@ export function createStatsText() {
 
     return [
         `Всего начали игру: ${stats.totalStarted}`,
-        `Прошли до финала: ${stats.totalFinished}`,
-        `Не прошли до финала и вышли из игры: ${stats.totalExitedBeforeFinal}`,
+        `Прошли до финала: ${stats.totalFinished}`,
+        `Не прошли до финала и вышли из игры: ${stats.totalExitedBeforeFinal}`,
         "",
         "Сколько раз проходили локации:",
         ...(locationLines.length > 0 ? locationLines : ["нет данных"]),
         "",
-        "Выходы до финала:",
+        "Выходы до финала:",
         ...(exitLines.length > 0 ? exitLines : ["нет данных"]),
     ].join("\n");
 }

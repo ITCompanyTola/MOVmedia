@@ -23,7 +23,7 @@ export function StudentMemberProfileScreen({
     const handleStart = () => {
         setReply({
             image: person.image,
-            text: "**О, нашли совпадения!**\nАлгоритм платформы ориентируется на твой профиль и подбирает людей с интересами и проектами, которые могут тебе подойти. А заполнить его можно за пару минут",
+            text: "**О, нашли совпадения!**\nАлгоритм платформы ориентируется на твой профиль и подбирает людей с интересами и проектами, которые могут тебе подойти. А заполнить его можно за пару минут",
         });
 
         setStep("profiles");
@@ -53,7 +53,7 @@ export function StudentMemberProfileScreen({
                             variant="caption"
                             className={`${styles.avatarSubtitle}`}
                         >
-                            учится с тобой на одном направлении
+                            учится с тобой на одном направлении
                         </Text>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ export function StudentMemberProfileScreen({
                             variant="caption"
                             className={`${styles.avatarSubtitle}`}
                         >
-                            тоже принимал участие в Олимпиаде в Узбекистане
+                            тоже принимал участие в Олимпиаде в Узбекистане
                         </Text>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ export function StudentMemberProfileScreen({
                             variant="caption"
                             className={`${styles.avatarSubtitle}`}
                         >
-                            работает в нужной тебе компании
+                            работает в нужной тебе компании
                         </Text>
                     </div>
                 </div>

@@ -41,12 +41,12 @@ export function Modal() {
                     <div className={styles.content}>
                         <div className={styles.header}>
                             <Text variant="body-l" className={styles.title}>
-                                Регистируйтесь на сайте и попробуйте все
+                                Регистируйтесь на сайте и попробуйте все
                                 возможности платформы Содружество!
                             </Text>
                             <Text variant="body-m">
-                                Сканируйте QR-код и получайте мерч
-                                за регистрацию
+                                Сканируйте QR-код и получайте мерч
+                                за регистрацию
                             </Text>
                         </div>
                         <div className={styles.qr}>

@@ -50,13 +50,13 @@ const createPlaceholderModule = (location: LocationData): LocationModule => ({
   id: location.id,
   getInitialReply: (person) => ({
     image: person.image,
-    title: "Локация в разработке",
+    title: "Локация в разработке",
   }),
   render: ({ closeLocation }: LocationScreenProps) => (
     <Card>
       <Text variant="h4">Сценарий скоро появится</Text>
       <Button size="s" onClick={closeLocation}>
-        Вернуться на карту
+        Вернуться на карту
       </Button>
     </Card>
   ),

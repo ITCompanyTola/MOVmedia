@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from "./MapPage.module.css";
 import { Footer } from "../../components/ui/Footer/Footer";
 import { useAppStore } from "../../store/useAppStore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Reply } from "../../components/ui/Reply/Reply";
 import data from "../../data/data";
@@ -21,7 +21,11 @@ export function MapPage() {
     const [start, setStart] = useState(true);
     const [startStep, setStartStep] = useState(0);
     const [mapReply, setMapReply] = useState<ReplyData | null>(null);
+    const [routeLocationId, setRouteLocationId] = useState<LocationId | null>(
+        null,
+    );
     const [isFinalScreenVisible, setIsFinalScreenVisible] = useState(false);
+    const routeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const activeBuildings = person
         ? startStep >= person.replies.start.length - 2
         : false;
@@ -34,6 +38,10 @@ export function MapPage() {
         !activeLocation &&
         Boolean(allPersonLocationsCompleted);
     const showDefaultBuildings = isFinalScreenReady;
+    const routeLocation = data.locations.find(
+        (location) => location.id === routeLocationId,
+    );
+    const isRoutePlaying = routeLocationId !== null;
 
     useEffect(() => {
         if (!isFinalScreenReady || isFinalScreenVisible) {
@@ -71,6 +79,14 @@ export function MapPage() {
         });
     }, [activeBuildings, activeLocation, isFinalScreenVisible, person]);
 
+    useEffect(() => {
+        return () => {
+            if (routeTimerRef.current) {
+                clearTimeout(routeTimerRef.current);
+            }
+        };
+    }, []);
+
     if (!person) {
         return <Navigate to="/" replace />;
     }
@@ -83,6 +99,7 @@ export function MapPage() {
     };
 
     const handleLocationClick = (id: LocationId) => {
+        if (isRoutePlaying) return;
         if (showDefaultBuildings) return;
         if (!activeBuildings) return;
         if (!person.locations.includes(id)) {
@@ -92,9 +109,23 @@ export function MapPage() {
         }
         if (completedLocations.includes(id)) return;
 
+        const location = data.locations.find((item) => item.id === id);
+
         setStart(false);
         setMapReply(null);
-        setActiveLocation(id);
+
+        if (!location?.route?.video) {
+            setActiveLocation(id);
+            return;
+        }
+
+        setRouteLocationId(id);
+
+        routeTimerRef.current = setTimeout(() => {
+            setRouteLocationId(null);
+            setActiveLocation(id);
+            routeTimerRef.current = null;
+        }, 2500);
     };
 
     return (
@@ -114,7 +145,9 @@ export function MapPage() {
                         message="aside"
                         reply={
                             mapReply ??
-                            person.replies.start[person.replies.start.length - 1]
+                            person.replies.start[
+                                person.replies.start.length - 1
+                            ]
                         }
                     />
                 )}
@@ -123,22 +156,37 @@ export function MapPage() {
                     <Building
                         onClick={handleLocationClick}
                         active={
-                            !showDefaultBuildings &&
-                            activeBuildings &&
-                            person.locations.includes(location.id)
+                            isRoutePlaying
+                                ? location.id === routeLocationId
+                                : !showDefaultBuildings &&
+                                  activeBuildings &&
+                                  person.locations.includes(location.id)
                         }
                         complete={
+                            !isRoutePlaying &&
                             !showDefaultBuildings &&
                             completedLocations.includes(location.id)
                         }
                         key={location.id}
                         location={location}
+                        personId={person.id}
                     />
                 ))}
                 {activeLocation && <Location />}
                 <div></div>
                 <Footer theme={activeLocation ? "dark" : "light"} />
             </div>
+            {routeLocation?.route && (
+                <div className={styles.route}>
+                    <video
+                        key={routeLocation.id}
+                        src={routeLocation.route.video}
+                        autoPlay
+                        muted
+                        playsInline
+                    />
+                </div>
+            )}
         </div>
     );
 }

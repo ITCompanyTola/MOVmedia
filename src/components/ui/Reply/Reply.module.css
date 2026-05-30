@@ -13,6 +13,10 @@
     bottom: 0;
 }
 
+.location {
+    bottom: -98px;
+}
+
 .aside .replyMessage {
     position: absolute;
     width: 527px;
@@ -38,10 +42,7 @@
 }
 
 .replyImage {
-    margin: 0 auto;
     max-width: max-content;
-    width: auto;
-    height: 528px;
     position: relative;
     z-index: 2;
 }
@@ -50,9 +51,9 @@
     border: 1px solid var(--color-brand-white);
 } */
 
-.reply.final .replyImage {
+/* .reply.final .replyImage {
     height: 682px;
-}
+} */
 
 .reply.final .replyMessage {
     width: 900px;

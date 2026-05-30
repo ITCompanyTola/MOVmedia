@@ -17,10 +17,10 @@
 }
 
 .buildingCompleteImage {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     max-width: none;
     opacity: 0;
     visibility: hidden;
@@ -63,7 +63,7 @@
     text-align: center;
     border-radius: 24px;
     padding: 24px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .buildingBaloon:after {

@@ -14,7 +14,7 @@ import expertNotBottom from "../../assets/images/persons/expert/not-bottom.png";
 const answers: QuizAnswerData[] = [
   {
     id: "1",
-    text: "Перейду по ссылке — редакция не будет обманывать",
+    text: "Перейду по ссылке — редакция не будет обманывать",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const answers: QuizAnswerData[] = [
   },
   {
     id: "2",
-    text: "Скачаю файл, проверю антивирусом, а потом открою",
+    text: "Скачаю файл, проверю антивирусом, а потом открою",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ const answers: QuizAnswerData[] = [
   },
   {
     id: "3",
-    text: "Не перейду по ссылке, свяжусь с редакцией по официальному контакту и уточню, отправляли ли они мне материал",
+    text: "Не перейду по ссылке, свяжусь с редакцией по официальному контакту и уточню, отправляли ли они мне материал",
     correct: true,
     icon: (
       <svg
@@ -97,7 +97,7 @@ export function MediaCenterExpertScreen({
     setStep("quiz");
     setReply({
       image: person.id === "expert" ? expertTalk2 : person.image,
-      text: "В Медиацентре публикуются только профессионалы.\n**Проверим вашу экспертизу на практике**",
+      text: "В Медиацентре публикуются только профессионалы.\n**Проверим вашу экспертизу на практике**",
     });
   };
 
@@ -107,7 +107,7 @@ export function MediaCenterExpertScreen({
         <Card className={styles.quizCard}>
           <Quiz
             question={{
-              text: "*Вам приходит сообщение от имени редакции: Срочно! Согласуйте публикацию и посмотрите макет статьи по ссылке. Ссылка ведёт на незнакомый сайт.*\nВаши действия в этой ситуации?",
+              text: "*Вам приходит сообщение от имени редакции: Срочно! Согласуйте публикацию и посмотрите макет статьи по ссылке. Ссылка ведёт на незнакомый сайт.*\nВаши действия в этой ситуации?",
               icon: (
                 <svg
                   width="44"
@@ -135,16 +135,16 @@ export function MediaCenterExpertScreen({
             wrongReplies={[
               {
                 image: expertListensCarefully,
-                text: "Не торопитесь, давайте попробуем ещё раз",
+                text: "Не торопитесь, давайте попробуем ещё раз",
               },
               {
                 image: expertSure,
-                text: "Ошибка — это тоже опыт!\nПопробуем снова?",
+                text: "Ошибка — это тоже опыт!\nПопробуем снова?",
               },
             ]}
             successReply={{
               image: expertNotBottom,
-              text: "**Это верный ответ!**\nВсегда проверяйте отправителя и не переходите по неожиданным ссылкам. Даже если это очень срочно",
+              text: "**Это верный ответ!**\nВсегда проверяйте отправителя и не переходите по неожиданным ссылкам. Даже если это очень срочно",
             }}
             setReply={setReply}
             setBackgroundVariant={setBackgroundVariant}

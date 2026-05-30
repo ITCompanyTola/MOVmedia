@@ -125,7 +125,7 @@ export function OlympicCenterScreen({
         setStep("question");
         setReply({
             image: person.image,
-            text: "Давай освежим твои знания по финансовой грамотности перед Олимпиадой?\n**Выбери правильный ответ**",
+            text: "Давай освежим твои знания по финансовой грамотности перед Олимпиадой?\n**Выбери правильный ответ**",
         });
     };
 
@@ -167,16 +167,16 @@ export function OlympicCenterScreen({
                         wrongReplies={[
                             {
                                 image: schoolboyThink,
-                                text: "Не совсем так, попробуй ещё раз",
+                                text: "Не совсем так, попробуй ещё раз",
                             },
                             {
                                 image: person.image,
-                                text: "Не спеши, подумай.\nВсё получится! ",
+                                text: "Не спеши, подумай.\nВсё получится! ",
                             },
                         ]}
                         successReply={{
                             image: schoolboyKlass,
-                            text: "**Это верный ответ!**\nВозвращайся на карту и выбирай следующую локацию",
+                            text: "**Это верный ответ!**\nВозвращайся на карту и выбирай следующую локацию",
                         }}
                         setReply={setReply}
                         setBackgroundVariant={setBackgroundVariant}
@@ -196,14 +196,14 @@ export function OlympicCenterScreen({
             <Card className={`${styles.introCard}`}>
                 <CardBadge>
                     <strong>
-                        Победители и призёры Олимпиады получают преимущества
+                        Победители и призёры Олимпиады получают преимущества
                     </strong>
                     <br />
-                    при поступлении в вузы, возможность пройти стажировку в
-                    Банке России, Росфинмониторинге и крупных государственных
+                    при поступлении в вузы, возможность пройти стажировку в
+                    Банке России, Росфинмониторинге и крупных государственных
                     корпорациях
                 </CardBadge>
-                <CardText>
+                <CardText className={styles.introCardText}>
                     Для этого на <a onClick={() => openModal("merch")}>сайте</a>{" "}
                     нужно пройти несколько этапов:
                 </CardText>
@@ -227,7 +227,7 @@ export function OlympicCenterScreen({
                         }
                         direction="vertical"
                     >
-                        Пройти тест и определить номинацию в Олимпиаде
+                        Пройти тест и определить номинацию в Олимпиаде
                     </CardsCard>
                     <CardsCard
                         icon={
@@ -247,7 +247,7 @@ export function OlympicCenterScreen({
                         }
                         direction="vertical"
                     >
-                        Получить рекомендации по карьерному развитию
+                        Получить рекомендации по карьерному развитию
                     </CardsCard>
                     <CardsCard
                         icon={
@@ -278,7 +278,7 @@ export function OlympicCenterScreen({
                         }
                         direction="vertical"
                     >
-                        Записаться на подходящие курсы
+                        Записаться на подходящие курсы
                     </CardsCard>
                     <CardsCard
                         icon={
@@ -297,7 +297,7 @@ export function OlympicCenterScreen({
                         }
                         direction="vertical"
                     >
-                        А ещё круче, стать победителем!
+                        А ещё круче, стать победителем!
                     </CardsCard>
                 </CardCards>
             </Card>

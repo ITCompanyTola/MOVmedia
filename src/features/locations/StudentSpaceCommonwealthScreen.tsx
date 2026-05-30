@@ -24,21 +24,21 @@ export function StudentSpaceCommonwealthScreen({
         if (step === "publish") {
             setReply({
                 image: person.image,
-                text: "Ты можешь писать в ленте на любую интересную тебе тему. Делиться опытом, задавать вопросы или просто рассказывать о том, что волнует",
+                text: "Ты можешь писать в ленте на любую интересную тебе тему. Делиться опытом, задавать вопросы или просто рассказывать о том, что волнует",
             });
         }
 
         if (step === "invite") {
             setReply({
                 image: person.image,
-                text: "В Содружестве много сообществ, ты точно найдёшь что-то по душе",
+                text: "В Содружестве много сообществ, ты точно найдёшь что-то по душе",
             });
         }
 
         if (step === "create") {
             setReply({
                 image: person.image,
-                text: "Если не нашёл подходящее — создай своё сообщество\n**Объединяй единомышленников, запускай проекты и находи партнёров**",
+                text: "Если не нашёл подходящее — создай своё сообщество\n**Объединяй единомышленников, запускай проекты и находи партнёров**",
             });
         }
 
@@ -94,7 +94,7 @@ export function StudentSpaceCommonwealthScreen({
         <div className={`${styles.intro}`}>
             <Card className={`${styles.introCard}`}>
                 <CardTitle>
-                    С какой из функций ты хочешь познакомиться ближе?
+                    С какой из функций ты хочешь познакомиться ближе?
                 </CardTitle>
                 <div className={`${styles.introButtons}`}>
                     <Button
@@ -109,7 +109,7 @@ export function StudentSpaceCommonwealthScreen({
                         fullWidth
                         onClick={() => handleVideo("invite")}
                     >
-                        Вступить в сообщество <ChevronRight />
+                        Вступить в сообщество <ChevronRight />
                     </Button>
                     <Button
                         size="s"

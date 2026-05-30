@@ -26,21 +26,21 @@ export function SpaceCommonwealthScreen({
     if (step === "publish") {
       setReply({
         image: videoPerson,
-        text: "Вы можете публиковать разборы, экспертные мнения — и сразу получать обратную связь от сообщества",
+        text: "Вы можете публиковать разборы, экспертные мнения — и сразу получать обратную связь от сообщества",
       });
     }
 
     if (step === "invite") {
       setReply({
         image: videoPerson,
-        text: "В Содружестве много профессиональных сообществ, где ждут экспертов по вашей теме",
+        text: "В Содружестве много профессиональных сообществ, где ждут экспертов по вашей теме",
       });
     }
 
     if (step === "create") {
       setReply({
         image: videoPerson,
-        text: "Если не нашли подходящее сообщество, создайте своё.\nПриглашайте коллег, запускайте обсуждения и объединяйте людей вокруг важных профессиональных тем",
+        text: "Если не нашли подходящее сообщество, создайте своё.\nПриглашайте коллег, запускайте обсуждения и объединяйте людей вокруг важных профессиональных тем",
       });
     }
 
@@ -77,13 +77,13 @@ export function SpaceCommonwealthScreen({
   return (
     <div className={`${styles.intro}`}>
       <Card className={`${styles.introCard}`}>
-        <CardTitle>Выберите функцию, которая будет для вас полезной</CardTitle>
+        <CardTitle>Выберите функцию, которая будет для вас полезной</CardTitle>
         <div className={`${styles.introButtons}`}>
           <Button size="s" fullWidth onClick={() => handleVideo("publish")}>
             Опубликовать новый пост <ChevronRight />
           </Button>
           <Button size="s" fullWidth onClick={() => handleVideo("invite")}>
-            Вступить в сообщество <ChevronRight />
+            Вступить в сообщество <ChevronRight />
           </Button>
           <Button size="s" fullWidth onClick={() => handleVideo("create")}>
             Создать свое сообщество <ChevronRight />

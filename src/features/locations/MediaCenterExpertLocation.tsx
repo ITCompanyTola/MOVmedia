@@ -9,7 +9,7 @@ export const mediaCenterExpertLocation: LocationModule = {
 
   getInitialReply: (person) => ({
     image: person.id === "expert" ? expertSure : person.image,
-    text: "В Медиацентре мы публикуем новости и лучший экспертный контент\n**Станьте тем, чей контент найдёт отклик у аудитории!**",
+    text: "В Медиацентре мы публикуем новости и лучший экспертный контент\n**Станьте тем, чей контент найдёт отклик у аудитории!**",
   }),
 
   render: (props) => <MediaCenterExpertScreen {...props} />,

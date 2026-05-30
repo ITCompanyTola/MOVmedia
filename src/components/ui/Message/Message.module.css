@@ -18,7 +18,7 @@
     display: grid;
     grid-template-columns: 1fr max-content;
     align-items: center;
-    background: var(--orange-50);
+    background: #f6ebe0;
 }
 
 .messageTitle {
@@ -63,7 +63,7 @@
     align-items: center;
     border-radius: 16px;
     padding: 12px 12px 12px 24px;
-    background: var(--orange-50);
+    background: #f6ebe0;
     margin-top: 8px;
 }
 

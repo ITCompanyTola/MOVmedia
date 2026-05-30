@@ -78,7 +78,7 @@ export function PosterSquareExpertScreen({
     setStep("choice");
     setReply({
       image: expertMain,
-      text: "Попробуйте выбрать фильтр **«Кибербезопасность»**, чтобы узнать о ближайших мероприятиях по этой теме",
+      text: "Попробуйте выбрать фильтр **«Кибербезопасность»**, чтобы узнать о ближайших мероприятиях по этой теме",
     });
   };
 
@@ -88,7 +88,7 @@ export function PosterSquareExpertScreen({
     setStep("events");
     setReply({
       image: expertTalk2,
-      text: "Вот так платформа помогает находить события, которые подходят именно вам. Осталось выбрать, что ближе: вебинар, мастер-класс или форум.\n**Можем двигаться дальше**",
+      text: "Вот так платформа помогает находить события, которые подходят именно вам. Осталось выбрать, что ближе: вебинар, мастер-класс или форум.\n**Можем двигаться дальше**",
     });
   };
 
@@ -236,7 +236,7 @@ export function PosterSquareExpertScreen({
                     <Text variant="caption">#Оффлайн</Text>
                   </div>
                   <Text variant="body-m" className={styles.eventsListItemTitle}>
-                    Уральский форум «Кибербезопасность в финансах»
+                    Уральский форум «Кибербезопасность в финансах»
                   </Text>
                 </div>
                 <div className={styles.eventsListItemImage}>
@@ -257,7 +257,7 @@ export function PosterSquareExpertScreen({
     <div className={styles.intro}>
       <Card className={styles.introCard}>
         <CardTitle>
-          Будьте в курсе ярких событий платформы Содружество
+          Будьте в курсе ярких событий платформы Содружество
         </CardTitle>
         <CardCards direction="vertical">
           <CardsCard
@@ -272,14 +272,14 @@ export function PosterSquareExpertScreen({
             fill
             icon={<Filter size={32} color="#1D5184" />}
           >
-            Фильтруйте события по теме и формату
+            Фильтруйте события по теме и формату
           </CardsCard>
           <CardsCard
             direction="horizontal"
             fill
             icon={<Heart size={32} color="#1D5184" />}
           >
-            Выбирайте мероприятия, на которые хотите пойти
+            Выбирайте мероприятия, на которые хотите пойти
           </CardsCard>
         </CardCards>
         <Button size="s" fullWidth onClick={handleStart}>

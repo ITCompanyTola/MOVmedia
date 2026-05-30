@@ -29,7 +29,7 @@ export function StudentPosterSquareScreen({
         setStep("choice");
         setReply({
             image: studentNodTop,
-            text: "Попробуй выбрать фильтр «Кибербезопасность», чтобы узнать о ближайших мероприятиях по этой теме",
+            text: "Попробуй выбрать фильтр «Кибербезопасность», чтобы узнать о ближайших мероприятиях по этой теме",
         });
     };
 
@@ -41,7 +41,7 @@ export function StudentPosterSquareScreen({
         setStep("events");
         setReply({
             image: studentNodTop,
-            text: "Вот так платформа помогает находить события, которые подходят именно тебе. Осталось выбрать, что ближе: вебинар, мастер-класс или конференция\n**Двигаемся дальше?**",
+            text: "Вот так платформа помогает находить события, которые подходят именно тебе. Осталось выбрать, что ближе: вебинар, мастер-класс или конференция\n**Двигаемся дальше?**",
         });
     };
 
@@ -334,7 +334,7 @@ export function StudentPosterSquareScreen({
     return (
         <div className={`${styles.intro}`}>
             <Card className={`${styles.introCard}`}>
-                <CardTitle>Будь в курсе ярких событий платформы</CardTitle>
+                <CardTitle>Будь в курсе ярких событий платформы</CardTitle>
                 <CardCards direction="vertical">
                     <CardsCard
                         direction="horizontal"
@@ -362,7 +362,7 @@ export function StudentPosterSquareScreen({
                         }
                     >
                         Смотри анонсы конференций, мастер-классов, дней открытых
-                        дверей и стажировок
+                        дверей и стажировок
                     </CardsCard>
                     <CardsCard
                         direction="horizontal"
@@ -385,7 +385,7 @@ export function StudentPosterSquareScreen({
                             </svg>
                         }
                     >
-                        Фильтруй события по теме и формату
+                        Фильтруй события по теме и формату
                     </CardsCard>
                     <CardsCard
                         direction="horizontal"
@@ -408,7 +408,7 @@ export function StudentPosterSquareScreen({
                             </svg>
                         }
                     >
-                        Выбирай мероприятия, на которые хочешь пойти
+                        Выбирай мероприятия, на которые хочешь пойти
                     </CardsCard>
                 </CardCards>
                 <Button size="s" fullWidth onClick={handleStart}>

@@ -23,7 +23,7 @@ export function SpaceCommonwealthRepresendScreen({
         setStep("screen");
         setReply({
             image: representativeFocused,
-            text: "**Посмотрите, как удобно устроен поиск** \n\nСразу видны достижения студента. Вы можете написать ему и пригласить на день открытых дверей",
+            text: "**Посмотрите, как удобно устроен поиск** \n\nСразу видны достижения студента. Вы можете написать ему и пригласить на день открытых дверей",
         });
         completeLocation();
     };
@@ -63,8 +63,8 @@ export function SpaceCommonwealthRepresendScreen({
                         <Filter size={28} color="white" strokeWidth={1.5} />
                     </div>
                     <p className={styles.hintText}>
-                        Чтобы найти таланты, можно отфильтровать участников
-                        платформы по интересам или достижениям.{" "}
+                        Чтобы найти таланты, можно отфильтровать участников
+                        платформы по интересам или достижениям.{" "}
                         <strong>
                             Попробуйте выбрать фильтр «Международная Олимпиада
                             (Китай)»
@@ -124,7 +124,7 @@ export function SpaceCommonwealthRepresendScreen({
                                 <input type="checkbox" disabled />
                                 <span></span>
                                 <Text variant="body-s">
-                                    Республиканская Олимпиада по физике
+                                    Республиканская Олимпиада по физике
                                 </Text>
                             </label>
                         </div>

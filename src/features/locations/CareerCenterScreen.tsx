@@ -26,7 +26,7 @@ export function CareerCenterScreen({
         setIsKompasComplete(false);
         setReply({
             image: schoolboyDontNow,
-            text: "**Крути компас!**\nПосмотрим, что тебе попадётся",
+            text: "**Крути компас!**\nПосмотрим, что тебе попадётся",
         });
     };
 
@@ -71,8 +71,8 @@ export function CareerCenterScreen({
                     }
                     iconBackground="#3990F9"
                 >
-                    Здесь тебе помогут определиться с профессиональным
-                    направлением <strong>и узнать сильные стороны</strong>
+                    Здесь тебе помогут определиться с профессиональным
+                    направлением <strong>и узнать сильные стороны</strong>
                 </CardAnons>
                 <CardCards direction="vertical">
                     <CardsCard
@@ -94,8 +94,8 @@ export function CareerCenterScreen({
                             </svg>
                         }
                     >
-                        Пройди на платформе экспресс-тест и получи рекомендации
-                        по выбору направления
+                        Пройди на платформе экспресс-тест и получи рекомендации
+                        по выбору направления
                     </CardsCard>
                     <CardsCard
                         direction="horizontal"
@@ -115,7 +115,7 @@ export function CareerCenterScreen({
                             </svg>
                         }
                     >
-                        Ознакомься с предложенными профессиями
+                        Ознакомься с предложенными профессиями
                     </CardsCard>
                     <CardsCard
                         direction="horizontal"
@@ -146,8 +146,8 @@ export function CareerCenterScreen({
                             </svg>
                         }
                     >
-                        Пройди углубленное тестирование и оцени свои способности
-                        и склонности
+                        Пройди углубленное тестирование и оцени свои способности
+                        и склонности
                     </CardsCard>
                 </CardCards>
                 <Button size="s" fullWidth onClick={handleStart}>

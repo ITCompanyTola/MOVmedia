@@ -20,7 +20,7 @@ import startCardAvatar from "../../assets/images/city/locations/academy/start-ca
 const answers: QuizAnswerData[] = [
     {
         id: "1",
-        text: "Центральный банк РФ сообщает тебе, что твоя карта заблокирована",
+        text: "Центральный банк РФ сообщает тебе, что твоя карта заблокирована",
         icon: (
             <svg
                 width="32"
@@ -52,7 +52,7 @@ const answers: QuizAnswerData[] = [
     },
     {
         id: "2",
-        text: "Сотрудник банка просит тебя назвать ПИН-код",
+        text: "Сотрудник банка просит тебя назвать ПИН-код",
         icon: (
             <svg
                 width="32"
@@ -81,7 +81,7 @@ const answers: QuizAnswerData[] = [
     },
     {
         id: "3",
-        text: "При обращении тобой в колл-центр банка, сотрудник просит назвать кодовое слово или паспортные данные",
+        text: "При обращении тобой в колл-центр банка, сотрудник просит назвать кодовое слово или паспортные данные",
         correct: true,
         icon: (
             <svg
@@ -120,7 +120,7 @@ export function AcademyScreen({
         setStep("question");
         setReply({
             image: person.image,
-            text: "Я приготовил для тебя небольшой квиз!\n**Выбери правильный вариант ответа**",
+            text: "Я приготовил для тебя небольшой квиз!\n**Выбери правильный вариант ответа**",
         });
     };
 
@@ -134,7 +134,7 @@ export function AcademyScreen({
                 <Card className={`${styles.quizCard}`}>
                     <Quiz
                         question={{
-                            text: "Что не является финансовым мошенничеством?",
+                            text: "Что не является финансовым мошенничеством?",
                             icon: (
                                 <svg
                                     width="44"
@@ -166,12 +166,12 @@ export function AcademyScreen({
                             },
                             {
                                 image: person.image,
-                                text: "Остался последний вариант. Скорее всего, он и есть верный!",
+                                text: "Остался последний вариант. Скорее всего, он и есть верный!",
                             },
                         ]}
                         successReply={{
                             image: schoolboyKlass,
-                            text: "**В точку!**\nЯ бы так же ответил. Готов двигаться дальше?",
+                            text: "**В точку!**\nЯ бы так же ответил. Готов двигаться дальше?",
                         }}
                         setReply={setReply}
                         setBackgroundVariant={setBackgroundVariant}
@@ -206,8 +206,8 @@ export function AcademyScreen({
                     }
                     iconBackground="#3990F9"
                 >
-                    После регистрации на платформе тебя ждут не скучные лекции,{" "}
-                    <strong>а живые форматы:</strong>
+                    После регистрации на платформе тебя ждут не скучные лекции,{" "}
+                    <strong>а живые форматы:</strong>
                 </CardAnons>
                 <CardImage src={startCardImage} alt={"Изображение"} />
                 <CardProfile

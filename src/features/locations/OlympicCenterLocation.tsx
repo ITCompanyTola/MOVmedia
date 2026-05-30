@@ -8,7 +8,7 @@ export const olympicCenterLocation: LocationModule = {
     id: "olympic-center",
     getInitialReply: (person) => ({
         image: person.id === "student" ? studentNodTop : person.image,
-        text: "В Олимпиадном центре каждый год проходит Международная олимпиада по финансовой безопасности",
+        text: "В Олимпиадном центре каждый год проходит Международная Олимпиада по финансовой безопасности",
     }),
     render: (props) => {
         if (props.person.id === "schoolboy") {

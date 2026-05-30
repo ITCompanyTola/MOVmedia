@@ -67,7 +67,7 @@ export const Footer = ({ theme = "dark", className }: Props) => {
                         variant="caption"
                         className={styles.footerButtonsText}
                     >
-                        Регистрируйся на платформе и получай стильный мерч от
+                        Регистрируйся на платформе и получай стильный мерч от
                         ПСБ
                     </Text>
                 </div>

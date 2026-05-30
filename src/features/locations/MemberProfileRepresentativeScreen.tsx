@@ -38,7 +38,7 @@ const answers: QuizAnswerData[] = [
   {
     id: "2",
     correct: true,
-    text: "Проведение онлайн-мероприятий (олимпиад и вебинаров)",
+    text: "Проведение онлайн-мероприятий (олимпиад и вебинаров)",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const answers: QuizAnswerData[] = [
   {
     id: "3",
     correct: true,
-    text: "Мониторинг результатов и профилей участников Международной олимпиады",
+    text: "Мониторинг результатов и профилей участников Международной олимпиады",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ export function MemberProfileRepresentativeScreen({
     setBackgroundVariant("complete");
     setReply({
       image: representativeMain,
-      text: "Как думаете, какие возможности открываются после регистрации на платформе? \n\n**Попробуйте догадаться**",
+      text: "Как думаете, какие возможности открываются после регистрации на платформе? \n\n**Попробуйте догадаться**",
     });
   };
 
@@ -166,12 +166,12 @@ export function MemberProfileRepresentativeScreen({
             wrongReplies={[
               {
                 image: representativeFocused,
-                text: "Не совсем верно, попробуйте ещё раз",
+                text: "Не совсем верно, попробуйте ещё раз",
               },
             ]}
             successReply={{
               image: representativeMain,
-              text: "**Да, вы правы!** \nНо другие варианты тоже верны. \nНа платформе ещё много инструментов для продвижения вашего вуза. \nПродолжим путешествие?",
+              text: "**Да, вы правы!** \nНо другие варианты тоже верны. \nНа платформе ещё много инструментов для продвижения вашего вуза. \nПродолжим путешествие?",
             }}
             setReply={setReply}
             setBackgroundVariant={setBackgroundVariant}

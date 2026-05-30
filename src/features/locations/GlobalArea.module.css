@@ -62,6 +62,7 @@
 .profileHeaderInfoTop {
     display: flex;
     gap: 24px;
+    justify-content: space-between;
 }
 
 .profileHeaderInfoName {

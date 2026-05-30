@@ -18,5 +18,12 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      'no-irregular-whitespace': ['error', {
+        skipStrings: true,
+        skipTemplates: true,
+        skipJSXText: true,
+      }],
+    },
   },
 ])
