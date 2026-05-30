@@ -303,6 +303,7 @@
 
 .parametersButton {
   width: 100%;
+  justify-content: space-between;
 
   &:disabled {
     opacity: 0.4;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "../../components/ui/Button/Button";
 import { Card } from "../../components/ui/Card/Card";
 import type { LocationScreenProps } from "./types";
@@ -101,7 +101,7 @@ export function OlympicCenterRepresentativeScreen({
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
   const [selectedAnswerId, setSelectedAnswerId] = useState<string | null>(null);
   const [answerState, setAnswerState] = useState<AnswerState>("idle");
-
+  const hadWrongAnswerRef = useRef(false);
 
   const handleIntroNext = () => {
     setStep("parameters");
@@ -149,7 +149,9 @@ export function OlympicCenterRepresentativeScreen({
 
     if (item.correct) {
       setAnswerState("correct");
-      setBackgroundVariant("complete");
+      if (hadWrongAnswerRef.current) {
+        setBackgroundVariant("complete");
+      }
       publishBroadcastState({
         screen: "quiz",
         personId: "representative",
@@ -163,6 +165,7 @@ export function OlympicCenterRepresentativeScreen({
       });
     } else {
       setAnswerState("wrong");
+      hadWrongAnswerRef.current = true;
       setBackgroundVariant("error");
       publishBroadcastState({
         screen: "quiz",

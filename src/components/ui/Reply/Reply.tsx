@@ -56,7 +56,7 @@ export function Reply({
                 final && styles.final,
             )}
         >
-            <Message className={clsx(styles.replyMessage)}>
+            <Message className={clsx(styles.replyMessage, reply.messageClassName)} style={reply.messageStyle}>
                 {!final ? (
                     <>
                         {reply.title && (
@@ -112,6 +112,7 @@ export function Reply({
                 src={reply.image}
                 alt={"Персонаж"}
                 className={clsx(styles.replyImage)}
+                style={reply.imageStyle}
             />
         </div>
     );

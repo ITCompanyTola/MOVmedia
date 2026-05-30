@@ -25,6 +25,7 @@ export function Building({
     const baloonPosition = baloonOverride?.position ?? baloon.position;
     const baloonTitle = baloonOverride?.title ?? baloon.title ?? title;
     const baloonText = baloonOverride?.text ?? baloon.text ?? subtitle;
+    const baloonWidth = baloon.width;
 
     return (
         <>
@@ -69,6 +70,7 @@ export function Building({
                     style={{
                         left: `${baloonPosition[0]}px`,
                         top: `${baloonPosition[1]}px`,
+                        ...(baloonWidth ? { width: baloonWidth } : {}),
                     }}
                 >
                     <div className={styles.buildingBaloonCheck}>
