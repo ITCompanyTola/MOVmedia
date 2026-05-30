@@ -61,8 +61,8 @@ export function Reply({
             )}
         >
             <Message
-                className={clsx(styles.replyMessage)}
-                style={maxWidth ? { maxWidth: `${maxWidth}px` } : {}}
+                className={clsx(styles.replyMessage, reply.messageClassName)}
+                style={maxWidth ? { maxWidth: `${maxWidth}px`, ...reply.messageStyle } : {}}
             >
                 {!final ? (
                     <>
@@ -119,6 +119,7 @@ export function Reply({
                 src={reply.image}
                 alt={"Персонаж"}
                 className={clsx(styles.replyImage)}
+                style={reply.imageStyle}
             />
         </div>
     );

@@ -171,7 +171,9 @@ export function Quiz({
         if (answer.correct) {
             setCorrectAnswerId(answer.id);
             setWrongAnswerId(null);
-            setBackgroundVariant?.("complete");
+            if (wrongCountRef.current > 0) {
+                setBackgroundVariant?.("complete");
+            }
             if (broadcastPersonId) {
                 publishBroadcastState({
                     screen: "quiz",

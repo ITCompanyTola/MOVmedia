@@ -26,6 +26,7 @@ export function Building({
     const baloonWidth = baloonOverride?.width ?? baloon.width;
     const baloonTitle = baloonOverride?.title ?? baloon.title ?? title;
     const baloonText = baloonOverride?.text ?? baloon.text ?? subtitle;
+    const baloonWidth = baloon.width;
 
     return (
         <>

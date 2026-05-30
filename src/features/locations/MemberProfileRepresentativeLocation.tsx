@@ -1,6 +1,6 @@
 import type { LocationModule } from "./types";
 import { MemberProfileRepresentativeScreen } from "./MemberProfileRepresentativeScreen";
-import vuzBgPodlozhka from "../../assets/images/city/locations/member-profile/background.png";
+import vuzBgPodlozhka from "../../assets/images/city/locations/member-profile/background-vuz.png";
 import vuzBg from "../../assets/images/city/locations/profile/vuz-bg.png";
 import representativeTalk from "../../assets/images/persons/representative/talk.png";
 
