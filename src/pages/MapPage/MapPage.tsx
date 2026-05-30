@@ -131,15 +131,23 @@ export function MapPage() {
     return (
         <div className={clsx(styles.mapPage)}>
             <div className={clsx("layout", styles.mapPageLayout)}>
-                {start && (
+                {start && !isRoutePlaying && (
                     <Reply
                         align={person.replies.align || "left"}
                         message="aside"
                         reply={person.replies.start[startStep]}
                         onClick={handleNextStartStep}
+                        maxWidth={
+                            person.id === "student" && startStep === 1
+                                ? 478
+                                : 1000
+                        }
                     />
                 )}
-                {!start && !activeLocation && !allPersonLocationsCompleted && (
+                {!start &&
+                    !isRoutePlaying &&
+                    !activeLocation &&
+                    !allPersonLocationsCompleted && (
                     <Reply
                         align={person.replies.align || "left"}
                         message="aside"

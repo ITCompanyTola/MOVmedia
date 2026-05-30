@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store/useAppStore";
 import { publishBroadcastState } from "../../utils/broadcast";
 import { startGameStats } from "../../utils/gameStats";
+import type { PersonId } from "../../data/data";
 
 type Step = "start" | "overview" | "review" | "choice";
 const startVideoDuration = 4000;
@@ -26,12 +27,14 @@ function WelcomePage() {
 
     const [step, setStep] = useState<Step>("start");
     const [isStartLeaving, setIsStartLeaving] = useState(false);
-    const [selectedPersonId, setSelectedPersonId] = useState<string | null>(
+    const [selectedPersonId, setSelectedPersonId] = useState<PersonId | null>(
         null,
     );
     const overviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const handleStart = () => {
+        publishBroadcastState({ screen: "noInteractive" });
+
         if (videoRef.current) {
             videoRef.current.currentTime = 0;
             void videoRef.current.play();
@@ -49,11 +52,15 @@ function WelcomePage() {
 
     const handleReviewMessage = () => {
         setStep("choice");
-        publishBroadcastState({ screen: "choice" });
+        publishBroadcastState({ screen: "noInteractive" });
     };
 
-    const handleSelectPerson = (personId: string) => {
+    const handleSelectPerson = (personId: PersonId) => {
         setSelectedPersonId(personId);
+        publishBroadcastState({
+            screen: "choice",
+            personId,
+        });
     };
 
     const handleStartGame = () => {

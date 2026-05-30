@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "./BroadcardPage.module.css";
 
+import tiser from "../../assets/video/broadcast/tiser.mp4";
 import main from "../../assets/images/broadcast/main.jpg";
 import completeMap from "../../assets/images/broadcast/complete-map.jpg";
 import noInteractive from "../../assets/images/broadcast/no-interactive.jpg";
 import final from "../../assets/images/broadcast/final.jpg";
 
+import schoolboyChoice from "../../assets/images/broadcast/schoolboy/choice.jpg";
 import schoolboyStart from "../../assets/images/broadcast/schoolboy/start.jpg";
 import schoolboyQuiz from "../../assets/images/broadcast/schoolboy/quiz.jpg";
 import schoolboyQuizTrue from "../../assets/images/broadcast/schoolboy/quiz-true.jpg";
@@ -14,6 +16,7 @@ import schoolboyQuiz2 from "../../assets/images/broadcast/schoolboy/quiz-2.jpg";
 import schoolboyQuiz2True from "../../assets/images/broadcast/schoolboy/quiz-2-true.jpg";
 import schoolboyQuiz2False from "../../assets/images/broadcast/schoolboy/quiz-2-false.jpg";
 
+import studentChoice from "../../assets/images/broadcast/student/choice.jpg";
 import studentStart from "../../assets/images/broadcast/student/start.jpg";
 import studentQuiz from "../../assets/images/broadcast/student/quiz.jpg";
 import studentQuizTrue from "../../assets/images/broadcast/student/quiz-true.jpg";
@@ -22,11 +25,13 @@ import studentQuiz2 from "../../assets/images/broadcast/student/quiz-2.jpg";
 import studentQuiz2True from "../../assets/images/broadcast/student/quiz-2-true.jpg";
 import studentQuiz2False from "../../assets/images/broadcast/student/quiz-2-false.jpg";
 
+import expertChoice from "../../assets/images/broadcast/expert/choice.jpg";
 import expertStart from "../../assets/images/broadcast/expert/start.jpg";
 import expertQuiz from "../../assets/images/broadcast/expert/quiz.jpg";
 import expertQuizTrue from "../../assets/images/broadcast/expert/quiz-true.jpg";
 import expertQuizFalse from "../../assets/images/broadcast/expert/quiz-false.jpg";
 
+import representativeChoice from "../../assets/images/broadcast/expert/representative/choice.jpg";
 import representativeStart from "../../assets/images/broadcast/expert/representative/start.jpg";
 import representativeQuiz from "../../assets/images/broadcast/expert/representative/quiz.jpg";
 import representativeQuizTrue from "../../assets/images/broadcast/expert/representative/quiz-true.jpg";
@@ -46,6 +51,7 @@ type QuizBroadcastImages = Partial<Record<BroadcastQuizResult, string>> & {
 };
 
 type PersonBroadcastImages = {
+    choice: string;
     start: string;
     quiz: QuizBroadcastImages;
     quiz2?: QuizBroadcastImages;
@@ -66,6 +72,7 @@ const images: {
         final: final,
     },
     schoolboy: {
+        choice: schoolboyChoice,
         start: schoolboyStart,
         quiz: {
             idle: schoolboyQuiz,
@@ -79,6 +86,7 @@ const images: {
         },
     },
     student: {
+        choice: studentChoice,
         start: studentStart,
         quiz: {
             idle: studentQuiz,
@@ -92,6 +100,7 @@ const images: {
         },
     },
     expert: {
+        choice: expertChoice,
         start: expertStart,
         quiz: {
             idle: expertQuiz,
@@ -100,6 +109,7 @@ const images: {
         },
     },
     representative: {
+        choice: representativeChoice,
         start: representativeStart,
         quiz: {
             idle: representativeQuiz,
@@ -115,7 +125,9 @@ const images: {
 
 const getBroadcastImage = (state: BroadcastState) => {
     if (state.screen === "choice") {
-        return null;
+        return state.personId
+            ? (images[state.personId]?.choice ?? images.common.noInteractive)
+            : images.common.noInteractive;
     }
 
     if (state.screen === "start") {
@@ -126,9 +138,7 @@ const getBroadcastImage = (state: BroadcastState) => {
         const quizImages = images[state.personId]?.[state.quizId];
 
         return (
-            quizImages?.[state.result] ??
-            quizImages?.idle ??
-            images.common.main
+            quizImages?.[state.result] ?? quizImages?.idle ?? images.common.main
         );
     }
 
@@ -147,10 +157,16 @@ export default function BroadcastPage() {
 
     return (
         <div className={styles.broadcastPage}>
-            {image && (
+            {broadcastState.screen === "main" ? (
+                <div className={styles.image}>
+                    <video src={tiser} autoPlay muted loop playsInline />
+                </div>
+            ) : (
+                image && (
                 <div className={styles.image}>
                     <img src={image} alt="" />
                 </div>
+                )
             )}
         </div>
     );

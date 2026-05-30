@@ -55,7 +55,7 @@
     visibility: hidden;
     transition: 0.5s;
     width: 348px;
-    background: #f6ebe0;
+    background: #feebe0;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -84,7 +84,7 @@
     left: 50%;
     top: 0;
     transform: translate(-50%, -50%);
-    border: 6.25px solid #f6ebe0;
+    border: 6.25px solid #feebe0;
     display: none;
     align-items: center;
     justify-content: center;
