@@ -32,18 +32,18 @@ import olympicCenterMain from "../assets/images/city/buildings/olympic-center/ma
 import olympicCenterActive from "../assets/images/city/buildings/olympic-center/active.png";
 import olympicCenterComplete from "../assets/images/city/buildings/olympic-center/complete.png";
 import olympicCenterBackground from "../assets/images/city/locations/olympic-center/main.png";
-import olympicCenterErrorBackground from "../assets/images/city/locations/olympic-center/error.png";
-import olympicCenterCompleteBackground from "../assets/images/city/locations/olympic-center/complete.png";
 import olympicCenterRoute from "../assets/video/routes/olympic-center-route.webm";
+import olympicCenterIn from "../assets/video/locations/olympic-center/in.webm";
+import olympicCenterOut from "../assets/video/locations/olympic-center/out.webm";
 
 import academyMain from "../assets/images/city/buildings/academy/main.png";
 import academyActive from "../assets/images/city/buildings/academy/active.png";
 import academyComplete from "../assets/images/city/buildings/academy/complete.png";
 import academyBackground from "../assets/images/city/locations/academy/main.png";
-import academyErrorBackground from "../assets/images/city/locations/academy/error.png";
-import academyCompleteBackground from "../assets/images/city/locations/academy/complete.png";
 import schoolbodyBackground from "../assets/images/city/locations/academy/schoolbodyBackground.jpg";
 import academyRoute from "../assets/video/routes/academy-route.webm";
+import academyIn from "../assets/video/locations/academy/in.webm";
+import academyOut from "../assets/video/locations/academy/out.webm";
 
 import careerCenterMain from "../assets/images/city/buildings/career-center/main.png";
 import careerCenterActive from "../assets/images/city/buildings/career-center/active.png";
@@ -56,8 +56,6 @@ import globalAreaActive from "../assets/images/city/buildings/global-area/active
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
 import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
 import globalAreaRoute from "../assets/video/routes/global-area-route.webm";
-
-import posterSquareBackgroundError from "../assets/images/city/locations/poster-square/error.jpg";
 
 import memberProfileMain from "../assets/images/city/buildings/member-profile/main.png";
 import memberProfileActive from "../assets/images/city/buildings/member-profile/active.png";
@@ -75,6 +73,8 @@ import mediaCenterMain from "../assets/images/city/buildings/media-center/main.p
 import mediaCenterActive from "../assets/images/city/buildings/media-center/active.png";
 import mediaCenterComplete from "../assets/images/city/buildings/media-center/complete.png";
 import mediaCenterRoute from "../assets/video/routes/media-center-route.webm";
+import mediaCenterIn from "../assets/video/locations/media-center/in.webm";
+import mediaCenterOut from "../assets/video/locations/media-center/out.webm";
 
 import spaceCommonwealthMain from "../assets/images/city/buildings/space-commonwealth/main.png";
 import spaceCommonwealthActive from "../assets/images/city/buildings/space-commonwealth/active.png";
@@ -89,8 +89,7 @@ import posterSquareBackground from "../assets/images/city/locations/poster-squar
 import posterSquareRoute from "../assets/video/routes/poster-square-route.webm";
 
 import locationBackground from "../assets/images/city/locations/main.jpg";
-import mediaCenterErrorBackground from "../assets/images/city/locations/media-center/err-content.jpg";
-import mediaCenterCompleteBackground from "../assets/images/city/locations/media-center/complete-content.jpg";
+import type { CSSProperties } from "react";
 
 export type PersonId = "schoolboy" | "student" | "expert" | "representative";
 
@@ -110,6 +109,9 @@ export type ReplyData = {
     title?: string;
     text?: string;
     action?: string;
+    messageClassName?: string;
+    messageStyle?: CSSProperties;
+    imageStyle?: CSSProperties;
     button?: {
         type: "default" | "row";
         text: string;
@@ -161,8 +163,6 @@ export type LocationData = {
         };
         background: {
             main: string;
-            error?: string;
-            complete?: string;
             persons?: Partial<
                 Record<
                     PersonId,
@@ -173,6 +173,10 @@ export type LocationData = {
                     }
                 >
             >;
+        };
+        video?: {
+            in: string;
+            out: string;
         };
     };
     route?: {
@@ -450,8 +454,10 @@ const data: AppData = {
                 },
                 background: {
                     main: olympicCenterBackground,
-                    error: olympicCenterErrorBackground,
-                    complete: olympicCenterCompleteBackground,
+                },
+                video: {
+                    in: olympicCenterIn,
+                    out: olympicCenterOut,
                 },
             },
         },
@@ -476,13 +482,15 @@ const data: AppData = {
                 },
                 background: {
                     main: academyBackground,
-                    error: academyErrorBackground,
-                    complete: academyCompleteBackground,
                     persons: {
                         schoolboy: {
                             main: schoolbodyBackground,
                         },
                     },
+                },
+                video: {
+                    in: academyIn,
+                    out: academyOut,
                 },
             },
         },
@@ -617,8 +625,10 @@ const data: AppData = {
                 },
                 background: {
                     main: locationBackground,
-                    error: mediaCenterErrorBackground,
-                    complete: mediaCenterCompleteBackground,
+                },
+                video: {
+                    in: mediaCenterIn,
+                    out: mediaCenterOut,
                 },
             },
             route: {
@@ -684,7 +694,6 @@ const data: AppData = {
                 },
                 background: {
                     main: posterSquareBackground,
-                    error: posterSquareBackgroundError,
                 },
             },
             route: {

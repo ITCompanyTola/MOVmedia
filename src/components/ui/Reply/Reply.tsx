@@ -62,7 +62,10 @@ export function Reply({
         >
             <Message
                 className={clsx(styles.replyMessage, reply.messageClassName)}
-                style={maxWidth ? { maxWidth: `${maxWidth}px`, ...reply.messageStyle } : {}}
+                style={{
+                    ...(maxWidth ? { maxWidth: `${maxWidth}px` } : {}),
+                    ...reply.messageStyle,
+                }}
             >
                 {!final ? (
                     <>

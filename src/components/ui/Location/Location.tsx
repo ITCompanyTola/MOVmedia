@@ -67,18 +67,22 @@ function LocationContent({ person, location }: LocationContentProps) {
         error:
             locationModule.backgroundError ??
             location.images.background.persons?.[person.id]?.error ??
-            location.images.background.error ??
             locationModule.background ??
             location.images.background.persons?.[person.id]?.main ??
             location.images.background.main,
         complete:
             locationModule.backgroundComplete ??
             location.images.background.persons?.[person.id]?.complete ??
-            location.images.background.complete ??
             locationModule.background ??
             location.images.background.persons?.[person.id]?.main ??
             location.images.background.main,
     };
+    const videoByVariant = {
+        main: undefined,
+        error: location.images.video?.in,
+        complete: location.images.video?.out,
+    };
+    const activeVideo = videoByVariant[backgroundVariant];
 
     useEffect(() => {
         publishBroadcastState({ screen: "noInteractive" });
@@ -101,11 +105,22 @@ function LocationContent({ person, location }: LocationContentProps) {
                         {locationTitle}
                     </Text>
                     <div className={styles.locationBoxWindow}>
-                        <img
-                            className={styles.locationBoxWindowImage}
-                            src={backgroundByVariant[backgroundVariant]}
-                            alt={locationTitle}
-                        />
+                        {activeVideo ? (
+                            <video
+                                key={`${location.id}-${backgroundVariant}`}
+                                className={styles.locationBoxWindowImage}
+                                src={activeVideo}
+                                autoPlay
+                                muted
+                                playsInline
+                            />
+                        ) : (
+                            <img
+                                className={styles.locationBoxWindowImage}
+                                src={backgroundByVariant[backgroundVariant]}
+                                alt={locationTitle}
+                            />
+                        )}
                         <div className={clsx(styles.locationBoxWindowContent)}>
                             {content}
                         </div>
