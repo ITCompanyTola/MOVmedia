@@ -14,6 +14,7 @@ type QuizQuestionData = {
     text: ReactNode;
     icon?: ReactNode;
     iconBackground?: string;
+    className?: string;
 };
 
 export type QuizAnswerData = {
@@ -22,6 +23,7 @@ export type QuizAnswerData = {
     correct?: boolean;
     icon?: ReactNode;
     iconBackground?: string;
+    successReply?: ReplyData;
 };
 
 type QuizProps = {
@@ -34,6 +36,7 @@ type QuizProps = {
     wrongDuration?: number;
     continueText?: string;
     className?: string;
+    answersClassName?: string;
     broadcastPersonId?: PersonId;
     broadcastQuizId?: BroadcastQuizId;
     onCorrect?: () => void;
@@ -140,6 +143,7 @@ export function Quiz({
     wrongDuration = 2000,
     continueText = "Продолжить",
     className,
+    answersClassName,
     broadcastPersonId,
     broadcastQuizId = "quiz",
     onCorrect,
@@ -176,8 +180,9 @@ export function Quiz({
                     result: "true",
                 });
             }
-            if (successReply) {
-                setReply?.(successReply);
+            const replyToShow = answer.successReply ?? successReply;
+            if (replyToShow) {
+                setReply?.(replyToShow);
             }
             onCorrect?.();
             return;
@@ -229,10 +234,11 @@ export function Quiz({
             <QuizQuestion
                 icon={question.icon}
                 iconBackground={question.iconBackground}
+                className={question.className}
             >
                 {question.text}
             </QuizQuestion>
-            <div className={styles.quizAnswers}>
+            <div className={clsx(styles.quizAnswers, answersClassName)}>
                 {answers.map((answer) => (
                     <QuizAnswer
                         key={answer.id}

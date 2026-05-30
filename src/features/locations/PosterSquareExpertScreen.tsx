@@ -9,6 +9,7 @@ import {
 import { Text } from "../../components/ui/Text/Text";
 import type { LocationScreenProps } from "./types";
 import styles from "./PosterSquareLocation.module.css";
+import expertStyles from "./PosterSquareExpertScreen.module.css";
 import { ChevronRight, Airplay, Filter, Heart } from "lucide-react";
 
 import expertMain from "../../assets/images/persons/expert/main.png";
@@ -255,7 +256,7 @@ export function PosterSquareExpertScreen({
 
   return (
     <div className={styles.intro}>
-      <Card className={styles.introCard}>
+      <Card className={expertStyles.introCard}>
         <CardTitle>
           Будьте в курсе ярких событий платформы Содружество
         </CardTitle>

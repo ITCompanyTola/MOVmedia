@@ -38,7 +38,7 @@ const answers: QuizAnswerData[] = [
   {
     id: "2",
     correct: true,
-    text: "Проведение онлайн-мероприятий (олимпиад и вебинаров)",
+    text: "Проведение онлайн-мероприятий \n(олимпиад и вебинаров)",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,30 @@ const answers: QuizAnswerData[] = [
   {
     id: "3",
     correct: true,
-    text: "Мониторинг результатов и профилей участников Международной олимпиады",
+    text: "Доступ к уникальным сервисам  (Конструктор олимпиады, Редактор тестов)",
+    icon: (
+      <svg
+        width="24"
+        height="21"
+        viewBox="0 0 26 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3.66667L25 3.66667M17 10.3333L11.6667 15.6667L9 13M1 18.0667V5.26668C1 3.77321 1 3.02649 1.29065 2.45605C1.54631 1.95429 1.95396 1.54631 2.45573 1.29065C3.02616 1 3.77345 1 5.26693 1H20.7336C22.2271 1 22.9733 1 23.5437 1.29065C24.0455 1.54631 24.454 1.95429 24.7096 2.45605C25.0003 3.02649 25 3.77321 25 5.26668V18.0667C25 19.5601 25.0003 20.3069 24.7096 20.8773C24.454 21.3791 24.0455 21.7871 23.5437 22.0427C22.9733 22.3334 22.2271 22.3333 20.7336 22.3333L5.26693 22.3333C3.77345 22.3333 3.02616 22.3334 2.45573 22.0427C1.95396 21.7871 1.54631 21.3791 1.29065 20.8773C1 20.3069 1 19.5602 1 18.0667Z"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    ),
+    iconBackground: "#2B2C84",
+  },
+  {
+    id: "4",
+    correct: true,
+    text: "Мониторинг результатов и профилей участников Международной Олимпиады",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +105,7 @@ const answers: QuizAnswerData[] = [
     iconBackground: "#F46248",
   },
   {
-    id: "4",
+    id: "5",
     correct: true,
     text: "Все ответы верны",
     icon: (
@@ -103,6 +126,10 @@ const answers: QuizAnswerData[] = [
       </svg>
     ),
     iconBackground: "#a3c148",
+    successReply: {
+      image: representativeMain,
+      text: "**Да, вы правы!** \nНа платформе ещё много инструментов для продвижения вашего вуза. \n\nПродолжим путешествие?",
+    },
   },
 ];
 
@@ -123,7 +150,7 @@ export function MemberProfileRepresentativeScreen({
     setBackgroundVariant("complete");
     setReply({
       image: representativeMain,
-      text: "Как думаете, какие возможности открываются после регистрации на платформе? \n\n**Попробуйте догадаться**",
+      text: "Как думаете, какие возможности открываются после регистрации на платформе? \n**Попробуйте догадаться**",
     });
   };
 
@@ -138,30 +165,9 @@ export function MemberProfileRepresentativeScreen({
           <Quiz
             question={{
               text: "Выберите правильный ответ",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="44"
-                  height="44"
-                  viewBox="0 0 44 44"
-                  fill="none"
-                >
-                  <path
-                    d="M22.0003 40.3337C32.1255 40.3337 40.3337 32.1255 40.3337 22.0003C40.3337 11.8751 32.1255 3.66699 22.0003 3.66699C11.8751 3.66699 3.66699 11.8751 3.66699 22.0003C3.66699 32.1255 11.8751 40.3337 22.0003 40.3337Z"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M15 22L20 27L29 17"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ),
-              iconBackground: "#F46248",
+              className: styles.quizQuestionNoIcon,
             }}
+            answersClassName={styles.quizAnswersSmallGap}
             answers={answers}
             wrongReplies={[
               {
@@ -171,7 +177,7 @@ export function MemberProfileRepresentativeScreen({
             ]}
             successReply={{
               image: representativeMain,
-              text: "**Да, вы правы!** \nНо другие варианты тоже верны. \nНа платформе ещё много инструментов для продвижения вашего вуза. \nПродолжим путешествие?",
+              text: "**Да, вы правы!** \nНо другие варианты тоже верны. \n\nНа платформе ещё много инструментов для продвижения вашего вуза. \nПродолжим путешествие?",
             }}
             setReply={setReply}
             setBackgroundVariant={setBackgroundVariant}
