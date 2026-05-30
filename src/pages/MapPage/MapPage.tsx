@@ -125,7 +125,7 @@ export function MapPage() {
             setRouteLocationId(null);
             setActiveLocation(id);
             routeTimerRef.current = null;
-        }, 2500);
+        }, 4000);
     };
 
     return (

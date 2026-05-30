@@ -12,9 +12,19 @@ const renderFormattedText = (children: ReactNode) => {
     if (typeof children !== "string") return children;
 
     return children.split("\n").map((line, lineIndex, lines) => {
+        if (line === "") {
+            return (
+                <span
+                    key={lineIndex}
+                    className={styles.formattedParagraphGap}
+                />
+            );
+        }
+
         const parts = line.split(/(\*\*[^*]+\*\*)/g);
 
         const lineStartsWithStrong = line.trimStart().startsWith("**");
+        const previousLineIsEmpty = lines[lineIndex - 1] === "";
         const firstStrongPartIndex = parts.findIndex(
             (part) => part.startsWith("**") && part.endsWith("**"),
         );
@@ -36,6 +46,7 @@ const renderFormattedText = (children: ReactNode) => {
                                     styles.formattedStrongFirstLine,
                                 lineIndex > 0 &&
                                     lineStartsWithStrong &&
+                                    !previousLineIsEmpty &&
                                     partIndex === firstStrongPartIndex &&
                                     styles.formattedStrongNewLine,
                             )}
@@ -46,7 +57,8 @@ const renderFormattedText = (children: ReactNode) => {
                         <span key={partIndex}>{part}</span>
                     );
                 })}
-                {lineIndex < lines.length - 1 && <br />}
+                {lineIndex < lines.length - 1 &&
+                    lines[lineIndex + 1] !== "" && <br />}
             </span>
         );
     });

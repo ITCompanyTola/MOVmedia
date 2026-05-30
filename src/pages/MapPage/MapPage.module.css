@@ -27,12 +27,12 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 1;
+    top: -22px;
+    left: 0px;
 }
 
 .route video {
     width: 100%;
     height: 100%;
     position: absolute;
-    /* top: 0px;
-    left: 10px; */
 }

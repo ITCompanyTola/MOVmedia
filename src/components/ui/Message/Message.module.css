@@ -39,6 +39,11 @@
   margin-bottom: 12px;
 }
 
+.formattedParagraphGap {
+  display: block;
+  height: 12px;
+}
+
 .messageButton {
   margin-top: 8px;
   display: flex;

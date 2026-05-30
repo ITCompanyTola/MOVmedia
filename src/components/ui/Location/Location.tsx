@@ -46,6 +46,10 @@ function LocationContent({ person, location }: LocationContentProps) {
     const [backgroundVariant, setBackgroundVariant] =
         useState<LocationBackgroundVariant>("main");
     const isCompleted = completedLocations.includes(location.id);
+    const locationTitle =
+        location.baloon.persons?.[person.id]?.title ??
+        location.baloon.title ??
+        location.title;
     const content = locationModule.render({
         location,
         person,
@@ -94,13 +98,13 @@ function LocationContent({ person, location }: LocationContentProps) {
                         variant="h4"
                         className={clsx(styles.locationBoxTitle)}
                     >
-                        {location.title}
+                        {locationTitle}
                     </Text>
                     <div className={styles.locationBoxWindow}>
                         <img
                             className={styles.locationBoxWindowImage}
                             src={backgroundByVariant[backgroundVariant]}
-                            alt={location.title}
+                            alt={locationTitle}
                         />
                         <div className={clsx(styles.locationBoxWindowContent)}>
                             {content}
