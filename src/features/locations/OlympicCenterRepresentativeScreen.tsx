@@ -93,6 +93,7 @@ function SelectList({
 export function OlympicCenterRepresentativeScreen({
   isCompleted,
   setReply,
+  setBackgroundVariant,
   completeLocation,
   closeLocation,
 }: LocationScreenProps) {
@@ -101,11 +102,12 @@ export function OlympicCenterRepresentativeScreen({
   const [selectedAnswerId, setSelectedAnswerId] = useState<string | null>(null);
   const [answerState, setAnswerState] = useState<AnswerState>("idle");
 
+
   const handleIntroNext = () => {
     setStep("parameters");
     setReply({
       image: representativeMain,
-      text: "Представим, что вы решили  создать тест и определить уровнь знаний студентов. \n**Давайте настроим «Количество вопросов в тесте»**",
+      text: "Представим, что вы решили  создать тест и определить уровень знаний студентов. \n**Давайте настроим «Количество вопросов в тесте»**",
     });
   };
 
@@ -147,6 +149,7 @@ export function OlympicCenterRepresentativeScreen({
 
     if (item.correct) {
       setAnswerState("correct");
+      setBackgroundVariant("complete");
       publishBroadcastState({
         screen: "quiz",
         personId: "representative",
@@ -156,10 +159,11 @@ export function OlympicCenterRepresentativeScreen({
       completeLocation();
       setReply({
         image: representativeNotBottom,
-        text: "**Правильно!** \nФункционал платформы может показаться сложным на первый взгляд. \nНа самом деле всё просто: зайдите на сайт, зарегистрируйтесь в личном кабинете и начните знакомиться с возможностями",
+        text: "**Правильно!** \nФункционал платформы может показаться сложным на первый взгляд. \n\nНа самом деле всё просто: зайдите на сайт, зарегистрируйтесь в личном кабинете и начните знакомиться с возможностями",
       });
     } else {
       setAnswerState("wrong");
+      setBackgroundVariant("error");
       publishBroadcastState({
         screen: "quiz",
         personId: "representative",
@@ -264,11 +268,11 @@ export function OlympicCenterRepresentativeScreen({
           <Card className={styles.introCard}>
             <div className={styles.introCardHeader}>
               <span className={styles.serviceLabel}>Сервис</span>
-              <span className={styles.introCardTitle}>Редактор текстов</span>
+              <span className={styles.introCardTitle}>Редактор тестов</span>
             </div>
             <p className={styles.serviceDescription}>
-              Позволяет создавать и редактировать 9 типов тестовых заданий и
-              настраивать их по 7 параметрам
+              Позволяет создавать и редактировать 9 типов тестовых заданий{" "}
+              <br /> и настраивать их по 7 параметрам
             </p>
             <Button size="s" fullWidth onClick={handleIntroNext}>
               Узнать больше о сервисе <ChevronRight />
@@ -292,7 +296,6 @@ export function OlympicCenterRepresentativeScreen({
                 label,
                 disabled,
               }))}
-
               selected={checkedItems}
               onSelect={toggleCheck}
             />
