@@ -41,9 +41,11 @@ export const Footer = ({ theme = "dark", className }: Props) => {
 
         recordExitBeforeFinal(stage);
         finishCurrentSession();
-        navigate("/");
-        setActiveLocation(null);
-        clearCompletedLocation();
+        navigate("/", { replace: true });
+        window.setTimeout(() => {
+            setActiveLocation(null);
+            clearCompletedLocation();
+        }, 0);
     };
 
     return (

@@ -26,6 +26,7 @@ type ReplyProps = {
     message?: "default" | "aside";
     placement?: "map" | "location";
     final?: boolean;
+    maxWidth?: number;
     reply: ReplyData;
 };
 
@@ -34,6 +35,7 @@ export function Reply({
     message = "aside",
     placement,
     final = false,
+    maxWidth,
     reply,
     onClick,
 }: ReplyProps) {
@@ -41,9 +43,11 @@ export function Reply({
     const { setActiveLocation, clearCompletedLocation } = useAppStore();
 
     const handleExit = () => {
-        navigate("/");
-        setActiveLocation(null);
-        clearCompletedLocation();
+        navigate("/", { replace: true });
+        window.setTimeout(() => {
+            setActiveLocation(null);
+            clearCompletedLocation();
+        }, 0);
     };
 
     return (
@@ -56,7 +60,10 @@ export function Reply({
                 final && styles.final,
             )}
         >
-            <Message className={clsx(styles.replyMessage)}>
+            <Message
+                className={clsx(styles.replyMessage)}
+                style={maxWidth ? { maxWidth: `${maxWidth}px` } : {}}
+            >
                 {!final ? (
                     <>
                         {reply.title && (

@@ -23,6 +23,7 @@ export function Building({
     const { id, images, position, title, subtitle, baloon } = location;
     const baloonOverride = personId ? baloon.persons?.[personId] : undefined;
     const baloonPosition = baloonOverride?.position ?? baloon.position;
+    const baloonWidth = baloonOverride?.width ?? baloon.width;
     const baloonTitle = baloonOverride?.title ?? baloon.title ?? title;
     const baloonText = baloonOverride?.text ?? baloon.text ?? subtitle;
 
@@ -69,6 +70,7 @@ export function Building({
                     style={{
                         left: `${baloonPosition[0]}px`,
                         top: `${baloonPosition[1]}px`,
+                        width: baloonWidth,
                     }}
                 >
                     <div className={styles.buildingBaloonCheck}>

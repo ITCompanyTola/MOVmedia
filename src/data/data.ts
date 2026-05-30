@@ -34,6 +34,7 @@ import olympicCenterComplete from "../assets/images/city/buildings/olympic-cente
 import olympicCenterBackground from "../assets/images/city/locations/olympic-center/main.png";
 import olympicCenterErrorBackground from "../assets/images/city/locations/olympic-center/error.png";
 import olympicCenterCompleteBackground from "../assets/images/city/locations/olympic-center/complete.png";
+import olympicCenterRoute from "../assets/video/routes/olympic-center-route.webm";
 
 import academyMain from "../assets/images/city/buildings/academy/main.png";
 import academyActive from "../assets/images/city/buildings/academy/active.png";
@@ -42,6 +43,7 @@ import academyBackground from "../assets/images/city/locations/academy/main.png"
 import academyErrorBackground from "../assets/images/city/locations/academy/error.png";
 import academyCompleteBackground from "../assets/images/city/locations/academy/complete.png";
 import schoolbodyBackground from "../assets/images/city/locations/academy/schoolbodyBackground.jpg";
+import academyRoute from "../assets/video/routes/academy-route.webm";
 
 import careerCenterMain from "../assets/images/city/buildings/career-center/main.png";
 import careerCenterActive from "../assets/images/city/buildings/career-center/active.png";
@@ -53,6 +55,7 @@ import globalAreaMain from "../assets/images/city/buildings/global-area/main.png
 import globalAreaActive from "../assets/images/city/buildings/global-area/active.png";
 import globalAreaComplete from "../assets/images/city/buildings/global-area/complete.png";
 import globalAreaBackground from "../assets/images/city/locations/global-area/main.png";
+import globalAreaRoute from "../assets/video/routes/global-area-route.webm";
 
 import posterSquareBackgroundError from "../assets/images/city/locations/poster-square/error.jpg";
 
@@ -61,24 +64,29 @@ import memberProfileActive from "../assets/images/city/buildings/member-profile/
 import memberProfileComplete from "../assets/images/city/buildings/member-profile/complete.png";
 import memberProfileBackground from "../assets/images/city/locations/member-profile/background.png";
 import memberProfileStudentBackgground from "../assets/images/city/locations/member-profile/student-background.jpg";
+import memberProfileRoute from "../assets/video/routes/member-profile-route.webm";
 
 import libraryMain from "../assets/images/city/buildings/library/main.png";
 import libraryActive from "../assets/images/city/buildings/library/active.png";
 import libraryComplete from "../assets/images/city/buildings/library/complete.png";
+import libraryRoute from "../assets/video/routes/llibrary-route.webm";
 
 import mediaCenterMain from "../assets/images/city/buildings/media-center/main.png";
 import mediaCenterActive from "../assets/images/city/buildings/media-center/active.png";
 import mediaCenterComplete from "../assets/images/city/buildings/media-center/complete.png";
+import mediaCenterRoute from "../assets/video/routes/media-center-route.webm";
 
 import spaceCommonwealthMain from "../assets/images/city/buildings/space-commonwealth/main.png";
 import spaceCommonwealthActive from "../assets/images/city/buildings/space-commonwealth/active.png";
 import spaceCommonwealthComplete from "../assets/images/city/buildings/space-commonwealth/complete.png";
 import spaceCommonwealthBackground from "../assets/images/city/locations/space-commonwealth/main.png";
+import spaceCommonwealthRoute from "../assets/video/routes/space-route.webm";
 
 import posterSquareMain from "../assets/images/city/buildings/poster-square/main.png";
 import posterSquareActive from "../assets/images/city/buildings/poster-square/active.png";
 import posterSquareComplete from "../assets/images/city/buildings/poster-square/complete.png";
 import posterSquareBackground from "../assets/images/city/locations/poster-square/main.png";
+import posterSquareRoute from "../assets/video/routes/poster-square-route.webm";
 
 import locationBackground from "../assets/images/city/locations/main.jpg";
 import mediaCenterErrorBackground from "../assets/images/city/locations/media-center/err-content.jpg";
@@ -130,6 +138,7 @@ export type LocationData = {
     position: [number, number];
     baloon: {
         position: [number, number];
+        width?: number | string;
         title?: string;
         text?: string;
         persons?: Partial<
@@ -139,6 +148,7 @@ export type LocationData = {
                     title?: string;
                     text?: string;
                     position?: [number, number];
+                    width?: number | string;
                 }
             >
         >;
@@ -188,7 +198,7 @@ const data: AppData = {
                 start: [
                     {
                         title: "Привет, давай знакомиться!",
-                        text: "Меня зовут Артем, я учусь в 10-м классе. Помогу тебе освоиться в городе",
+                        text: "Меня зовут Артём, я учусь в 10-м классе. Помогу тебе освоиться в городе",
                         button: {
                             type: "row",
                             text: "Привет",
@@ -408,8 +418,12 @@ const data: AppData = {
             title: "Олимпиадный центр",
             subtitle: "Получай дополнительные баллы для поступления в вузы",
             position: [1239, 244],
+            route: {
+                video: olympicCenterRoute,
+            },
             baloon: {
                 position: [130, -25],
+                width: 348,
                 persons: {
                     schoolboy: {
                         title: "Олимпиадный центр",
@@ -445,10 +459,14 @@ const data: AppData = {
             id: "academy",
             title: "Академия",
             subtitle:
-                "Прокачай свои знания в сфере финансовой безопасности. И не только!",
-            position: [889, 206],
+                "Прокачайте свои знания в сфере финансовой безопасности. И не только!",
+            position: [890, 215],
+            route: {
+                video: academyRoute,
+            },
             baloon: {
                 position: [200, -170],
+                width: 348,
             },
             images: {
                 building: {
@@ -473,9 +491,10 @@ const data: AppData = {
             title: "Центр карьеры",
             subtitle:
                 "Поможем выбрать профессию, вуз и понять, куда двигаться дальше",
-            position: [640, 7],
+            position: [646, 13],
             baloon: {
                 position: [64, 20],
+                width: 348,
             },
             images: {
                 building: {
@@ -499,6 +518,7 @@ const data: AppData = {
             position: [530, 277],
             baloon: {
                 position: [175, -20],
+                width: 378,
             },
             images: {
                 building: {
@@ -510,6 +530,9 @@ const data: AppData = {
                     main: globalAreaBackground,
                 },
             },
+            route: {
+                video: globalAreaRoute,
+            },
         },
         {
             id: "member-profile",
@@ -519,6 +542,7 @@ const data: AppData = {
             position: [988, 523],
             baloon: {
                 position: [110, -135],
+                width: 348,
                 persons: {
                     student: {
                         title: "Профиль участника",
@@ -547,15 +571,19 @@ const data: AppData = {
                     },
                 },
             },
+            route: {
+                video: memberProfileRoute,
+            },
         },
         {
             id: "library",
             title: "Библиотека",
             subtitle:
                 "Собрали в одном месте материалы по финансовой безопасности. Учитесь, развивайтесь или создавайте самостоятельно",
-            position: [277, 148],
+            position: [277, 136],
             baloon: {
                 position: [73, -66],
+                width: 317,
             },
             images: {
                 building: {
@@ -567,6 +595,9 @@ const data: AppData = {
                     main: locationBackground,
                 },
             },
+            route: {
+                video: libraryRoute,
+            },
         },
         {
             id: "media-center",
@@ -575,7 +606,8 @@ const data: AppData = {
                 "Следите на событиями, давайте интервью и делитесь экспертизой",
             position: [-10, 329],
             baloon: {
-                position: [10, -167],
+                position: [30, -167],
+                width: 287,
             },
             images: {
                 building: {
@@ -589,6 +621,9 @@ const data: AppData = {
                     complete: mediaCenterCompleteBackground,
                 },
             },
+            route: {
+                video: mediaCenterRoute,
+            },
         },
         {
             id: "space-commonwealth",
@@ -598,6 +633,7 @@ const data: AppData = {
             position: [160, 488],
             baloon: {
                 position: [106, -108],
+                width: 370,
                 persons: {
                     student: {
                         title: "Пространство Содружество",
@@ -626,15 +662,19 @@ const data: AppData = {
                     main: spaceCommonwealthBackground,
                 },
             },
+            route: {
+                video: spaceCommonwealthRoute,
+            },
         },
         {
             id: "poster-square",
             title: "Афишная площадь",
             subtitle:
-                "Следи за мероприятиями, стажировками и анонсами олимпиад",
-            position: [418, 612],
+                "Следите за мероприятиями, стажировками и анонсами олимпиад",
+            position: [418, 600],
             baloon: {
                 position: [241, -52],
+                width: 375,
             },
             images: {
                 building: {
@@ -646,6 +686,9 @@ const data: AppData = {
                     main: posterSquareBackground,
                     error: posterSquareBackgroundError,
                 },
+            },
+            route: {
+                video: posterSquareRoute,
             },
         },
     ],

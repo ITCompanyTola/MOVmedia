@@ -5,7 +5,11 @@ export type BroadcastQuizResult = "idle" | "true" | "false";
 
 export type BroadcastState =
     | {
-          screen: "main" | "choice" | "completeMap" | "noInteractive" | "final";
+          screen: "main" | "completeMap" | "noInteractive" | "final";
+      }
+    | {
+          screen: "choice";
+          personId?: PersonId;
       }
     | {
           screen: "start";

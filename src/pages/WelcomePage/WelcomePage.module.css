@@ -280,7 +280,9 @@
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -30px;
+    bottom: 0;
+    transition: 0.3s;
+    transform: translateY(12px);
 }
 
 .welcomePageChoiceMessage {
@@ -289,4 +291,8 @@
 
 .welcomePageChoiceSelected .welcomePageChoiceMessage {
     display: block;
+}
+
+.welcomePageChoiceCardsItemActive .welcomePageChoiceCardsItemImage {
+    transform: translateY(0px);
 }
