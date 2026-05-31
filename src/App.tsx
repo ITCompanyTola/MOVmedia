@@ -4,8 +4,13 @@ import { MapPage } from "./pages/MapPage/MapPage";
 import { Modal } from "./components/ui/Modal/Modal";
 import BroadcastPage from "./pages/BroadcarsPage/BroadcardPage";
 import { StatsDownloadPage } from "./pages/StatsDownloadPage/StatsDownloadPage";
+import { useAppStore } from "./store/useAppStore";
+import styles from "./App.module.css";
+import clsx from "clsx";
 
 function App() {
+    const { exitTransitionActive } = useAppStore();
+
     return (
         <HashRouter>
             <Routes>
@@ -15,6 +20,12 @@ function App() {
                 <Route path="/stats" element={<StatsDownloadPage />} />
             </Routes>
             <Modal />
+            <div
+                className={clsx(
+                    styles.exitTransition,
+                    exitTransitionActive && styles.exitTransitionActive,
+                )}
+            />
         </HashRouter>
     );
 }

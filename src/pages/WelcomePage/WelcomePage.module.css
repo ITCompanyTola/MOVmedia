@@ -59,6 +59,10 @@
     pointer-events: none;
 }
 
+.welcomePageStartContentInstant {
+    transition: none;
+}
+
 .welcomePageStartClauds {
     position: absolute;
     top: 0;

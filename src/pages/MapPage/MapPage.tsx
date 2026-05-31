@@ -120,12 +120,17 @@ export function MapPage() {
         }
 
         setRouteLocationId(id);
+    };
+
+    const handleRouteVideoEnd = () => {
+        if (!routeLocationId || routeTimerRef.current) return;
 
         routeTimerRef.current = setTimeout(() => {
+            const locationId = routeLocationId;
             setRouteLocationId(null);
-            setActiveLocation(id);
+            setActiveLocation(locationId);
             routeTimerRef.current = null;
-        }, 4000);
+        }, 300);
     };
 
     return (
@@ -148,17 +153,17 @@ export function MapPage() {
                     !isRoutePlaying &&
                     !activeLocation &&
                     !allPersonLocationsCompleted && (
-                    <Reply
-                        align={person.replies.align || "left"}
-                        message="aside"
-                        reply={
-                            mapReply ??
-                            person.replies.start[
-                                person.replies.start.length - 1
-                            ]
-                        }
-                    />
-                )}
+                        <Reply
+                            align={person.replies.align || "left"}
+                            message="aside"
+                            reply={
+                                mapReply ??
+                                person.replies.start[
+                                    person.replies.start.length - 1
+                                ]
+                            }
+                        />
+                    )}
                 {isFinalScreenVisible && <FinalScreen person={person} />}
                 {data.locations.map((location) => (
                     <Building
@@ -192,6 +197,8 @@ export function MapPage() {
                         autoPlay
                         muted
                         playsInline
+                        onEnded={handleRouteVideoEnd}
+                        onError={handleRouteVideoEnd}
                     />
                 </div>
             )}

@@ -1,0 +1,18 @@
+.exitTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.exitTransitionActive {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}

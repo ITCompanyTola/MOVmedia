@@ -7,7 +7,7 @@ import data, {
     type ReplyData,
 } from "../../../data/data";
 import { Text } from "../Text/Text";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Reply } from "../Reply/Reply";
 import { getLocationModule } from "../../../features/locations/registry";
 import type { LocationBackgroundVariant } from "../../../features/locations/types";
@@ -45,6 +45,8 @@ function LocationContent({ person, location }: LocationContentProps) {
     );
     const [backgroundVariant, setBackgroundVariant] =
         useState<LocationBackgroundVariant>("main");
+    const errorVideoRef = useRef<HTMLVideoElement | null>(null);
+    const completeVideoRef = useRef<HTMLVideoElement | null>(null);
     const isCompleted = completedLocations.includes(location.id);
     const locationTitle =
         location.baloon.persons?.[person.id]?.title ??
@@ -77,16 +79,29 @@ function LocationContent({ person, location }: LocationContentProps) {
             location.images.background.persons?.[person.id]?.main ??
             location.images.background.main,
     };
-    const videoByVariant = {
-        main: undefined,
-        error: location.images.video?.in,
-        complete: location.images.video?.out,
-    };
-    const activeVideo = videoByVariant[backgroundVariant];
+    const errorVideo = location.images.video?.in;
+    const completeVideo = location.images.video?.out;
+    const isErrorVideoActive = backgroundVariant === "error" && Boolean(errorVideo);
+    const isCompleteVideoActive =
+        backgroundVariant === "complete" && Boolean(completeVideo);
 
     useEffect(() => {
         publishBroadcastState({ screen: "noInteractive" });
     }, [location.id, person.id]);
+
+    useEffect(() => {
+        const activeVideo =
+            backgroundVariant === "error"
+                ? errorVideoRef.current
+                : backgroundVariant === "complete"
+                  ? completeVideoRef.current
+                  : null;
+
+        if (!activeVideo) return;
+
+        activeVideo.currentTime = 0;
+        void activeVideo.play();
+    }, [backgroundVariant]);
 
     return (
         <div className={clsx("bg", styles.location)}>
@@ -105,22 +120,43 @@ function LocationContent({ person, location }: LocationContentProps) {
                         {locationTitle}
                     </Text>
                     <div className={styles.locationBoxWindow}>
-                        {activeVideo ? (
-                            <video
-                                key={`${location.id}-${backgroundVariant}`}
-                                className={styles.locationBoxWindowImage}
-                                src={activeVideo}
-                                autoPlay
-                                muted
-                                playsInline
-                            />
-                        ) : (
+                        <div className={styles.locationBoxWindowMediaFrame}>
                             <img
-                                className={styles.locationBoxWindowImage}
+                                className={styles.locationBoxWindowMedia}
                                 src={backgroundByVariant[backgroundVariant]}
                                 alt={locationTitle}
                             />
-                        )}
+                            {errorVideo && (
+                                <video
+                                    ref={errorVideoRef}
+                                    className={clsx(
+                                        styles.locationBoxWindowMedia,
+                                        styles.locationBoxWindowVideo,
+                                        isErrorVideoActive &&
+                                            styles.locationBoxWindowVideoActive,
+                                    )}
+                                    src={errorVideo}
+                                    muted
+                                    playsInline
+                                    preload="auto"
+                                />
+                            )}
+                            {completeVideo && (
+                                <video
+                                    ref={completeVideoRef}
+                                    className={clsx(
+                                        styles.locationBoxWindowMedia,
+                                        styles.locationBoxWindowVideo,
+                                        isCompleteVideoActive &&
+                                            styles.locationBoxWindowVideoActive,
+                                    )}
+                                    src={completeVideo}
+                                    muted
+                                    playsInline
+                                    preload="auto"
+                                />
+                            )}
+                        </div>
                         <div className={clsx(styles.locationBoxWindowContent)}>
                             {content}
                         </div>

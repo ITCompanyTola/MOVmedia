@@ -5,7 +5,7 @@ import { Text } from "../Text/Text";
 
 import logoDark from "../../../assets/images/components/footer/logo-dark.svg";
 import logoLight from "../../../assets/images/components/footer/logo-light.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAppStore } from "../../../store/useAppStore";
 import { LogOut } from "lucide-react";
 import {
@@ -16,16 +16,21 @@ import {
 type Props = {
     theme?: "dark" | "light";
     className?: string;
+    onExit?: () => void;
 };
 
-export const Footer = ({ theme = "dark", className }: Props) => {
+export const Footer = ({ theme = "dark", className, onExit }: Props) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const {
         person,
         activeLocation,
         completedLocations,
         setActiveLocation,
         clearCompletedLocation,
+        setStarted,
+        setPerson,
+        setExitTransitionActive,
         openModal,
     } = useAppStore();
 
@@ -41,11 +46,31 @@ export const Footer = ({ theme = "dark", className }: Props) => {
 
         recordExitBeforeFinal(stage);
         finishCurrentSession();
-        navigate("/", { replace: true });
-        window.setTimeout(() => {
+
+        if (location.pathname !== "/map") {
+            onExit?.();
+            navigate("/", { replace: true });
             setActiveLocation(null);
             clearCompletedLocation();
-        }, 0);
+            setStarted(false);
+            setPerson(null);
+            return;
+        }
+
+        setExitTransitionActive(true);
+
+        window.setTimeout(() => {
+            onExit?.();
+            navigate("/", { replace: true });
+            setActiveLocation(null);
+            clearCompletedLocation();
+            setStarted(false);
+            setPerson(null);
+
+            window.setTimeout(() => {
+                setExitTransitionActive(false);
+            }, 50);
+        }, 300);
     };
 
     return (

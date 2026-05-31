@@ -40,14 +40,28 @@ export function Reply({
     onClick,
 }: ReplyProps) {
     const navigate = useNavigate();
-    const { setActiveLocation, clearCompletedLocation } = useAppStore();
+    const {
+        setActiveLocation,
+        clearCompletedLocation,
+        setStarted,
+        setPerson,
+        setExitTransitionActive,
+    } = useAppStore();
 
     const handleExit = () => {
-        navigate("/", { replace: true });
+        setExitTransitionActive(true);
+
         window.setTimeout(() => {
+            navigate("/", { replace: true });
             setActiveLocation(null);
             clearCompletedLocation();
-        }, 0);
+            setStarted(false);
+            setPerson(null);
+
+            window.setTimeout(() => {
+                setExitTransitionActive(false);
+            }, 50);
+        }, 300);
     };
 
     return (

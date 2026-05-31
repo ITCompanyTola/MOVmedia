@@ -23,7 +23,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr;
     gap: 24px;
-    backdrop-filter: blur(60px);
+    /* backdrop-filter: blur(60px); */
     box-shadow:
         0 0 89px 0 rgba(118, 125, 139, 0.6),
         inset 0 0 49px 0 rgba(255, 230, 156, 0.54);
@@ -42,15 +42,41 @@
     border-radius: 24px;
     padding: 24px;
     overflow: hidden;
+    clip-path: inset(0 round 24px);
+    isolation: isolate;
 }
 
-.locationBoxWindowImage {
+.locationBoxWindowMediaFrame {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    overflow: clip;
+    contain: paint;
+    clip-path: inset(0 round 24px);
+    transform: translateZ(0);
+    z-index: 0;
+}
+
+.locationBoxWindowMedia {
+    position: absolute;
+    inset: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
     object-fit: cover;
+    display: block;
+}
+
+.locationBoxWindowVideo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.locationBoxWindowVideoActive {
+    opacity: 1;
+    visibility: visible;
 }
 
 .locationBoxWindowContent {

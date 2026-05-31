@@ -18,7 +18,7 @@ import { startGameStats } from "../../utils/gameStats";
 import type { PersonId } from "../../data/data";
 
 type Step = "start" | "overview" | "review" | "choice";
-const startVideoDuration = 4000;
+const startVideoDuration = 2000;
 
 function WelcomePage() {
     const navigate = useNavigate();
@@ -27,6 +27,7 @@ function WelcomePage() {
 
     const [step, setStep] = useState<Step>("start");
     const [isStartLeaving, setIsStartLeaving] = useState(false);
+    const [isExitResetting, setIsExitResetting] = useState(false);
     const [selectedPersonId, setSelectedPersonId] = useState<PersonId | null>(
         null,
     );
@@ -76,6 +77,30 @@ function WelcomePage() {
         navigate("/map");
     };
 
+    const handleExit = () => {
+        if (overviewTimerRef.current) {
+            clearTimeout(overviewTimerRef.current);
+            overviewTimerRef.current = null;
+        }
+
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+
+        setStarted(false);
+        setPerson(null);
+        setSelectedPersonId(null);
+        setIsExitResetting(true);
+        setIsStartLeaving(false);
+        setStep("start");
+        publishBroadcastState({ screen: "main" });
+
+        window.setTimeout(() => {
+            setIsExitResetting(false);
+        }, 350);
+    };
+
     useEffect(() => {
         publishBroadcastState({ screen: "main" });
 
@@ -109,6 +134,8 @@ function WelcomePage() {
                     className={clsx(
                         styles.welcomePageStartContent,
                         isStartLeaving && styles.welcomePageStartContentHide,
+                        isExitResetting &&
+                            styles.welcomePageStartContentInstant,
                     )}
                 >
                     <div className={styles.welcomePageStartHeader}>
@@ -303,7 +330,7 @@ function WelcomePage() {
                     </div>
                 </div>
 
-                <Footer />
+                <Footer onExit={handleExit} />
             </div>
         </div>
     );
