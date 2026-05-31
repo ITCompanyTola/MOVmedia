@@ -46,7 +46,7 @@
 .filterGroup {
   background: #e5d3c2;
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -105,7 +105,7 @@
 }
 
 .dropdownList label {
-  padding: 12px 24px;
+  padding: 9px 24px;
   display: grid;
   grid-template-columns: 20px max-content;
   align-items: center;
@@ -190,7 +190,8 @@
 }
 
 .screenProfile {
-  max-width: 840px;
+  width: 830px;
+  height: 438px;
   position: absolute;
   top: 16.6%;
   border-radius: 20px;
@@ -199,7 +200,7 @@
 .screenButton {
   min-width: 200px;
   position: absolute;
-  bottom: 30px;
+  bottom: 35px;
 }
 
 /* buttons step */

@@ -3,7 +3,7 @@ import { Button } from "../../components/ui/Button/Button";
 import { Card } from "../../components/ui/Card/Card";
 import type { LocationScreenProps } from "./types";
 import styles from "./SpaceCommonwealthLocation.module.css";
-import { ChevronRight, ChevronUp, ChevronDown, Filter } from "lucide-react";
+import { ChevronRight, ChevronUp, Filter } from "lucide-react";
 import { Text } from "../../components/ui/Text/Text";
 
 import representativeFocused from "../../assets/images/persons/representative/focused.png";
@@ -129,7 +129,22 @@ export function SpaceCommonwealthRepresendScreen({
           {/* Учебное заведение — collapsed */}
           <div className={styles.filterGroupCollapsed}>
             <span className={styles.filterGroupTitle}>Учебное заведение</span>
-            <ChevronDown size={20} color="#4F525A" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="14"
+              viewBox="0 0 14 16"
+              fill="none"
+              style={{ marginRight: "10px" }}
+            >
+              <path
+                d="M7 1V15M1 9L7 15L13 9"
+                stroke="#4F525A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </div>
         </div>
 

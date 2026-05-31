@@ -8,16 +8,16 @@
 }
 
 .slideImage {
-  width: 926px;
+  width: 860px;
   height: 486px;
   object-fit: contain;
   border-radius: 16px;
-  transform: translate(5px, -10px);
+  transform: translate(0px, -10px);
 }
 
 .continueButton {
   position: absolute;
-  bottom: 15px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
