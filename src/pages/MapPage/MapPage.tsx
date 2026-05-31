@@ -144,7 +144,7 @@ export function MapPage() {
                         onClick={handleNextStartStep}
                         maxWidth={
                             person.id === "student" && startStep === 1
-                                ? 478
+                                ? 486
                                 : 1000
                         }
                     />
