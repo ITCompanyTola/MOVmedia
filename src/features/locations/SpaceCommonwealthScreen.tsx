@@ -77,7 +77,9 @@ export function SpaceCommonwealthScreen({
   return (
     <div className={`${styles.intro}`}>
       <Card className={`${styles.introCard}`}>
-        <CardTitle>Выберите функцию, которая будет для вас полезной</CardTitle>
+        <CardTitle>
+          Выберите функцию, которая будет <br /> для вас полезной
+        </CardTitle>
         <div className={`${styles.introButtons}`}>
           <Button size="s" fullWidth onClick={() => handleVideo("publish")}>
             Опубликовать новый пост <ChevronRight />

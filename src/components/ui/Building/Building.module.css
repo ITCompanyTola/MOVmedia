@@ -111,3 +111,7 @@
 .buildingBaloonTitle {
     font-weight: var(--weight-semibold);
 }
+
+.buildingBaloonText {
+    white-space: pre-line;
+}

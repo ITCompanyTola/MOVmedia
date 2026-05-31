@@ -82,7 +82,7 @@ export function Building({
                     >
                         {baloonTitle}
                     </Text>
-                    <Text variant="caption">{baloonText}</Text>
+                    <Text variant="caption" className={styles.buildingBaloonText}>{baloonText}</Text>
                 </div>
             </div>
         </>
