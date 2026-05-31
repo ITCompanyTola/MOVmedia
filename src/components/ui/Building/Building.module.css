@@ -64,6 +64,7 @@
     border-radius: 24px;
     padding: 24px;
     z-index: 3;
+    cursor: pointer;
 }
 
 .buildingBaloon:after {
@@ -114,4 +115,22 @@
 
 .buildingBaloonText {
     white-space: pre-line;
+}
+
+.clickArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.clickArea svg {
+    display: block;
+    pointer-events: none;
+}
+
+.clickArea path {
+    cursor: pointer;
+    pointer-events: all;
 }

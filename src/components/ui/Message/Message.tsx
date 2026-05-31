@@ -4,9 +4,62 @@ import styles from "./Message.module.css";
 import { Text } from "../Text/Text";
 import { Button } from "../Button/Button";
 import { ChevronRight } from "lucide-react";
+import { useAppStore, type ModalType } from "../../../store/useAppStore";
 
 type Theme = "dark" | "light";
 type ButtonAlign = "left" | "center" | "right" | "fullWidth";
+
+const modalLinkPattern = /\[\[modal:([a-z-]+)\|([^\]]+)]]/g;
+
+type ModalLinkProps = {
+    modal: ModalType;
+    children: ReactNode;
+};
+
+const ModalLink = ({ modal, children }: ModalLinkProps) => {
+    const { openModal } = useAppStore();
+
+    return (
+        <button
+            type="button"
+            className={styles.messageModalLink}
+            onClick={(event) => {
+                event.stopPropagation();
+                openModal(modal);
+            }}
+        >
+            {children}
+        </button>
+    );
+};
+
+const renderInlineText = (text: string, keyPrefix: string) => {
+    const parts: ReactNode[] = [];
+    let lastIndex = 0;
+
+    text.replace(modalLinkPattern, (match, modal, label, offset) => {
+        if (offset > lastIndex) {
+            parts.push(text.slice(lastIndex, offset));
+        }
+
+        parts.push(
+            <ModalLink
+                key={`${keyPrefix}-modal-${offset}`}
+                modal={modal as ModalType}
+            >
+                {label}
+            </ModalLink>,
+        );
+        lastIndex = offset + match.length;
+        return match;
+    });
+
+    if (lastIndex < text.length) {
+        parts.push(text.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+};
 
 const renderFormattedText = (children: ReactNode) => {
     if (typeof children !== "string") return children;
@@ -51,10 +104,18 @@ const renderFormattedText = (children: ReactNode) => {
                                     styles.formattedStrongNewLine,
                             )}
                         >
-                            {part.slice(2, -2)}
+                            {renderInlineText(
+                                part.slice(2, -2),
+                                `${lineIndex}-${partIndex}-strong`,
+                            )}
                         </strong>
                     ) : (
-                        <span key={partIndex}>{part}</span>
+                        <span key={partIndex}>
+                            {renderInlineText(
+                                part,
+                                `${lineIndex}-${partIndex}`,
+                            )}
+                        </span>
                     );
                 })}
                 {lineIndex < lines.length - 1 &&

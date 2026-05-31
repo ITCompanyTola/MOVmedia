@@ -94,637 +94,721 @@ import type { CSSProperties } from "react";
 export type PersonId = "schoolboy" | "student" | "expert" | "representative";
 
 export type LocationId =
-  | "olympic-center"
-  | "academy"
-  | "career-center"
-  | "global-area"
-  | "poster-square"
-  | "space-commonwealth"
-  | "media-center"
-  | "library"
-  | "member-profile";
+    | "olympic-center"
+    | "academy"
+    | "career-center"
+    | "global-area"
+    | "poster-square"
+    | "space-commonwealth"
+    | "media-center"
+    | "library"
+    | "member-profile";
 
 export type ReplyData = {
-  image: string;
-  title?: string;
-  text?: string;
-  action?: string;
-  messageClassName?: string;
-  messageStyle?: CSSProperties;
-  imageStyle?: CSSProperties;
-  button?: {
-    type: "default" | "row";
-    text: string;
-  };
+    image: string;
+    title?: string;
+    text?: string;
+    action?: string;
+    messageClassName?: string;
+    messageStyle?: CSSProperties;
+    imageStyle?: CSSProperties;
+    button?: {
+        type: "default" | "row";
+        text: string;
+    };
 };
 
 export type PersonData = {
-  id: PersonId;
-  name: string;
-  role: string;
-  image: string;
-  welcome: string;
-  replies: {
-    align: "left" | "right";
-    start: ReplyData[];
-    lockedLocation: ReplyData;
-    final: ReplyData;
-  };
-  locations: LocationId[];
+    id: PersonId;
+    name: string;
+    role: string;
+    image: string;
+    welcome: string;
+    replies: {
+        align: "left" | "right";
+        start: ReplyData[];
+        lockedLocation: ReplyData;
+        final: ReplyData;
+    };
+    locations: LocationId[];
 };
 
 export type LocationData = {
-  id: LocationId;
-  title: string;
-  subtitle: string;
-  position: [number, number];
-  baloon: {
+    id: LocationId;
+    title: string;
+    subtitle: string;
     position: [number, number];
-    width?: number | string;
-    title?: string;
-    text?: string;
-    persons?: Partial<
-      Record<
-        PersonId,
-        {
-          title?: string;
-          text?: string;
-          position?: [number, number];
-          width?: number | string;
-        }
-      >
-    >;
-  };
-  images: {
-    building: {
-      main: string;
-      active: string;
-      complete: string;
+    baloon: {
+        position: [number, number];
+        width?: number | string;
+        title?: string;
+        text?: string;
+        persons?: Partial<
+            Record<
+                PersonId,
+                {
+                    title?: string;
+                    text?: string;
+                    position?: [number, number];
+                    width?: number | string;
+                }
+            >
+        >;
     };
-    background: {
-      main: string;
-      persons?: Partial<
-        Record<
-          PersonId,
-          {
-            main?: string;
-            error?: string;
-            complete?: string;
-          }
-        >
-      >;
+    images: {
+        building: {
+            main: string;
+            active: string;
+            complete: string;
+        };
+        background: {
+            main: string;
+            persons?: Partial<
+                Record<
+                    PersonId,
+                    {
+                        main?: string;
+                        error?: string;
+                        complete?: string;
+                    }
+                >
+            >;
+        };
+        video?: {
+            in: string;
+            out: string;
+        };
     };
-    video?: {
-      in: string;
-      out: string;
+    clickArea?: {
+        svg: string;
+        position: [number, number];
     };
-  };
-  route?: {
-    video: string;
-  };
+    route?: {
+        video: string;
+    };
 };
 
 export type AppData = {
-  persons: PersonData[];
-  locations: LocationData[];
+    persons: PersonData[];
+    locations: LocationData[];
 };
 
 const data: AppData = {
-  persons: [
-    {
-      id: "schoolboy",
-      name: "Артём",
-      role: "Школьник",
-      image: schoolboyMain,
-      welcome: schoolboyWelcome,
-      replies: {
-        align: "left",
-        start: [
-          {
-            title: "Привет, давай знакомиться!",
-            text: "Меня зовут Артём, я учусь в 10-м классе. Помогу тебе освоиться в городе",
-            button: {
-              type: "row",
-              text: "Привет",
+    persons: [
+        {
+            id: "schoolboy",
+            name: "Артём",
+            role: "Школьник",
+            image: schoolboyMain,
+            welcome: schoolboyWelcome,
+            replies: {
+                align: "left",
+                start: [
+                    {
+                        title: "Привет, давай знакомиться!",
+                        text: "Меня зовут Артём, я учусь в 10-м классе. Помогу тебе освоиться в городе",
+                        button: {
+                            type: "row",
+                            text: "Привет",
+                        },
+                        image: schoolboyWelcomeHello,
+                    },
+                    {
+                        title: "Город Содружества - это реальный шанс повлиять на свое будущее",
+                        text: "Ты можешь узнать больше об интересных профессиях, повысить свои шансы на поступление в известные вузы и стать частью международного движения в сфере финансовой безопасности",
+                        button: {
+                            type: "row",
+                            text: "Отправиться в город",
+                        },
+                        image: schoolboyWelcomeMain,
+                    },
+                    {
+                        text: "На карте есть 4 локации, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**",
+                        action: "Нажми на здание, чтобы начать",
+                        image: schoolboyWelcomeMain,
+                    },
+                    {
+                        text: "**Жми на следующую локацию**",
+                        action: "Нажми на здание, чтобы начать",
+                        image: schoolboyWelcomeMain,
+                    },
+                ],
+                lockedLocation: {
+                    text: "**Увы, эта локация закрыта**\nДавай вернёмся к тем, которые будут для тебя полезны",
+                    action: "Выбери другое здание на карте",
+                    image: schoolboyWelcomeSadness,
+                },
+                final: {
+                    title: "Получи свой стильный мерч в качестве бонуса!",
+                    text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
+                    image: schoolboyFinal,
+                },
             },
-            image: schoolboyWelcomeHello,
-          },
-          {
-            title:
-              "Город Содружества - это реальный шанс повлиять на свое будущее",
-            text: "Ты можешь узнать больше об интересных профессиях, повысить свои шансы на поступление в известные вузы и стать частью международного движения в сфере финансовой безопасности",
-            button: {
-              type: "row",
-              text: "Отправиться в город",
-            },
-            image: schoolboyWelcomeMain,
-          },
-          {
-            text: "На карте есть 4 локации, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**",
-            action: "Нажми на здание, чтобы начать",
-            image: schoolboyWelcomeMain,
-          },
-          {
-            text: "**Жми на следующую локацию**",
-            action: "Нажми на здание, чтобы начать",
-            image: schoolboyWelcomeMain,
-          },
-        ],
-        lockedLocation: {
-          text: "**Увы, эта локация закрыта**\nДавай вернёмся к тем, которые будут для тебя полезны",
-          action: "Выбери другое здание на карте",
-          image: schoolboyWelcomeSadness,
+            locations: [
+                "olympic-center",
+                "academy",
+                "career-center",
+                "global-area",
+            ],
         },
-        final: {
-          title: "Получи свой стильный мерч в качестве бонуса!",
-          text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество.\n\nОтсканируй QR‑код, зарегистрируйся \n **и получи стильный мерч**",
-          image: schoolboyFinal,
+        {
+            id: "student",
+            name: "Диана",
+            role: "Студент",
+            image: studentMain,
+            welcome: studentWelcome,
+            replies: {
+                align: "right",
+                start: [
+                    {
+                        title: "Привет!",
+                        text: `Я Диана, учусь в университете на специалиста по экономической безопасности\n**Помогу тебе здесь освоиться!**`,
+                        button: {
+                            type: "row",
+                            text: "Привет",
+                        },
+                        image: studentHello,
+                    },
+                    {
+                        text: "В Городе Содружества ты можешь найти стажировку, прокачать навыки через обучение, поучаствовать в проектах с экспертами и найти единомышленников по всему миру",
+                        button: {
+                            type: "row",
+                            text: "Отправиться в город",
+                        },
+                        image: studentWelcomeMain,
+                    },
+                    {
+                        text: `На карте есть 6 локаций, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**`,
+                        action: "Нажми на здание, чтобы начать",
+                        image: studentSpeak,
+                    },
+                    {
+                        text: "**Жми на следующую локацию**",
+                        action: "Нажми на здание, чтобы начать",
+                        image: studentWelcomeMain,
+                    },
+                ],
+                lockedLocation: {
+                    text: "**Увы, эта локация закрыта**\nДавай вернёмся к тем, которые будут для тебя полезны",
+                    action: "Выбери другое здание на карте",
+                    image: studentThink,
+                },
+                final: {
+                    image: studentFinal,
+                    title: "Получи свой стильный мерч в качестве бонуса!",
+                    text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество. \n\n Отсканируй QR\u2011код, зарегистрируйся\n**и получи стильный мерч**",
+                },
+            },
+            locations: [
+                "academy",
+                "global-area",
+                "member-profile",
+                "poster-square",
+                "space-commonwealth",
+                "olympic-center",
+            ],
         },
-      },
-      locations: ["olympic-center", "academy", "career-center", "global-area"],
-    },
-    {
-      id: "student",
-      name: "Диана",
-      role: "Студент",
-      image: studentMain,
-      welcome: studentWelcome,
-      replies: {
-        align: "right",
-        start: [
-          {
-            title: "Привет!",
-            text: `Я Диана, учусь в университете на специалиста по экономической безопасности\n**Помогу тебе здесь освоиться!**`,
-            button: {
-              type: "row",
-              text: "Привет",
+        {
+            id: "expert",
+            name: "Екатерина",
+            role: "Эксперт",
+            image: expertMain,
+            welcome: expertWelcome,
+            replies: {
+                align: "right",
+                start: [
+                    {
+                        title: "Приветствую, рада знакомству!",
+                        text: `Меня зовут Екатерина, я эксперт в области финансовой безопасности.\n**Помогу вам освоиться в городе**`,
+                        button: {
+                            type: "row",
+                            text: "Здравствуйте",
+                        },
+                        image: expertHello,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        title: "",
+                        text: `В Городе Содружества вас ждут инструменты для публикации вашего экспертного контента, выступлений на мероприятиях и профессионального нетворкинга.\n\nЗдесь можно делиться разборами, вести дискуссии, находить партнёров и заказчиков.\n\nА ещё — участвовать в международных проектах и заявлять о своей экспертизе на глобальном уровне`,
+                        button: {
+                            type: "row",
+                            text: "Отправиться в город",
+                        },
+                        image: expertWelcomeMain,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        text: `На карте есть 4 локации, в которые вы можете отправиться.\n**Выбирайте, что вам интересно!**`,
+                        action: "Нажмите на здание, чтобы начать",
+                        image: expertTalk,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        text: "**Жмите на следующую локацию**",
+                        action: "Нажмите на здание, чтобы начать",
+                        image: expertNotBottom,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                ],
+                lockedLocation: {
+                    text: "**Увы, эта локация закрыта**\nДавайте вернёмся к тем, которые будут для вас полезны",
+                    action: "Нажмите на здание, чтобы начать",
+                    image: expertSadness,
+                    messageStyle: {
+                        right: "430px",
+                    },
+                },
+                final: {
+                    title: "Сканируйте QR‑код и регистрируйтесь на сайте, чтобы быть в центре профессионального сообщества",
+                    text: "Также приготовили стильный мерч за регистрацию",
+                    image: expertNotBottom,
+                    imageStyle: { transform: "translateX(70px)" },
+                },
             },
-            image: studentHello,
-          },
-          {
-            text: "В Городе Содружества ты можешь найти стажировку, прокачать навыки через обучение, поучаствовать в проектах с экспертами и найти единомышленников по всему миру",
-            button: {
-              type: "row",
-              text: "Отправиться в город",
-            },
-            image: studentWelcomeMain,
-          },
-          {
-            text: `На карте есть 6 локаций, в которые ты можешь отправиться.\n**Выбирай, что тебе интересно!**`,
-            action: "Нажми на здание, чтобы начать",
-            image: studentSpeak,
-          },
-          {
-            text: "**Жми на следующую локацию**",
-            action: "Нажми на здание, чтобы начать",
-            image: studentWelcomeMain,
-          },
-        ],
-        lockedLocation: {
-          text: "**Увы, эта локация закрыта**\nДавай вернёмся к тем, которые будут для тебя полезны",
-          action: "Выбери другое здание на карте",
-          image: studentThink,
+            locations: [
+                "poster-square",
+                "space-commonwealth",
+                "media-center",
+                "library",
+            ],
         },
-        final: {
-          image: studentFinal,
-          title: "Получи свой стильный мерч в качестве бонуса!",
-          text: "Хочешь ещё больше крутых возможностей? Заходи на сайт платформы Содружество. \n\n Отсканируй QR\u2011код, зарегистрируйся\n**и получи стильный мерч**",
+        {
+            id: "representative",
+            name: "Алексей",
+            role: "Представитель вуза",
+            image: representativeMain,
+            welcome: representativeWelcome,
+            replies: {
+                align: "right",
+                start: [
+                    {
+                        title: "Приветствую!",
+                        text: "Меня зовут Алексей, я представитель Университета «Содружество». \n\nПомогу освоиться в городе и расскажу, как формировать положительный образ вашего вуза и находить новые таланты",
+                        button: {
+                            type: "row",
+                            text: "Здравствуйте",
+                        },
+                        image: representativeNotBottom,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        title: "",
+                        text: "В Городе Содружества вы сможете найти способных школьников и студентов, провести или поддержать олимпиаду, а также встроить ваш вуз в систему мероприятий и сообществ",
+                        button: {
+                            type: "row",
+                            text: "Отправиться в город",
+                        },
+                        image: representativeTalk,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        text: "На карте есть 3 локации, в которые вы можете отправиться.\n**Выбирайте, что вам интересно!**",
+                        action: "Нажмите на здание, чтобы начать",
+                        image: representativeWelcomeMain,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                    {
+                        text: "**Жмите на следующую локацию**",
+                        action: "Нажмите на здание, чтобы начать",
+                        image: representativeTalk,
+                        messageStyle: {
+                            right: "430px",
+                        },
+                    },
+                ],
+                lockedLocation: {
+                    text: "**Увы, эта локация закрыта**\nДавайте вернёмся к тем, которые будут вам полезны",
+                    action: "Нажмите на здание, чтобы начать",
+                    image: representativeFocused,
+                    messageStyle: {
+                        right: "430px",
+                    },
+                },
+                final: {
+                    title: "Сканируйте QR‑код и регистрируйтесь на сайте, чтобы быть в центре профессионального сообщества",
+                    text: "Также приготовили стильный мерч за регистрацию",
+                    image: representativeNotBottom,
+                    imageStyle: { transform: "translateX(60px)" },
+                },
+            },
+            locations: [
+                "olympic-center",
+                "member-profile",
+                "space-commonwealth",
+            ],
         },
-      },
-      locations: [
-        "academy",
-        "global-area",
-        "member-profile",
-        "poster-square",
-        "space-commonwealth",
-        "olympic-center",
-      ],
-    },
-    {
-      id: "expert",
-      name: "Екатерина",
-      role: "Эксперт",
-      image: expertMain,
-      welcome: expertWelcome,
-      replies: {
-        align: "right",
-        start: [
-          {
-            title: "Приветствую, рада знакомству!",
-            text: `Меня зовут Екатерина, я эксперт в области финансовой безопасности.\n**Помогу вам освоиться в городе**`,
-            button: {
-              type: "row",
-              text: "Здравствуйте",
-            },
-            image: expertHello,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            title: "",
-            text: `В Городе Содружества вас ждут инструменты для публикации вашего экспертного контента, выступлений на мероприятиях и профессионального нетворкинга.\n\nЗдесь можно делиться разборами, вести дискуссии, находить партнёров и заказчиков.\n\nА ещё — участвовать в международных проектах и заявлять о своей экспертизе на глобальном уровне`,
-            button: {
-              type: "row",
-              text: "Отправиться в город",
-            },
-            image: expertWelcomeMain,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            text: `На карте есть 4 локации, в которые вы можете отправиться.\n**Выбирайте, что вам интересно!**`,
-            action: "Нажмите на здание, чтобы начать",
-            image: expertTalk,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            text: "**Жмите на следующую локацию**",
-            action: "Нажмите на здание, чтобы начать",
-            image: expertNotBottom,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-        ],
-        lockedLocation: {
-          text: "**Увы, эта локация закрыта**\nДавайте вернёмся к тем, которые будут для вас полезны",
-          action: "Нажмите на здание, чтобы начать",
-          image: expertSadness,
-          messageStyle: {
-            right: "430px",
-          },
-        },
-        final: {
-          title:
-            "Сканируйте QR‑код и регистрируйтесь на сайте, чтобы быть в центре профессионального сообщества",
-          text: "Также приготовили стильный мерч за регистрацию",
-          image: expertNotBottom,
-          imageStyle: { transform: "translateX(70px)" },
-        },
-      },
-      locations: [
-        "poster-square",
-        "space-commonwealth",
-        "media-center",
-        "library",
-      ],
-    },
-    {
-      id: "representative",
-      name: "Алексей",
-      role: "Представитель вуза",
-      image: representativeMain,
-      welcome: representativeWelcome,
-      replies: {
-        align: "right",
-        start: [
-          {
-            title: "Приветствую!",
-            text: "Меня зовут Алексей, я представитель Университета «Содружество». \n\nПомогу освоиться в городе и расскажу, как формировать положительный образ вашего вуза и находить новые таланты",
-            button: {
-              type: "row",
-              text: "Здравствуйте",
-            },
-            image: representativeNotBottom,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            title: "",
-            text: "В Городе Содружества вы сможете найти способных школьников и студентов, провести или поддержать олимпиаду, а также встроить ваш вуз в систему мероприятий и сообществ",
-            button: {
-              type: "row",
-              text: "Отправиться в город",
-            },
-            image: representativeTalk,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            text: "На карте есть 3 локации, в которые вы можете отправиться.\n**Выбирайте, что вам интересно!**",
-            action: "Нажмите на здание, чтобы начать",
-            image: representativeWelcomeMain,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-          {
-            text: "**Жмите на следующую локацию**",
-            action: "Нажмите на здание, чтобы начать",
-            image: representativeTalk,
-            messageStyle: {
-              right: "430px",
-            },
-          },
-        ],
-        lockedLocation: {
-          text: "**Увы, эта локация закрыта**\nДавайте вернёмся к тем, которые будут вам полезны",
-          action: "Нажмите на здание, чтобы начать",
-          image: representativeFocused,
-          messageStyle: {
-            right: "430px",
-          },
-        },
-        final: {
-          title:
-            "Сканируйте QR‑код и регистрируйтесь на сайте, чтобы быть в центре профессионального сообщества",
-          text: "Также приготовили стильный мерч за регистрацию",
-          image: representativeNotBottom,
-          imageStyle: { transform: "translateX(60px)" },
-        },
-      },
-      locations: ["olympic-center", "member-profile", "space-commonwealth"],
-    },
-  ],
-  locations: [
-    {
-      id: "olympic-center",
-      title: "Олимпиадный центр",
-      subtitle: "Получай дополнительные баллы для поступления в вузы",
-      position: [1239, 244],
-      route: {
-        video: olympicCenterRoute,
-      },
-      baloon: {
-        position: [130, -25],
-        width: 348,
-        persons: {
-          schoolboy: {
+    ],
+    locations: [
+        {
+            id: "olympic-center",
             title: "Олимпиадный центр",
-            text: "Получайте дополнительные баллы для поступления в вузы",
-            position: [130, -25],
-          },
-          student: {
-            title: "Олимпиадный центр",
-            text: "Получите преимущества при поступлении на программы магистратуры и аспирантуры",
-            position: [130, -25],
-          },
-          representative: {
-            title: "Олимпиадный центр",
-            text: "Проводите олимпиады, находите талантливых студентов и укрепляйте репутацию вуза",
-            position: [130, -25],
-          },
-        },
-      },
-      images: {
-        building: {
-          main: olympicCenterMain,
-          active: olympicCenterActive,
-          complete: olympicCenterComplete,
-        },
-        background: {
-          main: olympicCenterBackground,
-        },
-        video: {
-          in: olympicCenterIn,
-          out: olympicCenterOut,
-        },
-      },
-    },
-    {
-      id: "academy",
-      title: "Академия",
-      subtitle:
-        "Прокачайте свои знания в сфере финансовой безопасности. И не только!",
-      position: [890, 215],
-      route: {
-        video: academyRoute,
-      },
-      baloon: {
-        position: [200, -170],
-        width: 348,
-      },
-      images: {
-        building: {
-          main: academyMain,
-          active: academyActive,
-          complete: academyComplete,
-        },
-        background: {
-          main: academyBackground,
-          persons: {
-            schoolboy: {
-              main: schoolbodyBackground,
+            subtitle: "Получай дополнительные баллы для поступления в вузы",
+            position: [1239, 244],
+            route: {
+                video: olympicCenterRoute,
             },
-          },
+            baloon: {
+                position: [130, -25],
+                width: 348,
+                persons: {
+                    schoolboy: {
+                        title: "Олимпиадный центр",
+                        text: "Получайте дополнительные баллы для поступления в вузы",
+                        position: [130, -25],
+                    },
+                    student: {
+                        title: "Олимпиадный центр",
+                        text: "Получите преимущества при поступлении на программы магистратуры и аспирантуры",
+                        position: [130, -25],
+                    },
+                    representative: {
+                        title: "Олимпиадный центр",
+                        text: "Проводите олимпиады, находите талантливых студентов и укрепляйте репутацию вуза",
+                        position: [130, -25],
+                    },
+                },
+            },
+            images: {
+                building: {
+                    main: olympicCenterMain,
+                    active: olympicCenterActive,
+                    complete: olympicCenterComplete,
+                },
+                background: {
+                    main: olympicCenterBackground,
+                },
+                video: {
+                    in: olympicCenterIn,
+                    out: olympicCenterOut,
+                },
+            },
+            clickArea: {
+                svg: `
+                  <svg width="594" height="323" viewBox="0 0 594 323" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 155L281 0L594 155L306 323L0 155Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [20, 42],
+            },
         },
-        video: {
-          in: academyIn,
-          out: academyOut,
+        {
+            id: "academy",
+            title: "Академия",
+            subtitle:
+                "Прокачайте свои знания в сфере финансовой безопасности. И не только!",
+            position: [890, 215],
+            route: {
+                video: academyRoute,
+            },
+            baloon: {
+                position: [200, -170],
+                width: 348,
+            },
+            images: {
+                building: {
+                    main: academyMain,
+                    active: academyActive,
+                    complete: academyComplete,
+                },
+                background: {
+                    main: academyBackground,
+                    persons: {
+                        schoolboy: {
+                            main: schoolbodyBackground,
+                        },
+                    },
+                },
+                video: {
+                    in: academyIn,
+                    out: academyOut,
+                },
+            },
+            clickArea: {
+                svg: `
+                  <svg width="441" height="254" viewBox="0 0 441 254" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M218.5 0L351 62L440.5 144.5L238.5 254L0 132.5L70.5 71.5L218.5 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [40, -55],
+            },
         },
-      },
-    },
-    {
-      id: "career-center",
-      title: "Центр карьеры",
-      subtitle:
-        "Поможем выбрать профессию, вуз и понять, куда двигаться дальше",
-      position: [646, 13],
-      baloon: {
-        position: [64, 20],
-        width: 348,
-      },
-      images: {
-        building: {
-          main: careerCenterMain,
-          active: careerCenterActive,
-          complete: careerCenterComplete,
+        {
+            id: "career-center",
+            title: "Центр карьеры",
+            subtitle:
+                "Поможем выбрать профессию, вуз и понять, куда двигаться дальше",
+            position: [646, 13],
+            baloon: {
+                position: [64, 20],
+                width: 348,
+            },
+            images: {
+                building: {
+                    main: careerCenterMain,
+                    active: careerCenterActive,
+                    complete: careerCenterComplete,
+                },
+                background: {
+                    main: careerCenterBackground,
+                },
+            },
+            route: {
+                video: careerCenterRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="388" height="205" viewBox="0 0 388 205" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M192.5 0L387.5 98.5L186.5 204.5L0 98.5L192.5 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [40, 40],
+            },
         },
-        background: {
-          main: careerCenterBackground,
+        {
+            id: "global-area",
+            title: "Глобальная площадь",
+            subtitle:
+                "Здесь можно присоединиться к международному движению по финансовой безопасности",
+            position: [530, 277],
+            baloon: {
+                position: [175, -20],
+                width: 378,
+            },
+            images: {
+                building: {
+                    main: globalAreaMain,
+                    active: globalAreaActive,
+                    complete: globalAreaComplete,
+                },
+                background: {
+                    main: globalAreaBackground,
+                },
+            },
+            route: {
+                video: globalAreaRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="612" height="323" viewBox="0 0 612 323" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M309.5 0L611.5 150.5L309.5 322.5L0 150.5L309.5 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [40, 50],
+            },
         },
-      },
-      route: {
-        video: careerCenterRoute,
-      },
-    },
-    {
-      id: "global-area",
-      title: "Глобальная площадь",
-      subtitle:
-        "Здесь можно присоединиться к международному движению по финансовой безопасности",
-      position: [530, 277],
-      baloon: {
-        position: [175, -20],
-        width: 378,
-      },
-      images: {
-        building: {
-          main: globalAreaMain,
-          active: globalAreaActive,
-          complete: globalAreaComplete,
-        },
-        background: {
-          main: globalAreaBackground,
-        },
-      },
-      route: {
-        video: globalAreaRoute,
-      },
-    },
-    {
-      id: "member-profile",
-      title: "Профиль вуза",
-      subtitle:
-        "Расскажи о себе или своей организации, чтобы быстро найти единомышленников",
-      position: [988, 523],
-      baloon: {
-        position: [110, -135],
-        width: 348,
-        persons: {
-          student: {
-            title: "Профиль участника",
-            text: "Расскажите о себе, чтобы быстро найти единомышленников",
-            position: [110, -135],
-          },
-          representative: {
+        {
+            id: "member-profile",
             title: "Профиль вуза",
-            text: "Расскажите о своём вузе, чтобы создать его \nположительный образ",
-            position: [110, -135],
-          },
-        },
-      },
-      images: {
-        building: {
-          main: memberProfileMain,
-          active: memberProfileActive,
-          complete: memberProfileComplete,
-        },
-        background: {
-          main: memberProfileBackground,
-          persons: {
-            student: {
-              main: memberProfileStudentBackgground,
+            subtitle:
+                "Расскажи о себе или своей организации, чтобы быстро найти единомышленников",
+            position: [988, 523],
+            baloon: {
+                position: [110, -135],
+                width: 348,
+                persons: {
+                    student: {
+                        title: "Профиль участника",
+                        text: "Расскажите о себе, чтобы быстро найти единомышленников",
+                        position: [110, -135],
+                    },
+                    representative: {
+                        title: "Профиль вуза",
+                        text: "Расскажите о своём вузе, чтобы создать его \nположительный образ",
+                        position: [110, -135],
+                    },
+                },
             },
-          },
+            images: {
+                building: {
+                    main: memberProfileMain,
+                    active: memberProfileActive,
+                    complete: memberProfileComplete,
+                },
+                background: {
+                    main: memberProfileBackground,
+                    persons: {
+                        student: {
+                            main: memberProfileStudentBackgground,
+                        },
+                    },
+                },
+            },
+            route: {
+                video: memberProfileRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="455" height="262" viewBox="0 0 455 262" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M245 0L315.5 12.5L454.5 136.5L236 262L196 243.5L136.5 262L0 187L32 125.5L245 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [-10, -40],
+            },
         },
-      },
-      route: {
-        video: memberProfileRoute,
-      },
-    },
-    {
-      id: "library",
-      title: "Библиотека",
-      subtitle:
-        "Собрали в одном месте материалы по финансовой безопасности. Учитесь, развивайтесь или создавайте самостоятельно",
-      position: [277, 136],
-      baloon: {
-        position: [73, -66],
-        width: 317,
-      },
-      images: {
-        building: {
-          main: libraryMain,
-          active: libraryActive,
-          complete: libraryComplete,
+        {
+            id: "library",
+            title: "Библиотека",
+            subtitle:
+                "Собрали в одном месте материалы по финансовой безопасности. Учитесь, развивайтесь или создавайте самостоятельно",
+            position: [277, 136],
+            baloon: {
+                position: [73, -66],
+                width: 317,
+            },
+            images: {
+                building: {
+                    main: libraryMain,
+                    active: libraryActive,
+                    complete: libraryComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+            },
+            route: {
+                video: libraryRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="516" height="269" viewBox="0 0 516 269" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-3.05139e-05 149.565L303.711 3.13185e-05L515.657 117.504L364.318 188.789L195.94 268.493L-3.05139e-05 149.565Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [30, 50],
+            },
         },
-        background: {
-          main: locationBackground,
+        {
+            id: "media-center",
+            title: "Медиацентр",
+            subtitle:
+                "Следите на событиями, давайте интервью и делитесь экспертизой",
+            position: [-10, 329],
+            baloon: {
+                position: [52, -194],
+                width: 287,
+            },
+            images: {
+                building: {
+                    main: mediaCenterMain,
+                    active: mediaCenterActive,
+                    complete: mediaCenterComplete,
+                },
+                background: {
+                    main: locationBackground,
+                },
+                video: {
+                    in: mediaCenterIn,
+                    out: mediaCenterOut,
+                },
+            },
+            route: {
+                video: mediaCenterRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="398" height="294" viewBox="0 0 398 294" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M187 0L279 49.5L398 182L187 293.5L0 171.5L140 18L187 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [20, -50],
+            },
         },
-      },
-      route: {
-        video: libraryRoute,
-      },
-    },
-    {
-      id: "media-center",
-      title: "Медиацентр",
-      subtitle: "Следите на событиями, давайте интервью и делитесь экспертизой",
-      position: [-10, 329],
-      baloon: {
-        position: [52, -194],
-        width: 287,
-      },
-      images: {
-        building: {
-          main: mediaCenterMain,
-          active: mediaCenterActive,
-          complete: mediaCenterComplete,
-        },
-        background: {
-          main: locationBackground,
-        },
-        video: {
-          in: mediaCenterIn,
-          out: mediaCenterOut,
-        },
-      },
-      route: {
-        video: mediaCenterRoute,
-      },
-    },
-    {
-      id: "space-commonwealth",
-      title: "Пространство Содружество",
-      subtitle:
-        "Общайся, публикуй посты, находи единомышленников или наставников",
-      position: [160, 488],
-      baloon: {
-        position: [106, -108],
-        width: 370,
-        persons: {
-          student: {
+        {
+            id: "space-commonwealth",
             title: "Пространство Содружество",
-            text: "Общайтесь, публикуйте посты, находите единомышленников или наставников",
-            position: [106, -108],
-          },
-          expert: {
-            title: "Пространство Содружество",
-            text: "Делитесь опытом, общайтесь с единомышленниками и создавайте своё сообщество",
-            position: [106, -108],
-          },
-          representative: {
-            title: "Пространство Содружество",
-            text: "Публикуйте материалы, продвигайте вуз, находите заинтересованных студентов и партнёров",
-            position: [106, -108],
-          },
+            subtitle:
+                "Общайся, публикуй посты, находи единомышленников или наставников",
+            position: [160, 488],
+            baloon: {
+                position: [106, -108],
+                width: 370,
+                persons: {
+                    student: {
+                        title: "Пространство Содружество",
+                        text: "Общайтесь, публикуйте посты, находите единомышленников или наставников",
+                        position: [106, -108],
+                    },
+                    expert: {
+                        title: "Пространство Содружество",
+                        text: "Делитесь опытом, общайтесь с единомышленниками и создавайте своё сообщество",
+                        position: [106, -108],
+                    },
+                    representative: {
+                        title: "Пространство Содружество",
+                        text: "Публикуйте материалы, продвигайте вуз, находите заинтересованных студентов и партнёров",
+                        position: [106, -108],
+                    },
+                },
+            },
+            images: {
+                building: {
+                    main: spaceCommonwealthMain,
+                    active: spaceCommonwealthActive,
+                    complete: spaceCommonwealthComplete,
+                },
+                background: {
+                    main: spaceCommonwealthBackground,
+                },
+            },
+            route: {
+                video: spaceCommonwealthRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="478" height="261" viewBox="0 0 478 261" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M311.5 0L477.5 115.5L195.5 260.5L0 138.5L195.5 36L311.5 0Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [40, -10],
+            },
         },
-      },
-      images: {
-        building: {
-          main: spaceCommonwealthMain,
-          active: spaceCommonwealthActive,
-          complete: spaceCommonwealthComplete,
+        {
+            id: "poster-square",
+            title: "Афишная площадь",
+            subtitle:
+                "Следите за мероприятиями, стажировками и анонсами олимпиад",
+            position: [418, 600],
+            baloon: {
+                position: [241, -52],
+                width: 375,
+            },
+            images: {
+                building: {
+                    main: posterSquareMain,
+                    active: posterSquareActive,
+                    complete: posterSquareComplete,
+                },
+                background: {
+                    main: posterSquareBackground,
+                },
+            },
+            route: {
+                video: posterSquareRoute,
+            },
+            clickArea: {
+                svg: `
+                  <svg width="595" height="300" viewBox="0 0 595 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M381 0L595 135.5L295 299.5L0 120.5L213.5 0H381Z" fill="transparent" />
+                  </svg>
+                `,
+                position: [30, 55],
+            },
         },
-        background: {
-          main: spaceCommonwealthBackground,
-        },
-      },
-      route: {
-        video: spaceCommonwealthRoute,
-      },
-    },
-    {
-      id: "poster-square",
-      title: "Афишная площадь",
-      subtitle: "Следите за мероприятиями, стажировками и анонсами олимпиад",
-      position: [418, 600],
-      baloon: {
-        position: [241, -52],
-        width: 375,
-      },
-      images: {
-        building: {
-          main: posterSquareMain,
-          active: posterSquareActive,
-          complete: posterSquareComplete,
-        },
-        background: {
-          main: posterSquareBackground,
-        },
-      },
-      route: {
-        video: posterSquareRoute,
-      },
-    },
-  ],
+    ],
 };
 
 export default data;

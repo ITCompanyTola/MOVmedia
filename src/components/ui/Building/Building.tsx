@@ -30,7 +30,6 @@ export function Building({
     return (
         <>
             <div
-                onClick={() => onClick(id)}
                 className={clsx(
                     styles.building,
                     active && styles.buildingActive,
@@ -65,8 +64,22 @@ export function Building({
                         styles.buildingCompleteImage,
                     )}
                 />
+                {location.clickArea && (
+                    <div
+                        className={styles.clickArea}
+                        onClick={() => onClick(id)}
+                        style={{
+                            left: location.clickArea.position[0],
+                            top: location.clickArea.position[1],
+                        }}
+                        dangerouslySetInnerHTML={{
+                            __html: location.clickArea.svg,
+                        }}
+                    />
+                )}
                 <div
                     className={styles.buildingBaloon}
+                    onClick={() => onClick(id)}
                     style={{
                         left: `${baloonPosition[0]}px`,
                         top: `${baloonPosition[1]}px`,
@@ -82,7 +95,12 @@ export function Building({
                     >
                         {baloonTitle}
                     </Text>
-                    <Text variant="caption" className={styles.buildingBaloonText}>{baloonText}</Text>
+                    <Text
+                        variant="caption"
+                        className={styles.buildingBaloonText}
+                    >
+                        {baloonText}
+                    </Text>
                 </div>
             </div>
         </>
